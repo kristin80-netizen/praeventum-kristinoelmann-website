@@ -1627,3 +1627,35 @@ blockquote {
 .article-body h2, .article-body h3 {
   scroll-margin-top: calc(var(--header-height) + var(--space-medium));
 }
+
+/* WhatsApp-Kontaktbutton, schwebt fest unten rechts, auf jeder Seite über
+   das footer.html-Partial eingebunden (24.08.2026). z-index höher als der
+   sticky Header (100), damit der Button beim Scrollen immer obenauf bleibt. */
+.whatsapp-float {
+  position: fixed;
+  right: var(--space-medium);
+  bottom: var(--space-medium);
+  z-index: 200;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: #25D366;
+  box-shadow: 0 4px 16px rgba(30, 58, 47, 0.25);
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+.whatsapp-float:hover,
+.whatsapp-float:focus-visible {
+  transform: scale(1.06);
+  box-shadow: 0 6px 20px rgba(30, 58, 47, 0.32);
+}
+.whatsapp-float svg { width: 30px; height: 30px; fill: var(--white); }
+@media (prefers-reduced-motion: reduce) {
+  .whatsapp-float { transition: none; }
+}
+@media (max-width: 480px) {
+  .whatsapp-float { width: 48px; height: 48px; right: var(--space-small); bottom: var(--space-small); }
+  .whatsapp-float svg { width: 26px; height: 26px; }
+}
