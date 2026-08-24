@@ -1511,6 +1511,31 @@ blockquote {
   background: var(--white);
 }
 .form-row textarea { resize: vertical; }
+.optional-hint { font-weight: 400; color: var(--text-muted, #6b7a72); }
+
+/* Honeypot-Feld für Netlify Forms: für Menschen unsichtbar, aber weiterhin
+   im Layout vorhanden und von Screenreadern nicht fokussierbar versteckt,
+   damit es kein Bot-Detection-System auffällig als display:none erkennt. */
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.form-status {
+  margin-top: var(--space-medium);
+  padding: var(--space-medium);
+  border-radius: 4px;
+  background: var(--sage-light, #eef3ec);
+  color: var(--forest);
+}
+.form-status-error { background: #fbe9e7; color: #7a1f14; }
 
 .map-fallback-hint { font-size: 14px; color: var(--muted); margin-top: var(--space-small); }
 

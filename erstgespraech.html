@@ -106,14 +106,19 @@
       </div>
     </section>
 
-    <!-- 4. Kontaktformular. Wartet auf Supabase-Anbindung (Kristin,
-         19.08.2026), deshalb kein action-Attribut, Felder vorbereitet. -->
+    <!-- 4. Kontaktformular, über Netlify Forms angebunden (24.08.2026).
+         data-netlify + verstecktes form-name-Feld sind nötig, damit Netlify
+         das Formular beim Build erkennt. netlify-honeypot ist Spam-Schutz:
+         ein für Menschen unsichtbares Feld, das nur Bots ausfüllen. Der
+         Versand läuft per fetch (assets/kontaktformular.js), damit nach dem
+         Absenden keine fremde Netlify-Standardseite erscheint, sondern eine
+         eigene Bestätigung an derselben Stelle. -->
     <section class="ls-section ls-section-light">
       <h2>Oder schreib mir direkt</h2>
       <p class="section-lead">Für alles, was kein 20-Minuten-Gespräch braucht, zum Beispiel eine Frage vorab.</p>
-      <!-- fehlt: Supabase-Function als Formularziel, aktuell ohne action,
-           sendet noch nirgendwohin. -->
-      <form class="contact-form" method="POST" name="kontakt">
+      <form class="contact-form" method="POST" name="kontakt" data-netlify="true" netlify-honeypot="bot-field" id="kontakt-formular">
+        <input type="hidden" name="form-name" value="kontakt">
+        <p class="visually-hidden"><label>Nicht ausfüllen: <input name="bot-field"></label></p>
         <div class="form-row">
           <label for="name">Name</label>
           <input type="text" id="name" name="name" required autocomplete="name">
@@ -123,11 +128,16 @@
           <input type="email" id="email" name="email" required autocomplete="email">
         </div>
         <div class="form-row">
+          <label for="telefon">Telefonnummer <span class="optional-hint">(optional)</span></label>
+          <input type="tel" id="telefon" name="telefon" autocomplete="tel">
+        </div>
+        <div class="form-row">
           <label for="nachricht">Nachricht</label>
           <textarea id="nachricht" name="nachricht" rows="5" required></textarea>
         </div>
         <button type="submit" class="button">Nachricht senden</button>
       </form>
+      <p class="form-status" id="kontakt-status" role="status" aria-live="polite" hidden></p>
     </section>
 
     <!-- 5. FAQ zum Ablauf, kurze, unstrittige Fragen -->
@@ -152,5 +162,6 @@
   <script src="/assets/include.js"></script>
   <script src="/assets/sticky-header.js"></script>
   <script src="/assets/nav-toggle.js"></script>
+  <script src="/assets/kontaktformular.js"></script>
 </body>
 </html>
