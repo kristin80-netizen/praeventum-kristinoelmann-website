@@ -1634,7 +1634,10 @@ blockquote {
 .whatsapp-float {
   position: fixed;
   right: var(--space-medium);
-  bottom: var(--space-medium);
+  /* 76px statt space-medium (24px): Netlify blendet auf der kostenlosen
+     Stufe unten rechts einen eigenen "Powered by Netlify"-Hinweis ein,
+     der sonst mit dem Button überlappt (Rückmeldung Kristin 24.08.2026). */
+  bottom: 76px;
   z-index: 200;
   display: flex;
   align-items: center;
@@ -1656,6 +1659,6 @@ blockquote {
   .whatsapp-float { transition: none; }
 }
 @media (max-width: 480px) {
-  .whatsapp-float { width: 48px; height: 48px; right: var(--space-small); bottom: var(--space-small); }
+  .whatsapp-float { width: 48px; height: 48px; right: var(--space-small); bottom: 68px; }
   .whatsapp-float svg { width: 26px; height: 26px; }
 }
