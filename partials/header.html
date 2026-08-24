@@ -1,0 +1,36 @@
+<header class="site-header">
+  <a href="/" class="site-logo">
+    <img src="/assets/praeventum-logo.svg" alt="Präventum · Kristin Oelmann" width="120" height="70">
+  </a>
+
+  <!-- Hamburger-Menü fürs Telefon (Wunsch Kristin 20.08.2026, Screenshot
+       iPhone SE: Navigation wirkte auf sehr schmalen Bildschirmen gequetscht).
+       Per Checkbox umgesetzt statt mit JavaScript, damit die Navigation auch
+       ohne aktiviertes JavaScript nutzbar bleibt, gleiche Grundidee wie beim
+       Leistungen-Dropdown (details/summary). assets/nav-toggle.js ergänzt nur
+       aria-expanded für Screenreader, die Funktion selbst hängt nicht daran. -->
+  <input type="checkbox" id="nav-toggle" class="nav-toggle-checkbox">
+  <label for="nav-toggle" class="nav-toggle-label" aria-controls="main-nav" aria-expanded="false">
+    <span></span><span></span><span></span>
+    <span class="sr-only">Menü öffnen</span>
+  </label>
+
+  <nav id="main-nav" aria-label="Hauptnavigation" class="main-nav">
+    <ul>
+      <li><a href="/">Start</a></li>
+      <li>
+        <details class="nav-dropdown">
+          <summary>Leistungen</summary>
+          <ul>
+            <li><a href="/blutbild-auswertung.html">Blutbild-Auswertung</a></li>
+            <li><a href="/ernaehrungs-coaching.html">Ernährungs-Coaching</a></li>
+            <li><a href="/longevity-programm.html">Longevity-Programm</a></li>
+            <li><a href="/hormoncoaching.html">Hormoncoaching <span class="tag">in Vorbereitung</span></a></li>
+          </ul>
+        </details>
+      </li>
+      <li><a href="/ratgeber/">Ratgeber</a></li>
+      <li><a href="/erstgespraech.html" class="button">Kontakt</a></li>
+    </ul>
+  </nav>
+</header>

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Basis-URL: https://praeventum.netlify.app, die aktuell tatsächlich
+     erreichbare Adresse (Stand 21.08.2026), NICHT die noch nicht
+     entschiedene Zieldomain (praeventum.netlify.app / www.praeventum.de /
+     kristinoelmann.de, siehe robots.txt-Kommentar und Roadmap/technik-
+     audit.md). Sobald die Zieldomain feststeht: alle <loc>-Werte per
+     Suchen&Ersetzen umstellen und diesen Kommentar aktualisieren. Nur
+     tatsächlich existierende Seiten gelistet, keine der 19 Roadmap-Seiten,
+     die noch nicht gebaut sind. -->
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url><loc>https://praeventum.netlify.app/</loc><changefreq>weekly</changefreq><priority>1.0</priority></url>
+  <url><loc>https://praeventum.netlify.app/blutbild-auswertung.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://praeventum.netlify.app/ernaehrungs-coaching.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://praeventum.netlify.app/longevity-programm.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://praeventum.netlify.app/hormoncoaching.html</loc><changefreq>monthly</changefreq><priority>0.5</priority></url>
+  <url><loc>https://praeventum.netlify.app/blutwerte-unauffaellig-trotzdem-krank.html</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://praeventum.netlify.app/5-blutwerte-checkliste.html</loc><changefreq>monthly</changefreq><priority>0.5</priority></url>
+  <url><loc>https://praeventum.netlify.app/erstgespraech.html</loc><changefreq>monthly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://praeventum.netlify.app/ratgeber/</loc><changefreq>weekly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://praeventum.netlify.app/ratgeber/langlebigkeit-ernaehrung.html</loc><changefreq>yearly</changefreq><priority>0.5</priority></url>
+  <url><loc>https://praeventum.netlify.app/ratgeber/homocystein-wert.html</loc><changefreq>yearly</changefreq><priority>0.5</priority></url>
+  <url><loc>https://praeventum.netlify.app/ratgeber/cortisol-gewichtszunahme.html</loc><changefreq>yearly</changefreq><priority>0.5</priority></url>
+  <url><loc>https://praeventum.netlify.app/ratgeber/magnesium-formen-unterschied.html</loc><changefreq>yearly</changefreq><priority>0.5</priority></url>
+  <url><loc>https://praeventum.netlify.app/ratgeber/wechseljahre-hormone-ernaehrung.html</loc><changefreq>yearly</changefreq><priority>0.5</priority></url>
+  <url><loc>https://praeventum.netlify.app/impressum.html</loc><changefreq>yearly</changefreq><priority>0.2</priority></url>
+  <url><loc>https://praeventum.netlify.app/datenschutz.html</loc><changefreq>yearly</changefreq><priority>0.2</priority></url>
+</urlset>

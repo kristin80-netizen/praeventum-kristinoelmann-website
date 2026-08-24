@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ratgeber Ernährung, Hormone und Blutwerte – Präventum</title>
+  <meta name="description" content="Beiträge zu Blutwerten, Hormonen und Ernährung, mit Quellenbeleg statt Pauschalregeln erklärt. Für alle, die ihre Werte einordnen wollen. Jetzt Thema auswählen.">
+  <link rel="stylesheet" href="/assets/style.css">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Start", "item": "/" },
+      { "@type": "ListItem", "position": 2, "name": "Ratgeber", "item": "/ratgeber/" }
+    ]
+  }
+  </script>
+  <!-- CollectionPage-Auszeichnung wird von assets/ratgeber-archiv.js aus
+       artikel.json erzeugt, nicht hier von Hand gepflegt, siehe dort. -->
+</head>
+<body>
+  <div data-include="/partials/header.html"></div>
+
+  <main>
+    <section class="ls-hero">
+      <h1>Wissen aus der Praxis, zu Ernährung, Hormonen und Blutwerten</h1>
+      <p>Verständlich erklärt, mit Quellenbeleg statt Pauschalregeln, für alle, die ihre Werte selbst einordnen wollen.</p>
+    </section>
+
+    <!-- Diese Liste wird automatisch aus ratgeber/artikel.json aufgebaut,
+         sortiert nach Veröffentlichungsdatum (neueste zuerst). Ein neuer
+         Beitrag wird ausschließlich in artikel.json ergänzt, nie hier von
+         Hand eingetragen, siehe assets/ratgeber-archiv.js.
+         OFFENER PUNKT: Für alle drei veröffentlichten Beiträge fehlt bislang
+         ein echtes Veröffentlichungsdatum (Roadmap-Signal 4, Aktualität),
+         deshalb zeigt jede Karte aktuell "Datum folgt" statt eines Datums.
+         Sobald echte Daten vorliegen, in artikel.json unter "publishDate"
+         im Format JJJJ-MM-TT eintragen, die Sortierung greift dann von
+         selbst. -->
+    <section class="ls-section ls-section-light">
+      <div id="ratgeber-liste" class="cards cards-three cards-blog">
+        <p>Beiträge werden geladen …</p>
+      </div>
+    </section>
+  </main>
+
+  <div data-include="/partials/footer.html"></div>
+  <script src="/assets/include.js"></script>
+  <script src="/assets/sticky-header.js"></script>
+  <script src="../assets/nav-toggle.js"></script>
+  <script src="/assets/ratgeber-archiv.js"></script>
+</body>
+</html>

@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kostenloses Erstgespräch Ernährungsberatung – 20 Minuten</title>
+  <meta name="description" content="20 Minuten kostenloses Erstgespräch per Zoom oder Telefon. Ich sage dir ehrlich, ob und wie ich helfen kann, ohne Verkaufsdruck. Jetzt Termin auswählen.">
+  <link rel="stylesheet" href="/assets/style.css">
+
+  <!-- ContactPage-Auszeichnung mit derselben NAP wie die Startseite,
+       laut Roadmap-Abschnitt "Strukturierte Auszeichnung je Seite". -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ContactPage",
+    "name": "Kontakt – Präventum Kristin Oelmann",
+    "about": {
+      "@type": "ProfessionalService",
+      "name": "Präventum Kristin Oelmann",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Wiesenstraße 19",
+        "postalCode": "09419",
+        "addressLocality": "Thum",
+        "addressCountry": "DE"
+      },
+      "telephone": "+49 170 8361077",
+      "email": "kristinoelmann@t-online.de",
+      "areaServed": "DACH"
+    }
+  }
+  </script>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Start", "item": "/" },
+      { "@type": "ListItem", "position": 2, "name": "Erstgespräch", "item": "/erstgespraech.html" }
+    ]
+  }
+  </script>
+</head>
+<body>
+  <div data-include="/partials/header.html"></div>
+
+  <main>
+    <!-- 1. Hero -->
+    <section class="ls-hero">
+      <h1>Kostenloses Erstgespräch, 20 Minuten, die zeigen, ob ich helfen kann</h1>
+      <p>20 Minuten, online per Zoom oder Telefon. Ich sage dir ehrlich, ob und wie ich dir helfen kann, ohne Verkaufsdruck und ohne Verpflichtung.</p>
+      <div class="hero-actions">
+        <a class="button" href="https://calendly.com/kristinoelmann80" target="_blank" rel="noopener">Termin bei Calendly auswählen</a>
+      </div>
+    </section>
+
+    <!-- 2. Kontaktwege: Adresse, Telefon, E-Mail -->
+    <section class="ls-section ls-section-light">
+      <h2>So erreichst du mich</h2>
+      <div class="contact-grid">
+        <div class="contact-item">
+          <h3>Adresse</h3>
+          <p>Präventum Kristin Oelmann<br>Wiesenstraße 19<br>09419 Thum<br>Deutschland</p>
+          <a href="https://www.google.com/maps?q=Wiesenstra%C3%9Fe+19,+09419+Thum,+Deutschland" target="_blank" rel="noopener">In Google Maps öffnen</a>
+        </div>
+        <div class="contact-item">
+          <h3>Telefon</h3>
+          <p><a href="tel:+491708361077">0170 8361077</a></p>
+        </div>
+        <div class="contact-item">
+          <h3>E-Mail</h3>
+          <p><a href="mailto:kristinoelmann@t-online.de">kristinoelmann@t-online.de</a></p>
+        </div>
+        <div class="contact-item">
+          <h3>Erreichbarkeit</h3>
+          <p>Beratung findet ausschließlich online statt, deutschlandweit. Rückmeldung auf Anfragen in der Regel innerhalb von 1–2 Werktagen.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 3. Karte, vorbereitet für Cookiebot (Wunsch Kristin 19.08.2026:
+         "Google Maps als iFrame setzen, später mit Cookiebot blockieren").
+         Bewusst type="text/plain" + data-src statt src: das ist Cookiebots
+         eigenes Erkennungsmuster für "automatische Cookie-Blockierung" bei
+         iframes. Ohne Cookiebot-Skript im Projekt bleibt das iframe damit
+         inaktiv, der Browser lädt kein Google-Maps-Inhalt, solange kein
+         echtes src gesetzt ist. Sobald Cookiebot eingebunden wird (siehe
+         CLAUDE.md, "Offener Punkt: Google Maps"), erkennt es dieses Muster
+         automatisch und schreibt data-src erst nach Einwilligung in src um,
+         ohne dass dieser Codeblock nochmal angefasst werden muss. -->
+    <section class="ls-section">
+      <h2>So findest du mich</h2>
+      <div class="map-embed">
+        <iframe
+          type="text/plain"
+          data-cookieconsent="marketing"
+          data-src="https://www.google.com/maps?q=Wiesenstra%C3%9Fe+19,+09419+Thum,+Deutschland&output=embed"
+          width="100%" height="360" style="border:0;" loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"
+          title="Standort Präventum Kristin Oelmann, Wiesenstraße 19, 09419 Thum">
+        </iframe>
+        <p class="map-fallback-hint">Die Karte lädt, sobald Cookiebot eingerichtet und die Einwilligung erteilt ist. Bis dahin: <a href="https://www.google.com/maps?q=Wiesenstra%C3%9Fe+19,+09419+Thum,+Deutschland" target="_blank" rel="noopener">Standort direkt in Google Maps öffnen</a>.</p>
+      </div>
+    </section>
+
+    <!-- 4. Kontaktformular. Wartet auf Supabase-Anbindung (Kristin,
+         19.08.2026), deshalb kein action-Attribut, Felder vorbereitet. -->
+    <section class="ls-section ls-section-light">
+      <h2>Oder schreib mir direkt</h2>
+      <p class="section-lead">Für alles, was kein 20-Minuten-Gespräch braucht, zum Beispiel eine Frage vorab.</p>
+      <!-- fehlt: Supabase-Function als Formularziel, aktuell ohne action,
+           sendet noch nirgendwohin. -->
+      <form class="contact-form" method="POST" name="kontakt">
+        <div class="form-row">
+          <label for="name">Name</label>
+          <input type="text" id="name" name="name" required autocomplete="name">
+        </div>
+        <div class="form-row">
+          <label for="email">E-Mail-Adresse</label>
+          <input type="email" id="email" name="email" required autocomplete="email">
+        </div>
+        <div class="form-row">
+          <label for="nachricht">Nachricht</label>
+          <textarea id="nachricht" name="nachricht" rows="5" required></textarea>
+        </div>
+        <button type="submit" class="button">Nachricht senden</button>
+      </form>
+    </section>
+
+    <!-- 5. FAQ zum Ablauf, kurze, unstrittige Fragen -->
+    <section class="ls-section">
+      <h2>Fragen zum Erstgespräch</h2>
+      <details class="faq">
+        <summary>Kostet das Erstgespräch etwas?</summary>
+        <p>Nein, das Erstgespräch ist kostenlos und unverbindlich.</p>
+      </details>
+      <details class="faq">
+        <summary>Wie läuft das Gespräch ab?</summary>
+        <p>20 Minuten online, per Zoom oder Telefon. Wir klären gemeinsam, ob und wie ich dir helfen kann.</p>
+      </details>
+      <details class="faq">
+        <summary>Muss ich mich danach sofort entscheiden?</summary>
+        <p>Nein. Kein Verkaufsdruck, keine Verpflichtung.</p>
+      </details>
+    </section>
+  </main>
+
+  <div data-include="/partials/footer.html"></div>
+  <script src="/assets/include.js"></script>
+  <script src="/assets/sticky-header.js"></script>
+  <script src="/assets/nav-toggle.js"></script>
+</body>
+</html>

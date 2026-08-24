@@ -1,0 +1,72 @@
+[
+  {
+    "slug": "langlebigkeit-ernaehrung",
+    "url": "/ratgeber/langlebigkeit-ernaehrung.html",
+    "title": "Langlebigkeit durch Ernährung: was die Forschung zeigt",
+    "excerpt": "Was Studien zu Ernährung und Langlebigkeit wirklich zeigen, und warum erst deine Blutwerte über die Wirkung entscheiden.",
+    "image": "/assets/images/blog/langlebigkeit-vorschau.jpg",
+    "imageAlt": "Grünes Gemüse und Obst auf hellem, strukturiertem Untergrund, mit dem Schriftzug Langlebigkeit durch Ernährung",
+    "imageWidth": 1200,
+    "imageHeight": 630,
+    "category": "Longevity",
+    "readingTime": "7 Min.",
+    "publishDate": "2026-08-24",
+    "status": "veröffentlicht"
+  },
+  {
+    "slug": "homocystein-wert",
+    "url": "/ratgeber/homocystein-wert.html",
+    "title": "Homocystein-Wert erhöht: was das bedeutet",
+    "excerpt": "Was ein erhöhter Homocystein-Wert über B-Vitamine und Gefäßgesundheit verrät, mit Normbereich und möglichen Ursachen erklärt.",
+    "image": "/assets/images/blog/homocystein-vorschau.jpg",
+    "imageAlt": "Blutprobenröhrchen in einem Laborständer",
+    "imageWidth": 599,
+    "imageHeight": 400,
+    "category": "Blutwerte",
+    "readingTime": null,
+    "publishDate": null,
+    "status": "veröffentlicht"
+  },
+  {
+    "slug": "cortisol-gewichtszunahme",
+    "url": "/ratgeber/cortisol-gewichtszunahme.html",
+    "title": "Cortisol und Gewichtszunahme im Zusammenhang",
+    "excerpt": "Wie ein erhöhter Cortisolspiegel Gewichtszunahme in den Wechseljahren begünstigt, mit Studienbeleg statt Vermutung erklärt.",
+    "image": "/assets/images/blog/cortisol-vorschau.jpg",
+    "imageAlt": "Frau entspannt sich mit geschlossenen Augen auf dem Sofa",
+    "imageWidth": 600,
+    "imageHeight": 384,
+    "category": "Hormone",
+    "readingTime": "5 Min.",
+    "publishDate": null,
+    "status": "veröffentlicht"
+  },
+  {
+    "slug": "magnesium-formen-unterschied",
+    "url": "/ratgeber/magnesium-formen-unterschied.html",
+    "title": "Magnesiumformen im Vergleich",
+    "excerpt": "Magnesiumcitrat, -malat, -glycinat: nicht alle Formen wirken gleich, je nach Ziel und Verträglichkeit.",
+    "image": "/assets/images/blog/magnesium-vorschau.jpg",
+    "imageAlt": "Nahaufnahme von Magnesium-Kapseln",
+    "imageWidth": 600,
+    "imageHeight": 394,
+    "category": "Supplements",
+    "readingTime": "4 Min.",
+    "publishDate": null,
+    "status": "veröffentlicht"
+  },
+  {
+    "slug": "wechseljahre-hormone-ernaehrung",
+    "url": "/ratgeber/wechseljahre-hormone-ernaehrung.html",
+    "title": "Ernährung in den Wechseljahren: Was wirklich hilft",
+    "excerpt": "Östrogen sinkt, Cortisol steigt, und der Körper reagiert anders. Welche Ernährungsanpassungen in dieser Phase tatsächlich etwas bewegen.",
+    "image": "/assets/images/blog/wechseljahre-vorschau.jpg",
+    "imageAlt": "Frau in Strickpullover trinkt entspannt Kräutertee auf dem Sofa",
+    "imageWidth": 600,
+    "imageHeight": 400,
+    "category": "Hormone",
+    "readingTime": "7 Min.",
+    "publishDate": null,
+    "status": "veröffentlicht"
+  }
+]

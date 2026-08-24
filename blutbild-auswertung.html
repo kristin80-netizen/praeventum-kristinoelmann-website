@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ernährungsberatung anhand von Blutbildern – 60 Minuten online</title>
+  <meta name="description" content="Ernährungsberatung anhand deiner Blutwerte, 60 Minuten online, mit schriftlichem Bericht. Zeigt Nährstoffmängel, die ein Ernährungsplan allein übersieht.">
+  <link rel="stylesheet" href="/assets/style.css">
+
+  <!-- Service-Auszeichnung ohne Preis, gemäß Kristins Entscheidung vom
+       18.08.2026 (keine Preise ausweisen, auch nicht in strukturierten
+       Daten). Die Roadmap sieht eigentlich Service+Offer mit Preis vor,
+       das wird hier bewusst nicht umgesetzt, siehe CLAUDE.md. -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "serviceType": "Ernährungsberatung anhand von Blutbildern",
+    "provider": { "@type": "Person", "name": "Kristin Oelmann" },
+    "areaServed": "DACH",
+    "description": "Einmalige Analyse deiner Blutwerte, 60 Minuten online, mit schriftlichem Bericht."
+  }
+  </script>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Start", "item": "/" },
+      { "@type": "ListItem", "position": 2, "name": "Blutbild-Auswertung", "item": "/blutbild-auswertung.html" }
+    ]
+  }
+  </script>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Welche Blutwerte werden ausgewertet?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Alle Werte, die in deinem vorliegenden Blutbild stehen. Im Bericht ordne ich zusätzlich ein, ob wichtige Werte für dein Anliegen fehlen und ob ein weiterer Test sinnvoll wäre." }
+      },
+      {
+        "@type": "Question",
+        "name": "Brauche ich vorher ein neues Blutbild?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Ja, ein aktuelles Blutbild ist Voraussetzung, die Laborkosten sind nicht enthalten." }
+      },
+      {
+        "@type": "Question",
+        "name": "Hilft die Auswertung beim Abnehmen?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Sie zeigt mögliche hormonelle oder nährstoffbedingte Ursachen. Gewichtsreduktion ist ein angestrebtes Ergebnis, keine Garantie." }
+      },
+      {
+        "@type": "Question",
+        "name": "Was steht im schriftlichen Bericht?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Eine Einordnung deiner Werte und daraus abgeleitete Ernährungs- und Supplementhinweise." }
+      },
+      {
+        "@type": "Question",
+        "name": "Ersetzt das eine ärztliche Untersuchung?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Nein. Kein reglementierter Heilberuf, keine Diagnose, keine Behandlung." }
+      }
+    ]
+  }
+  </script>
+</head>
+<body>
+  <div data-include="/partials/header.html"></div>
+
+  <main>
+    <!-- 1. Hero als Foto-Hintergrund statt zweispaltigem Bild (Rückmeldung
+         Kristin 21.08.2026: dieselbe Behandlung wie ernaehrungs-coaching.html,
+         "stimmig" zueinander). Gleiches Foto wie zuvor (ruhige Online-Sitzung
+         mit Notizen, keine Arztkittel-/Labor-Symbolik laut Brand Kit), jetzt
+         als Hintergrund mit Waldgrün-Überlagerung statt seitlicher Spalte. -->
+    <section class="ls-hero ls-hero-photo ls-hero-photo-blutbild">
+      <h1>Deine Blutwerte erklärt, in 60 Minuten Ernährungsberatung</h1>
+      <p>Du hast ein Blutbild, aber niemand hat dir gesagt, was es für deine Ernährung bedeutet. In einer Online-Sitzung ordne ich deine Werte ein und zeige dir, wo Handlungsbedarf besteht, bevor aus einem Mangel ein Dauerzustand wird.</p>
+      <div class="hero-actions">
+        <a class="button button-light" href="/erstgespraech.html">Jetzt kostenloses Erstgespräch buchen</a>
+        <a class="button button-outline" href="#ablauf">Ablauf ansehen</a>
+      </div>
+    </section>
+
+    <!-- 2. Für wen / Für wen nicht, Quelle Website/texte-leistungsseite.md -->
+    <section class="ls-section">
+      <h2>Für wen diese Auswertung gemacht ist, und für wen nicht</h2>
+      <div class="fit-check">
+        <div class="fit-check-col fit-yes">
+          <h3>Für dich, wenn du...</h3>
+          <ul class="fit-list">
+            <li><span class="fit-icon fit-icon-yes" aria-hidden="true"><svg viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M4 10.5l4 4 8-9" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>ein Blutbild hast, vom Hausarzt oder aus eigener Veranlassung</li>
+            <li><span class="fit-icon fit-icon-yes" aria-hidden="true"><svg viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M4 10.5l4 4 8-9" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>wissen willst, was deine Werte für Ernährung und Supplemente bedeuten</li>
+            <li><span class="fit-icon fit-icon-yes" aria-hidden="true"><svg viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M4 10.5l4 4 8-9" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>eine einmalige Einordnung suchst, ohne dich gleich auf eine mehrwöchige Begleitung festzulegen</li>
+          </ul>
+        </div>
+        <div class="fit-check-col fit-no">
+          <h3>Nicht für dich, wenn du...</h3>
+          <ul class="fit-list">
+            <li><span class="fit-icon fit-icon-no" aria-hidden="true"><svg viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M5 5l10 10M15 5L5 15" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></span>akute Beschwerden hast, die eine ärztliche Diagnose oder Behandlung brauchen</li>
+            <li><span class="fit-icon fit-icon-no" aria-hidden="true"><svg viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M5 5l10 10M15 5L5 15" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></span>noch kein Blutbild hast und zuerst eines erstellen lassen musst</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- 3. Leistungsumfang -->
+    <section class="ls-section ls-section-light">
+      <h2>Was genau du bekommst</h2>
+      <p class="section-lead">Kein Pauschalurteil „im Normbereich", sondern eine Einordnung, was deine Werte für deinen Alltag bedeuten.</p>
+      <div class="scope-columns">
+        <div>
+          <h3>Enthalten</h3>
+          <ul class="feature-list">
+            <li>Besprechung deiner aktuellen Laborwerte, 60 Minuten online</li>
+            <li>Einordnung über den reinen Referenzbereich hinaus</li>
+            <li>Schriftlicher Ergebnisbericht mit Ernährungshinweisen</li>
+          </ul>
+        </div>
+        <div>
+          <h3>Nicht enthalten</h3>
+          <ul class="feature-list feature-list-muted">
+            <li>Die Blutabnahme selbst</li>
+            <li>Laborkosten, werden separat vom Labor abgerechnet</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- 4. Ablauf, Quelle Website/texte-leistungsseite.md, für dieses Paket
+         bereits konkret dokumentiert. -->
+    <section id="ablauf" class="ls-section">
+      <h2>So läuft deine Auswertung ab</h2>
+      <ol class="process-steps">
+        <li><span class="process-num">1</span><div><h3>Termin online buchen</h3><p>Über den Erstgespräch-Link, in wenigen Minuten erledigt.</p></div></li>
+        <li><span class="process-num">2</span><div><h3>Blutbild übermitteln</h3><p>Dein aktuelles Blutbild, Laborkosten trägst du separat.</p></div></li>
+        <li><span class="process-num">3</span><div><h3>60 Minuten Auswertungsgespräch</h3><p>Wir gehen deine Werte gemeinsam durch, online per Zoom oder Telefon.</p></div></li>
+        <li><span class="process-num">4</span><div><h3>Schriftlicher Bericht</h3><p>Einordnung deiner Werte mit Ernährungs- und Supplementhinweisen.</p></div></li>
+      </ol>
+    </section>
+
+    <!-- 5. Beleg-Abschnitt, Quelle noch offen: konkrete Fachquelle zur
+         Aussagekraft von Referenzbereichen fehlt noch, hier bewusst ohne
+         erfundene Quellenangabe. -->
+    <section class="ls-section ls-section-light">
+      <blockquote>Laborwerte gelten als „normal", wenn sie innerhalb der Referenzwerte von rund 95 % der untersuchten Bevölkerung liegen. Das ist ein statistischer Durchschnitt, keine Aussage über deinen persönlichen Optimalbereich.</blockquote>
+      <!-- fehlt: belastbare Fachquelle für dieses Zitat, vor Veröffentlichung ergänzen -->
+    </section>
+
+    <!-- 6. FAQ -->
+    <section class="ls-section">
+      <h2>Häufige Fragen</h2>
+      <details class="faq">
+        <summary>Welche Blutwerte werden ausgewertet?</summary>
+        <p>Alle Werte, die in deinem vorliegenden Blutbild stehen. Im Bericht ordne ich zusätzlich ein, ob wichtige Werte für dein Anliegen fehlen und ob ein weiterer Test sinnvoll wäre.</p>
+      </details>
+      <details class="faq">
+        <summary>Brauche ich vorher ein neues Blutbild?</summary>
+        <p>Ja, ein aktuelles Blutbild ist Voraussetzung, die Laborkosten sind nicht enthalten.</p>
+      </details>
+      <details class="faq">
+        <summary>Hilft die Auswertung beim Abnehmen?</summary>
+        <p>Sie zeigt mögliche hormonelle oder nährstoffbedingte Ursachen. Gewichtsreduktion ist ein angestrebtes Ergebnis, keine Garantie.</p>
+      </details>
+      <details class="faq">
+        <summary>Was steht im schriftlichen Bericht?</summary>
+        <p>Eine Einordnung deiner Werte und daraus abgeleitete Ernährungs- und Supplementhinweise.</p>
+      </details>
+      <details class="faq">
+        <summary>Ersetzt das eine ärztliche Untersuchung?</summary>
+        <p>Nein. Kein reglementierter Heilberuf, keine Diagnose, keine Behandlung.</p>
+      </details>
+    </section>
+
+    <!-- 7. Cross-Sell, Verweistext wörtlich aus der Roadmap -->
+    <section class="ls-section ls-section-light">
+      <div class="cross-sell">
+        <p>Du möchtest nicht nur eine einmalige Auswertung, sondern länger begleitet werden?</p>
+        <a class="arrow-link" href="/ernaehrungs-coaching.html">Ernährungs-Coaching, das auf dieser Auswertung aufbaut <span aria-hidden="true">→</span></a>
+      </div>
+    </section>
+
+    <!-- 8. Abschluss-CTA -->
+    <section class="ls-section ls-section-invert">
+      <h2>Bereit, deine Werte endlich zu verstehen?</h2>
+      <!-- Abweichender Wortlaut vom Hero-CTA (Designkritik 21.08.2026, Punkt
+           5), gleiches Ziel /erstgespraech.html. -->
+      <a class="button button-light" href="/erstgespraech.html">Termin für deine Auswertung sichern</a>
+    </section>
+  </main>
+
+  <div data-include="/partials/footer.html"></div>
+  <script src="/assets/include.js"></script>
+  <script src="/assets/sticky-header.js"></script>
+  <script src="/assets/nav-toggle.js"></script>
+</body>
+</html>

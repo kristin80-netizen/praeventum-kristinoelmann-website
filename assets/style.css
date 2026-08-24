@@ -1,0 +1,1604 @@
+/* Präventum · Basis-Stylesheet, einmal gebaut, auf jeder Seite eingebunden.
+   Werte aus Website-KI/brand-kit.md, nicht abweichend duplizieren.
+   Schriftgrößen, Gewichte und Zeilenhöhen entsprechen der Live-Seite
+   praeventum.netlify.app (gemessen 17.08.2026). */
+
+/* Schriftdateien liegen lokal, kein fremder Server (Bauregel 5). */
+@font-face { font-family: 'Cormorant Garamond'; font-style: normal; font-weight: 300; font-display: swap; src: url('fonts/cormorant-garamond-v22-latin-300.woff2') format('woff2'); }
+@font-face { font-family: 'Cormorant Garamond'; font-style: italic; font-weight: 300; font-display: swap; src: url('fonts/cormorant-garamond-v22-latin-300italic.woff2') format('woff2'); }
+@font-face { font-family: 'Cormorant Garamond'; font-style: normal; font-weight: 400; font-display: swap; src: url('fonts/cormorant-garamond-v22-latin-regular.woff2') format('woff2'); }
+@font-face { font-family: 'Cormorant Garamond'; font-style: italic; font-weight: 400; font-display: swap; src: url('fonts/cormorant-garamond-v22-latin-italic.woff2') format('woff2'); }
+@font-face { font-family: 'Cormorant Garamond'; font-style: normal; font-weight: 500; font-display: swap; src: url('fonts/cormorant-garamond-v22-latin-500.woff2') format('woff2'); }
+@font-face { font-family: 'Inter'; font-style: normal; font-weight: 300; font-display: swap; src: url('fonts/inter-v13-latin-300.woff2') format('woff2'); }
+@font-face { font-family: 'Inter'; font-style: normal; font-weight: 400; font-display: swap; src: url('fonts/inter-v13-latin-regular.woff2') format('woff2'); }
+@font-face { font-family: 'Inter'; font-style: normal; font-weight: 500; font-display: swap; src: url('fonts/inter-v13-latin-500.woff2') format('woff2'); }
+
+:root {
+  --forest: #1E3A2F;
+  --sage: #8AAE92;
+  --cream: #F7F4EF;
+  --muted: #6B6B62;
+  --white: #FFFFFF;
+  --border: rgba(30, 58, 47, 0.12);
+
+  --space-small: 8px;
+  --space-medium: 24px;
+  --space-large: 64px;
+
+  /* Gemessene Höhe von .site-header (127px auf Desktop, siehe Fund
+     22.08.2026: Artikel-Gliederung wurde vom sticky Header überdeckt, weil
+     ihr sticky-top nur --space-medium statt der Header-Höhe berücksichtigte). */
+  --header-height: 128px;
+
+  --max-text-width: 680px;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: var(--cream);
+  color: var(--forest);
+  font-family: 'Inter', sans-serif;
+  font-size: 16px;
+  line-height: 1.7;
+}
+
+h1, h2, h3 {
+  font-family: 'Cormorant Garamond', serif;
+  margin: 0 0 var(--space-medium);
+}
+
+/* Gewicht 300 (Light) für H1 und H2, 400 für H3, wie auf der Live-Seite. */
+h1 { font-size: clamp(40px, 4.5vw, 64px); font-weight: 300; line-height: 1.1; }
+h2 { font-size: 32px; font-weight: 300; line-height: 1.2; }
+h3 { font-size: 24px; font-weight: 400; line-height: 1.2; }
+
+p, li { max-width: var(--max-text-width); line-height: 1.75; }
+
+small, .caption { font-size: 14px; color: var(--muted); }
+
+img { max-width: 100%; height: auto; }
+
+/* Keine Unterstreichung, dafür klar erkennbarer Hover-Zustand (Wunsch
+   Kristin 18.08.2026: "Unterstreichungen überall weg"). */
+a {
+  color: var(--forest);
+  text-decoration: none;
+  transition: color 0.15s ease;
+}
+a:hover { color: var(--sage-strong, #6FA06B); }
+.card a:hover, .site-footer a:hover, .site-header a:hover { color: inherit; opacity: 0.75; }
+
+/* Sichtbarer Fokus-Ring für Tastaturnutzung (Designkritik 21.08.2026, Punkt
+   6: bisher nur :hover behandelt, kein :focus-visible). :focus-visible statt
+   :focus, damit der Ring nur bei Tastatur-Navigation erscheint, nicht bei
+   jedem Mausklick. Waldgrün funktioniert auf hellem Grund (Creme/Weiß,
+   der Großteil der Seite); auf dunklem Grund (Hero, .section-invert,
+   Footer, dunkle Hero-Fotos) auf Creme umgestellt, sonst kein Kontrast. */
+a:focus-visible,
+button:focus-visible,
+.button:focus-visible,
+input:focus-visible,
+textarea:focus-visible,
+summary:focus-visible,
+[tabindex]:focus-visible {
+  outline: 3px solid var(--forest);
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+.hero :focus-visible,
+.ls-hero-photo :focus-visible,
+.section-invert :focus-visible,
+.site-footer :focus-visible {
+  outline-color: var(--cream);
+}
+
+/* Kopf- und Fußbereich, siehe partials/header.html und partials/footer.html */
+
+/* Ohne diese Regel wäre die Hülle exakt so hoch wie der Header selbst
+   (Standard-Blockverhalten), dadurch hätte "position: sticky" auf dem
+   Header keinen Platz, sich beim Scrollen zu halten, klassischer Fallstrick
+   bei nachgeladenen Partials. display: contents entfernt die Hülle aus dem
+   Layout, der Header verhält sich dann wie ein direktes Kind von <body>,
+   dessen Höhe der gesamten Seite entspricht (Fund 20.08.2026). */
+[data-include] { display: contents; }
+
+.site-header {
+  background: var(--cream);
+  border-bottom: 1px solid var(--border);
+  padding: var(--space-medium);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: var(--space-small);
+  /* Bleibt beim Scrollen sichtbar, auf jeder Seite, da header.html per
+     data-include auf allen Seiten eingebunden ist (Wunsch Kristin 20.08.2026).
+     Leichter Schatten nur bei aktivem Scroll (.is-scrolled, siehe sticky-header.js),
+     damit die Kante am Seitenanfang nicht unnötig hart wirkt. */
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  transition: box-shadow 0.2s ease;
+}
+.site-header.is-scrolled {
+  box-shadow: 0 4px 16px rgba(30, 58, 47, 0.10);
+}
+
+.main-nav > ul {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--space-medium);
+  margin: 0;
+  padding: 0;
+}
+
+/* Etwas kräftiger als der Fließtext-Standard (Gewicht 400), damit sich die
+   Navigation vom übrigen Inter-Text abhebt, analog dem Referenz-Screenshot
+   (Rückmeldung Kristin 21.08.2026). */
+.main-nav > ul > li > a { font-weight: 500; font-size: 15px; }
+.site-header .button { font-weight: 500; }
+
+/* Nur für Screenreader sichtbarer Text, z. B. am Hamburger-Button. */
+.sr-only {
+  position: absolute;
+  width: 1px; height: 1px;
+  padding: 0; margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* Hamburger-Menü fürs Telefon (Rückmeldung Kristin 20.08.2026, iPhone SE:
+   Navigation wirkte auf sehr schmalen Bildschirmen gequetscht). Per
+   Checkbox umgesetzt, funktioniert ohne JavaScript. Ab 768px unverändert
+   die bisherige waagerechte Navigation. */
+.nav-toggle-checkbox { display: none; }
+
+/* Klickfläche auf 44px vergrößert (Designkritik 21.08.2026, Punkt 7: 32px
+   lag unter der empfohlenen Mindestgröße von 44px für Touch-Ziele), die
+   sichtbaren Balken bleiben optisch gleich groß, nur zentriert in der
+   größeren Fläche. */
+.nav-toggle-label {
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  width: 44px;
+  height: 44px;
+  cursor: pointer;
+}
+.nav-toggle-label span {
+  display: block;
+  width: 24px;
+  height: 2px;
+  background: var(--forest);
+  border-radius: 2px;
+  transition: transform 0.2s ease, opacity 0.2s ease;
+}
+
+@media (max-width: 767px) {
+  .site-header { position: sticky; }
+  .nav-toggle-label { display: flex; }
+
+  .main-nav {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background: var(--cream);
+    border-bottom: 1px solid var(--border);
+    padding: var(--space-medium);
+    box-shadow: 0 8px 16px rgba(30, 58, 47, 0.08);
+  }
+  .nav-toggle-checkbox:checked ~ .main-nav { display: block; }
+
+  .main-nav > ul {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--space-medium);
+    width: 100%;
+  }
+  .main-nav .nav-dropdown[open] ul { position: static; box-shadow: none; border: none; padding-left: var(--space-medium); }
+
+  /* Kreuz-Form, wenn das Menü geöffnet ist. */
+  .nav-toggle-checkbox:checked ~ .nav-toggle-label span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+  .nav-toggle-checkbox:checked ~ .nav-toggle-label span:nth-child(2) { opacity: 0; }
+  .nav-toggle-checkbox:checked ~ .nav-toggle-label span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .nav-toggle-label span { transition: none; }
+}
+
+/* Dropdown "Leistungen", nativ über <details>/<summary>, ohne JavaScript */
+.nav-dropdown { position: relative; }
+
+.nav-dropdown summary {
+  cursor: pointer;
+  list-style: none;
+  color: var(--forest);
+}
+.nav-dropdown summary::-webkit-details-marker { display: none; }
+.nav-dropdown summary::after { content: " ▾"; }
+.nav-dropdown[open] summary::after { content: " ▴"; }
+
+/* Nur im geöffneten Zustand anzeigen. Ohne diese Trennung würde das
+   display-flex das native Verstecken von <details> überschreiben. */
+.nav-dropdown:not([open]) ul { display: none; }
+
+.nav-dropdown[open] ul {
+  list-style: none;
+  margin: var(--space-small) 0 0;
+  padding: var(--space-small) 0;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+/* Menüpunkte bislang ungestylte <a>-Standardlinks ohne Klickfläche/Hover
+   (Rückmeldung Kristin 21.08.2026: "Design noch nicht umgesetzt"). Jetzt
+   an dieselbe Optik wie der Rest der Navigation angeglichen: Inter statt
+   Browser-Standardschrift, Klickfläche mit Hover-Fläche in Salbei, das
+   "in Vorbereitung"-Tag bleibt so weit möglich in derselben Zeile. */
+.nav-dropdown ul li a {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px;
+  font-family: 'Inter', sans-serif;
+  font-size: 15px;
+  padding: 8px 10px;
+  border-radius: 4px;
+  white-space: nowrap;
+}
+.nav-dropdown ul li a:hover { background: rgba(138, 174, 146, 0.15); color: var(--forest); }
+
+@media (min-width: 768px) {
+  .nav-dropdown[open] ul {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-top: 2px solid var(--sage);
+    border-radius: 4px;
+    padding: var(--space-small);
+    min-width: 260px;
+    box-shadow: 0 8px 20px rgba(30, 58, 47, 0.12);
+    z-index: 10;
+  }
+  .nav-dropdown ul li a { white-space: normal; }
+}
+
+.tag {
+  font-size: 13px;
+  color: var(--muted);
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  padding: 2px 8px;
+  margin-left: var(--space-small);
+  white-space: nowrap;
+}
+
+.site-header .button {
+  padding: var(--space-small) var(--space-medium);
+}
+
+/* Footer 1:1 nach dem Vorbild des älteren Website-Entwurfs (Projekt KI/
+   Präventum Business/Website/Website-Hauptordner/website-mehrseitig/
+   index.html, Rückmeldung Kristin 21.08.2026, "alles stimmig machen"):
+   gleiche Farbwerte, Größen und Abstände wie dort übernommen, nicht nur
+   angenähert. */
+.site-footer { background: #111111; color: #B7B7B2; font-size: 13px; }
+
+.site-footer a { color: #B7B7B2; text-decoration: none; }
+.site-footer a:hover { color: var(--white); }
+
+/* Container wie ".wrap" in der Vorlage (max. 1120px, zentriert): ohne diese
+   Begrenzung reißen die Spalten auf breiten Bildschirmen weit auseinander,
+   weil die 1fr-Spalten sich sonst über die volle Fensterbreite ziehen
+   (Rückmeldung Kristin 21.08.2026: "Footer ist wieder verzogen"). */
+.footer-top {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 32px;
+  max-width: 1120px;
+  margin: 0 auto;
+  padding: 48px var(--space-medium) 28px;
+  border-bottom: 1px solid #2A2A28;
+}
+@media (min-width: 700px) {
+  .footer-top { grid-template-columns: 2fr 1fr 1fr; }
+}
+
+.footer-brand { max-width: 32ch; }
+
+/* Logo-Bild auch auf schwarzem Grund, als monochromes Weiß statt
+   Originalfarben. Abweichung von der ursprünglichen Brand-Kit-Regel "Logo
+   nicht auf Waldgrün" (brand-kit.md), dort ggf. nachziehen. Höhe 34px wie
+   in der Vorlage, darunter Abstand 12px zum Fließtext. */
+.footer-logo { height: 34px; width: auto; display: block; margin-bottom: 12px; filter: brightness(0) invert(1); opacity: 0.9; }
+
+.footer-brand p { color: #8A8A85; font-size: 13px; }
+
+.footer-nav ul {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 0;
+  margin: 0;
+}
+.footer-nav a { font-size: 13px; }
+
+.footer-bottom {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  max-width: 1120px;
+  margin: 0 auto;
+  padding: 22px var(--space-medium) 0;
+  font-size: 12px;
+  color: #6E6E6A;
+}
+.legal-note-footer { max-width: 900px; font-size: 12px; color: #6E6E6A; line-height: 1.6; margin: 8px auto 32px; padding: 0 var(--space-medium); }
+
+.site-footer .caption {
+  font-family: 'Inter', sans-serif;
+  font-size: 12px;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: #8A8A85;
+  margin: 0 0 14px;
+}
+.site-footer .tag { color: var(--white); border-color: rgba(255,255,255,0.3); }
+
+main {
+  padding: var(--space-large) var(--space-medium);
+  max-width: 960px;
+  margin: 0 auto;
+}
+
+/* Startseite: main ohne eigene Begrenzung, damit der Hero über die volle
+   Breite laufen kann. Die Begrenzung übernimmt je Abschnitt der innere
+   Container. Kein 100vw-Trick, der eine waagerechte Scrollleiste erzeugen
+   würde (Bauregel 2). */
+.main-full {
+  padding: 0;
+  max-width: none;
+  margin: 0;
+}
+
+/* Laufendes USP-Band, angelehnt an die Wettbewerbsanalyse
+   ernaehrungscoach.melanieaurich.com (20.08.2026): kurze Kernaussagen
+   scrollen endlos durch. Inhalt zweimal im Markup (siehe index.html),
+   damit der Übergang bei -50% nahtlos ist. Reines CSS, keine Bibliothek. */
+.usp-ticker {
+  background: var(--forest);
+  color: var(--cream);
+  overflow: hidden;
+  white-space: nowrap;
+  padding: 14px 0;
+}
+.usp-ticker-track {
+  display: inline-flex;
+  width: max-content;
+  animation: usp-scroll 28s linear infinite;
+}
+.usp-ticker-track span {
+  display: inline-block;
+  padding: 0 var(--space-medium);
+  font-size: 14px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--cream);
+}
+.usp-ticker-track span:not(:last-child)::after {
+  content: "·";
+  margin-left: var(--space-medium);
+  opacity: 0.5;
+}
+@keyframes usp-scroll {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .usp-ticker-track { animation: none; }
+  .usp-ticker { overflow-x: auto; }
+}
+
+.hero-inner,
+.section-inner {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: var(--space-large) var(--space-medium);
+}
+
+/* Hero mit Hintergrundbild und Farbschicht darüber.
+   Auf dem Telefon deckt die Schicht gleichmäßig, weil der Text die ganze
+   Breite nutzt. Ab 768px läuft sie als Verlauf von links nach rechts aus,
+   damit der Text links die geforderten 4,5 : 1 erreicht und die Farben
+   des Bildes rechts sichtbar bleiben. */
+.hero {
+  position: relative;
+  background-image:
+    linear-gradient(rgba(30, 58, 47, 0.75), rgba(30, 58, 47, 0.75)),
+    url('images/hero-hintergrund.jpg');
+  background-size: cover;
+  background-position: center;
+  color: var(--white);
+  overflow: hidden;
+  animation: hero-kenburns 24s ease-in-out infinite alternate;
+}
+
+/* Sehr langsamer, kaum wahrnehmbarer Zoom im Hero-Hintergrund, angelehnt an
+   die Wettbewerbsanalyse ernaehrungscoach.melanieaurich.com (20.08.2026).
+   Rein dekorativ, keine Inhaltsänderung, respektiert reduzierte Bewegung. */
+@keyframes hero-kenburns {
+  from { background-size: cover; }
+  to { background-size: 112% auto; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .hero { animation: none; }
+}
+
+@media (min-width: 768px) {
+  .hero {
+    background-image:
+      linear-gradient(
+        to right,
+        rgba(30, 58, 47, 0.88) 0%,
+        rgba(30, 58, 47, 0.84) 55%,
+        rgba(30, 58, 47, 0.62) 75%,
+        rgba(30, 58, 47, 0.20) 100%
+      ),
+      url('images/hero-hintergrund.jpg');
+  }
+  /* Der Text bleibt im abgedunkelten Bereich, ohne die Spalte zu quetschen.
+     Von 520px auf 640px verbreitert (21.08.2026): bei 520px brach die H1
+     "Dein Ernährungscoaching online, aufgebaut auf deinen Blutwerten" in
+     5 statt 2-3 Zeilen um und wirkte dadurch gestreckt/unproportioniert,
+     siehe Wettbewerbsvergleich mit "Bite into Balance". Der 55%-Abdunklungs-
+     Stopp oben liegt bei 1280px Breite bereits bei 704px, 640px Text bleibt
+     also weiterhin im gut abgedunkelten Bereich. */
+  .hero-inner > * { max-width: 720px; }
+
+  /* Eigener, breiterer Container nur für den Hero (Wunsch Kristin 21.08.2026:
+     "mehr nach links, breiter ziehen"). .hero-inner teilt sich sonst die
+     960px-Breite mit .section-inner, hier bewusst eine Ausnahme: ein
+     breiterer, weiterhin zentrierter Container rückt die linke Kante näher
+     an den Viewport-Rand, ohne die 960px-Breite anderer Abschnitte anzutasten. */
+  .hero .hero-inner { max-width: 1200px; }
+}
+
+.hero h1 { color: var(--white); }
+
+.hero p {
+  color: var(--white);
+  margin-bottom: var(--space-medium);
+}
+
+.hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-medium);
+  align-items: center;
+}
+.hero-actions .arrow-link { margin-top: 0; }
+
+.hero-trust {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-small) var(--space-large);
+  list-style: none;
+  padding: var(--space-medium) 0 0;
+  margin: var(--space-large) 0 0;
+  border-top: 1px solid rgba(255, 255, 255, 0.25);
+  font-family: 'Inter', sans-serif;
+  font-size: 15px;
+  font-weight: 500;
+  color: var(--white);
+}
+.hero-trust li { display: flex; align-items: center; gap: 10px; }
+.hero-trust-icon {
+  flex: 0 0 22px;
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background: rgba(138, 174, 146, 0.3);
+  color: var(--sage);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.hero-trust-icon svg { width: 12px; height: 12px; }
+
+.button {
+  display: inline-block;
+  position: relative;
+  overflow: hidden;
+  background: var(--forest);
+  color: var(--white);
+  text-decoration: none;
+  padding: var(--space-small) var(--space-medium);
+  border-radius: 999px;
+  border: 1px solid var(--forest);
+  transition: transform 0.15s ease, box-shadow 0.15s ease, background 0.15s ease;
+}
+.button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(30, 58, 47, 0.25);
+}
+
+/* Sweep-Effekt: eine helle Fläche läuft beim Hover einmal durch, statt hart
+   umzuspringen, angelehnt an die Wettbewerbsanalyse (20.08.2026). Nur ein
+   Layoutfremdes ::before-Element, keine Struktur-/Textänderung. */
+.button::before {
+  content: "";
+  position: absolute;
+  top: 0; left: -100%;
+  width: 100%; height: 100%;
+  background: rgba(255, 255, 255, 0.18);
+  transform: skewX(-12deg);
+  transition: left 0.45s ease;
+}
+.button:hover::before { left: 100%; }
+@media (prefers-reduced-motion: reduce) {
+  .button::before { transition: none; display: none; }
+}
+
+/* Helle Schaltfläche für den Hauptweg auf dunklem Grund */
+.button-light {
+  background: var(--cream);
+  color: var(--forest);
+  border-color: var(--cream);
+}
+.button-light:hover { background: var(--white); box-shadow: 0 6px 16px rgba(0,0,0,0.25); }
+
+/* Umrandete Schaltfläche für den zweiten, nachgeordneten Weg */
+.button-outline {
+  background: transparent;
+  color: var(--white);
+  border: 1px solid var(--white);
+}
+.button-outline:hover { background: rgba(255,255,255,0.12); box-shadow: none; }
+
+/* Abschnitte und Karten. Drei Hintergrundstufen statt zwei, damit die Seite
+   beim Scrollen mehr farbliche Abwechslung zeigt (Wunsch Kristin 18.08.2026). */
+.section { background: var(--cream); }
+
+.section-light { background: var(--white); }
+
+/* Kräftigere, salbeigrüne Zwischenschicht als dritte Stufe. */
+.section-sage { background: var(--sage); color: var(--forest); }
+.section-sage .card { background: var(--cream); border-color: transparent; }
+.section-sage .fit-check-col { background: var(--cream); }
+
+/* Foto-Hintergrund mit Cream-Verlaufsschicht für den Fit-Check-Abschnitt
+   (Wunsch Kristin 20.08.2026). Deckkraft bewusst hoch, das Bild bleibt nur
+   angedeutet sichtbar, damit Text und Karten weiterhin auf nahezu
+   einfarbigem Cream stehen (Kontrast, Bauregel 3). */
+.section-textured {
+  background-image:
+    linear-gradient(rgba(247, 244, 239, 0.93), rgba(247, 244, 239, 0.93)),
+    url('images/sections/fit-check-hintergrund.jpg');
+  background-size: cover;
+  background-position: center;
+}
+.section-textured .fit-check-col {
+  background: var(--white);
+  box-shadow: 0 12px 32px rgba(30, 58, 47, 0.06);
+}
+
+/* Dunkler Abschluss-Abschnitt. Weiß auf Waldgrün liegt bei 12,4 : 1. */
+.section-invert { background: var(--forest); color: var(--white); }
+.section-invert h2 { color: var(--white); }
+.section-invert p { color: var(--white); }
+
+/* Dezente Meta-Zeile unter dem CTA-Button, analog .cta-final-meta aus dem
+   älteren Website-Entwurf: kleiner, blasser als der übrige Fließtext. */
+p.cta-meta { font-size: 13px; color: #B9C6BE; margin: var(--space-small) 0 0; }
+
+.lead { color: var(--muted); margin-bottom: var(--space-large); }
+
+/* Überleitungssatz zwischen H2 und Karten, gleiche Fließtextgröße wie
+   .card p, keine eigene vierte Schriftgröße. */
+.section-lead { color: var(--muted); margin: 0 0 var(--space-large); max-width: var(--max-text-width); }
+
+.cards {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-medium);
+}
+
+@media (min-width: 768px) {
+  .cards { grid-template-columns: repeat(2, 1fr); }
+  .cards-three { grid-template-columns: repeat(3, 1fr); }
+}
+
+.card {
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: var(--space-medium);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 24px rgba(30, 58, 47, 0.12);
+}
+
+.section-light .card { background: var(--cream); }
+
+.card p { max-width: none; font-size: 16px; }
+
+/* Karten in Dreiergruppen haben je nach Text unterschiedliche Länge, ohne
+   Ausgleich blieb bei kürzeren Karten reiner Leerraum am Fuß stehen
+   (Rückmeldung Kristin 20.08.2026, Screenshot der "Nutzenpunkte"- und
+   "Erkennst du dich"-Karten). Flex-Spalte plus Akzentlinie mit
+   margin-top: auto füllt die Karte unabhängig von der Textmenge sauber
+   nach unten ab, statt Leerraum stehen zu lassen. */
+.cards-three .card {
+  display: flex;
+  flex-direction: column;
+}
+.cards-three .card::after {
+  content: "";
+  display: block;
+  width: 32px;
+  height: 3px;
+  margin-top: auto;
+  padding-top: var(--space-medium);
+  background: var(--sage);
+  background-clip: content-box;
+}
+
+/* Bild-Text-Zeilen für "Erkennst du dich..." statt Boxen mit Ziffer
+   (umgestaltet 20.08.2026 auf Wunsch Kristin: Leerraum in der Box-Variante,
+   danach "mit Pexels gestalten"). Fotos liegen lokal unter
+   assets/images/sections/ (Bauregel 5). Zickzack ab Tablet-Breite, damit
+   die drei Zeilen nicht wie ein monotones Muster wirken. */
+.situation-list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-large);
+}
+.situation-row {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-medium);
+}
+@media (min-width: 768px) {
+  .situation-row {
+    flex-direction: row;
+    align-items: center;
+    gap: var(--space-large);
+  }
+  .situation-row:nth-child(even) { flex-direction: row-reverse; }
+}
+
+.situation-media {
+  position: relative;
+  flex: 0 0 auto;
+  width: 100%;
+  max-width: 280px;
+  border-radius: 8px;
+  overflow: hidden;
+}
+@media (min-width: 768px) { .situation-media { width: 240px; } }
+
+.situation-media img {
+  display: block;
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+  transition: transform 0.4s ease;
+}
+.situation-row:hover .situation-media img { transform: scale(1.06); }
+@media (prefers-reduced-motion: reduce) {
+  .situation-media img { transition: none; }
+  .situation-row:hover .situation-media img { transform: none; }
+}
+
+/* Sanfte Forest-Verlaufsschicht, damit die Fotos farblich zur Palette
+   gehören statt als fremdkörperhafte Stockfotos zu wirken. */
+.situation-media::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(160deg, rgba(30, 58, 47, 0.32), rgba(30, 58, 47, 0.05) 65%);
+}
+
+.situation-content { flex: 1; }
+
+.situation-number {
+  display: block;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 32px;
+  font-weight: 300;
+  line-height: 1;
+  color: var(--forest);
+  opacity: 0.55;
+  margin-bottom: var(--space-small);
+}
+
+.situation-row h3 { margin: 0 0 var(--space-small); }
+.situation-row p { margin: 0; max-width: none; }
+
+/* Vertrauensleiste als eigenständiges Panel statt lose auf dem
+   Section-Hintergrund (Rückmeldung Kristin 20.08.2026: Abschnitt wirkte
+   kahl). Sage-Fläche versetzt hinter dem Porträt für Tiefe in Markenfarbe
+   statt Schlagschatten, Icons statt reinem Rahmenstrich in der Liste. */
+.trust {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-medium);
+  background: var(--white);
+  border-radius: 12px;
+  border: 1px solid var(--border);
+  padding: var(--space-large) var(--space-medium);
+  box-shadow: 0 12px 32px rgba(30, 58, 47, 0.06);
+}
+
+@media (min-width: 768px) {
+  .trust { flex-direction: row; align-items: flex-start; gap: var(--space-large); }
+  .trust-portrait-wrap { flex: 0 0 200px; width: 200px; }
+}
+
+.trust-portrait-wrap {
+  position: relative;
+  margin: 0;
+  align-self: flex-start;
+}
+/* Versetzte Farbfläche hinter dem Foto, angelehnt an die Zickzack-Fotos im
+   Abschnitt "Erkennst du dich..." weiter unten, für denselben ruhigen,
+   markentypischen Bildrahmen statt eines reinen Drop-Shadows. */
+.trust-portrait-wrap::before {
+  content: "";
+  position: absolute;
+  top: 14px;
+  left: 14px;
+  width: 100%;
+  height: 100%;
+  background: var(--sage);
+  opacity: 0.35;
+  border-radius: 8px;
+  z-index: 0;
+}
+.trust-portrait {
+  position: relative;
+  z-index: 1;
+  display: block;
+  width: 100%;
+  border-radius: 8px;
+  box-shadow: 0 8px 24px rgba(30, 58, 47, 0.14);
+}
+.trust-caption {
+  position: relative;
+  z-index: 1;
+  margin-top: var(--space-medium);
+  font-family: 'Inter', sans-serif;
+  font-size: 15px;
+  font-weight: 500;
+  color: var(--forest);
+  text-align: center;
+}
+
+.trust-list { list-style: none; padding: 0; margin: var(--space-medium) 0 0; }
+.trust-list li {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-small);
+  margin-bottom: var(--space-small);
+}
+.trust-icon {
+  flex: 0 0 20px;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: rgba(138, 174, 146, 0.25);
+  color: var(--forest);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 2px;
+}
+.trust-icon svg { width: 11px; height: 11px; }
+
+.trust-lead { font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: 19px; }
+
+.trust-pills { list-style: none; display: flex; flex-wrap: wrap; gap: var(--space-small); padding: 0; margin: var(--space-medium) 0; }
+.trust-pills li {
+  font-family: 'Inter', sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--forest);
+  background: var(--cream);
+  border: 1px solid var(--border, rgba(30,58,47,0.15));
+  padding: 8px 16px;
+  border-radius: 6px;
+}
+
+.trust-hint { font-size: 14px; font-style: italic; color: var(--muted); margin-bottom: var(--space-medium); }
+
+/* Methode-Zitat, analog praeventum.netlify.app: zentrierter Kicker + Zitat. */
+.method-quote-block { text-align: center; max-width: 680px; margin: 0 auto; }
+.section-eyebrow {
+  font-family: 'Inter', sans-serif;
+  font-size: 13px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--sage);
+  margin: 0 0 var(--space-small);
+}
+.method-quote {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-weight: 400;
+  font-size: clamp(32px, 4vw, 48px);
+  color: var(--forest);
+  margin: 0 0 var(--space-medium);
+  border: none;
+  padding: 0;
+}
+
+/* Zitat im Positionierungs-Abschnitt */
+blockquote {
+  margin: 0 0 var(--space-medium);
+  padding-left: var(--space-medium);
+  border-left: 2px solid var(--sage);
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 24px;
+  font-style: italic;
+  line-height: 1.4;
+  max-width: var(--max-text-width);
+}
+
+/* Anmeldung Lead-Magnet */
+.leadform {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-small);
+  align-items: flex-end;
+  margin: var(--space-medium) 0;
+  max-width: var(--max-text-width);
+}
+
+.leadform label { display: block; font-size: 14px; margin-bottom: var(--space-small); }
+
+.leadform input {
+  font-family: inherit;
+  font-size: 16px;
+  padding: var(--space-small);
+  border: 1px solid var(--forest);
+  border-radius: 4px;
+  min-width: 240px;
+}
+
+.leadform button {
+  font-family: inherit;
+  font-size: 16px;
+  border: none;
+  cursor: pointer;
+}
+
+/* Häufige Fragen, nativ über details/summary */
+.faq {
+  border-bottom: 1px solid var(--border);
+  padding: var(--space-medium) 0;
+  max-width: var(--max-text-width);
+}
+
+.faq summary {
+  cursor: pointer;
+  font-size: 19px;
+  font-family: 'Cormorant Garamond', serif;
+  list-style: none;
+}
+.faq summary::-webkit-details-marker { display: none; }
+.faq summary::after { content: " +"; color: var(--sage); }
+.faq[open] summary::after { content: " –"; }
+.faq p { margin: var(--space-medium) 0 0; }
+
+/* H3 als erstes Kind von summary (Ratgeber-Artikel-FAQ, für Überschriften-
+   Semantik/SEO), optisch identisch zur reinen Textvariante der Startseiten-
+   FAQ, kein eigener Überschriften-Look. */
+.faq summary h3 {
+  display: inline;
+  font: inherit;
+  margin: 0;
+}
+
+/* Sanftes Einblenden der Antwort statt hartem Erscheinen, angelehnt an die
+   fließenden Übergänge der Wettbewerbsanalyse (20.08.2026). Nur Optik,
+   <details>/<summary> bleibt nativ ohne JavaScript (siehe Bauregel). */
+.faq[open] p { animation: faq-fade-in 0.35s ease; }
+@keyframes faq-fade-in {
+  from { opacity: 0; transform: translateY(-4px); }
+  to { opacity: 1; transform: none; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .faq[open] p { animation: none; }
+}
+
+/* Zwischen-CTA, kompakter und zentriert, mit Hintergrundbild wie der Hero
+   (Wunsch Kristin 18.08.2026: mehr Bilder, mehr farbliche Kontraste). */
+.zwischen-cta {
+  position: relative;
+  background-image:
+    linear-gradient(rgba(30, 58, 47, 0.86), rgba(30, 58, 47, 0.86)),
+    url('images/sections/zwischen-cta-hintergrund.jpg');
+  background-size: cover;
+  background-position: center;
+  color: var(--white);
+}
+.zwischen-cta h2 { color: var(--white); }
+.zwischen-cta p { color: var(--white); }
+
+.zwischen-cta-inner {
+  text-align: center;
+  padding-top: var(--space-large);
+  padding-bottom: var(--space-large);
+}
+.zwischen-cta-inner h2 { font-size: 24px; }
+.zwischen-cta-inner p { margin: 0 auto var(--space-medium); }
+
+/* Wiederkehrendes visuelles Motiv zwischen Abschnitten (Rückmeldung Kristin
+   21.08.2026, Punkt 4 der Designkritik: "kein Icon-Set, kein wiederkehrendes
+   Element außer der Farbe"). Blatt-Glyphe angelehnt an das Logo, dezent
+   zwischen ausgewählten Abschnittsübergängen platziert statt bei jedem
+   einzelnen, um es nicht zu übertreiben. */
+.section-divider {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-medium);
+  padding: var(--space-large) var(--space-medium) 0;
+}
+.section-divider::before,
+.section-divider::after {
+  content: "";
+  height: 1px;
+  background: var(--border);
+  flex: 1 1 auto;
+  max-width: 140px;
+}
+.section-divider svg { width: 20px; height: 20px; flex: 0 0 20px; color: var(--sage); }
+
+/* Positionierungs-Abschnitt: Text und Bild nebeneinander */
+.positionierung {
+  display: flex;
+  flex-direction: column-reverse;
+  gap: var(--space-large);
+  align-items: center;
+}
+
+/* EIN einziger Sekundär-Stil für die ganze Seite (Rückmeldung Kristin
+   21.08.2026: "Buttons bestehen immer noch aus Pfeil, ovalem Button und
+   viereckigem Button" — die drei Formen sind jetzt auf diese eine
+   zusammengeführt). .arrow-link ist der Klassenname für neue/umgestellte
+   Stellen, .positionierung-link/.leistung-link bleiben als Aliase
+   bestehender Stellen erhalten. Grid-spezifische Eigenschaften
+   (grid-column, justify-self) bleiben separat bei .leistung-link, weil
+   nur die Leistungen-Liste ein Grid-Layout ist. */
+.arrow-link,
+.positionierung-link,
+.leistung-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: var(--space-medium);
+  font-family: 'Inter', sans-serif;
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--forest);
+  text-decoration: underline;
+  text-decoration-color: var(--sage);
+  text-underline-offset: 4px;
+}
+.arrow-link:hover,
+.positionierung-link:hover,
+.leistung-link:hover { text-decoration-color: var(--forest); }
+.arrow-link span,
+.positionierung-link span,
+.leistung-link span { transition: transform 0.2s ease; }
+.arrow-link:hover span,
+.positionierung-link:hover span,
+.leistung-link:hover span { transform: translateX(4px); }
+@media (prefers-reduced-motion: reduce) {
+  .arrow-link:hover span,
+  .positionierung-link:hover span,
+  .leistung-link:hover span { transform: none; }
+}
+@media (min-width: 768px) {
+  .positionierung { flex-direction: row; align-items: flex-start; }
+  .positionierung-text { flex: 1 1 60%; }
+  .positionierung-bild { flex: 1 1 40%; max-width: 360px; }
+}
+.positionierung-bild {
+  border-radius: 8px;
+  width: 100%;
+  max-width: 480px;
+}
+
+/* Großflächigeres, bis an den Viewport-Rand laufendes Bild ab Tablet-Breite,
+   angelehnt an die großen Foto-Text-Blöcke der Wettbewerbsanalyse
+   (ernaehrungscoach.melanieaurich.com, 20.08.2026). Nur Bildgröße/-schnitt,
+   Text, Reihenfolge und Abschnittsanzahl bleiben unverändert. Rundung nur
+   auf der Innenkante, die Außenkante läuft bündig bis zum Viewport-Rand. */
+@media (min-width: 768px) {
+  .positionierung-bild {
+    flex: 0 0 46%;
+    max-width: none;
+    height: 520px;
+    object-fit: cover;
+    margin-right: calc((100vw - 960px) / -2);
+    border-radius: 8px 0 0 8px;
+  }
+}
+
+/* Leistungsübersicht als kompakte Zeilenliste statt vier gleich hoher
+   Karten (Wunsch Kristin 18.08.2026, umgestaltet 20.08.2026: die
+   Kartenvariante lief bei ungleicher Textmenge über mehrere Bildschirmhöhen
+   und ließ vor dem Button Leerraum stehen). Icon, Titel/Dauer und Merkmale
+   laufen inline, keine feste Höhe mehr nötig, dadurch kein Ausgleichsproblem.
+   Bewusst keine Preisangabe, siehe CLAUDE.md „Geklärte Konflikte". */
+.leistungen-list {
+  display: flex;
+  flex-direction: column;
+  margin-top: var(--space-medium);
+  border-top: 1px solid var(--border);
+}
+
+/* Vereinfacht auf ein durchgängig einspaltiges Zeilenlayout (Rückmeldung
+   Kristin 21.08.2026: "unübersichtlich" bei der vorherigen Aufteilung in
+   Foto/Text/weit abgesetzten CTA-Pfeil auf breiten Bildschirmen, dabei
+   brach der CTA-Text zusätzlich unschön um). CTA steht jetzt immer direkt
+   unter den Merkmal-Pillen, gehört so sichtbar zur eigenen Zeile statt
+   optisch isoliert am rechten Rand zu stehen. Kein weiteres Breakpoint-
+   Umschalten mehr nötig, dadurch auch weniger Fehlerfläche. */
+.leistung-row {
+  display: grid;
+  grid-template-columns: 72px 1fr;
+  gap: var(--space-small) var(--space-medium);
+  align-items: start;
+  padding: var(--space-medium) 0;
+  border-bottom: 1px solid var(--border);
+  transition: background 0.2s ease;
+}
+.leistung-row:hover { background: rgba(138, 174, 146, 0.08); }
+
+.leistung-row-featured {
+  background: rgba(30, 58, 47, 0.04);
+  border-left: 3px solid var(--forest);
+  padding-left: var(--space-small);
+}
+.leistung-row-featured:hover { background: rgba(30, 58, 47, 0.07); }
+
+/* Foto-Thumbnail statt Icon-Kreis (Wunsch Kristin 20.08.2026: "bei den
+   Leistungen mit Pexels arbeiten"). Ein visueller Anker pro Zeile statt
+   Icon und Foto parallel, Best Practice bei Service-Zeilenlisten. Etwas
+   größer als zuvor (72px statt 64px), damit die Zeile bei mehr Text nicht
+   kopflastig wirkt. */
+.leistung-media {
+  width: 72px;
+  height: 72px;
+  border-radius: 8px;
+  overflow: hidden;
+}
+.leistung-media img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+.leistung-row:hover .leistung-media img { transform: scale(1.08); }
+/* Bildausschnitt an den quadratischen Rahmen angepasst (Rückmeldung Kristin
+   20.08.2026, Screenshot Longevity-Thumbnail): die Quellfotos sind
+   hochkant, "object-fit: cover" schnitt bei zentrierter Kante Kopf und Fuß
+   ab und zeigte vor allem den Teppich im Hintergrund. Ausschnitt nach oben
+   verschoben, damit Gesicht/Geste im Bild bleiben. */
+.leistung-media-img-top { object-position: center 15%; }
+@media (prefers-reduced-motion: reduce) {
+  .leistung-media img { transition: none; }
+  .leistung-row:hover .leistung-media img { transform: none; }
+}
+
+/* Icon in einem farbigen Kreis statt freistehend, mehr Farbfläche in der Zeile */
+.card-icon {
+  width: 48px; height: 48px;
+  padding: 11px;
+  border-radius: 50%;
+  background: rgba(138, 174, 146, 0.18);
+  color: var(--forest);
+  transition: transform 0.25s ease;
+}
+.card-icon svg { width: 100%; height: 100%; }
+.leistung-row:hover .card-icon,
+.card:hover .card-icon { transform: scale(1.12) rotate(-4deg); }
+@media (prefers-reduced-motion: reduce) {
+  .card-icon { transition: none; }
+  .leistung-row:hover .card-icon, .card:hover .card-icon { transform: none; }
+}
+
+.leistung-info { grid-column: 2; }
+
+.leistung-heading {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: var(--space-small) var(--space-medium);
+  margin-bottom: var(--space-small);
+}
+.leistung-heading h3 { margin: 0; font-size: 22px; }
+
+/* Am häufigsten gebucht: eigene Zeile statt in der Kopfzeile mitzulaufen,
+   dort kollidierte die Pille bei schmaleren Breiten mit Titel/Dauer. */
+.leistung-badge-row { width: 100%; margin: -4px 0 var(--space-small); }
+
+.leistung-duration {
+  font-family: 'Inter', sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--muted);
+  white-space: nowrap;
+}
+.leistung-duration-open { font-weight: 400; }
+
+.leistung-badge {
+  font-family: 'Inter', sans-serif;
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  background: var(--forest);
+  color: var(--white);
+  padding: 3px 10px;
+  border-radius: 999px;
+  white-space: nowrap;
+}
+
+/* Merkmale schlicht als Liste mit Häkchen statt als Pillen (Rückmeldung
+   Kristin 21.08.2026: Pillen sahen wie Schaltflächen aus, obwohl es nur
+   Infozeilen sind, während der eigentliche CTA daneben unauffällig blieb.
+   Optische Gewichtung jetzt umgekehrt: Merkmale zurückhaltend, CTA als
+   klar erkennbare Schaltfläche, siehe .leistung-link unten). */
+.leistung-tags {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.leistung-tags li {
+  font-size: 14px;
+  line-height: 1.6;
+  color: var(--muted);
+  padding-left: 20px;
+  position: relative;
+}
+.leistung-tags li::before {
+  content: "✓";
+  position: absolute;
+  left: 0;
+  color: var(--sage-strong, var(--forest));
+  font-size: 12px;
+}
+
+/* Grid-spezifische Ergänzung zum gemeinsamen Pfeil-Link-Stil oben
+   (.positionierung-link, .leistung-link): nur hier nötig, weil die
+   Leistungen-Liste ein Grid-Layout ist. Farb-/Schrift-/Hover-Deklarationen
+   liegen jetzt zusammengeführt weiter oben, nicht mehr doppelt gepflegt. */
+.leistung-link {
+  grid-column: 1 / -1;
+  justify-self: start;
+}
+/* Weiterhin gebraucht auf den Leistungsseiten (blutbild-auswertung.html,
+   ernaehrungs-coaching.html, ratgeber/*) und für die Blog-Teaser-Karten auf
+   der Startseite, auch nach dem Umbau der Leistungsübersicht oben. */
+.feature-list {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 var(--space-medium);
+  flex-grow: 1;
+}
+.feature-list li {
+  position: relative;
+  padding-left: 20px;
+  margin-bottom: var(--space-small);
+  font-size: 15px;
+}
+.feature-list li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 8px;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--sage);
+}
+
+/* Fit-Check, zwei Spalten mit Haken/Kreuz-Icons */
+.fit-check {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-medium);
+}
+@media (min-width: 768px) {
+  .fit-check { grid-template-columns: 1fr 1fr; gap: var(--space-large); }
+}
+
+.fit-check-col {
+  background: var(--white);
+  border-radius: 8px;
+  padding: var(--space-medium);
+  border: 1px solid var(--border);
+}
+
+.fit-yes { border-left: 3px solid var(--sage-strong, var(--forest)); }
+.fit-no { border-left: 3px solid var(--muted); }
+
+.fit-list { list-style: none; padding: 0; margin: var(--space-medium) 0 0; }
+.fit-list li {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-small);
+  margin-bottom: var(--space-small);
+  font-size: 16px;
+}
+
+.fit-icon { flex: 0 0 20px; width: 20px; height: 20px; margin-top: 3px; }
+.fit-icon svg { width: 100%; height: 100%; }
+.fit-icon-yes { color: var(--sage-strong, var(--forest)); }
+.fit-icon-no { color: var(--muted); }
+
+/* Ratgeber-Teaser-Karten mit Bild */
+.card-blog img {
+  width: 100%;
+  height: 160px;
+  object-fit: cover;
+  border-radius: 4px;
+  margin-bottom: var(--space-small);
+}
+
+/* Bild-Hover-Zoom auf redaktionellen Fotos, angelehnt an die
+   Wettbewerbsanalyse ernaehrungscoach.melanieaurich.com (20.08.2026):
+   dort läuft beim Hover ein Bild-/Flächen-Zuschnitt statt eines reinen
+   Farbwechsels. Hier als sanfter Zoom in bestehenden, bereits
+   abgerundeten Bild-Containern, keine Struktur-/Textänderung. */
+.card-blog, .positionierung-bild, .trust-portrait, .article-thumbnail {
+  overflow: hidden;
+}
+.card-blog img,
+.positionierung-bild,
+.trust-portrait,
+.article-thumbnail {
+  transition: transform 0.4s ease;
+}
+.card-blog:hover img,
+.positionierung:hover .positionierung-bild,
+.trust:hover .trust-portrait,
+.article-thumbnail:hover {
+  transform: scale(1.06);
+}
+@media (prefers-reduced-motion: reduce) {
+  .card-blog img, .positionierung-bild, .trust-portrait, .article-thumbnail { transition: none; }
+  .card-blog:hover img, .positionierung:hover .positionierung-bild, .trust:hover .trust-portrait, .article-thumbnail:hover { transform: none; }
+}
+.card-blog .blog-meta { font-size: 13px; color: var(--muted); margin: 0 0 var(--space-small); }
+/* Pinnt den Pfeil-Link ans Kartenende, unabhängig von der Textlänge
+   (dieselbe Rolle wie zuvor .button-card mit margin-top: auto). */
+.card-blog .arrow-link { margin-top: auto; }
+.card-blog p:not(.blog-meta) { font-size: 15px; margin-bottom: var(--space-medium); }
+/* Im Ratgeber-Archiv steht je Karte ein H2 (Listenseite, mehrere
+   gleichrangige Beiträge), optisch aber wie H3, damit es sich nicht von der
+   Startseiten-Variante unterscheidet. */
+.card-blog h2 { font-size: 24px; font-weight: 400; margin-bottom: var(--space-small); }
+.blog-all { margin-top: var(--space-medium); }
+
+/* Scroll-Reveal, siehe assets/reveal.js. Startzustand leicht verschoben und
+   unsichtbar, wird beim Sichtbarwerden eingeblendet. */
+.reveal {
+  opacity: 0;
+  transform: translateY(16px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+.reveal-visible {
+  opacity: 1;
+  transform: none;
+}
+@media (prefers-reduced-motion: reduce) {
+  .reveal { opacity: 1; transform: none; transition: none; }
+}
+
+/* Zitat blendet zeitversetzt nach dem Rest der Sektion ein, angelehnt an die
+   Wettbewerbsanalyse (Bite into Balance, 21.08.2026): dort erscheint das
+   Kundinnen-Zitat nach Sternen und Portrait, nicht gleichzeitig. Aktuell
+   einzige blockquote der Seite (Positionierungs-Abschnitt), bereits echter
+   Inhalt, keine neue Struktur. */
+.reveal blockquote {
+  opacity: 0;
+  transform: translateY(10px);
+  transition: opacity 0.5s ease 0.15s, transform 0.5s ease 0.15s;
+}
+.reveal-visible blockquote {
+  opacity: 1;
+  transform: none;
+}
+@media (prefers-reduced-motion: reduce) {
+  .reveal blockquote { opacity: 1; transform: none; transition: none; }
+}
+
+/* Vorbereitet für den Testimonial-Abschnitt (Sterne-Pop-In, Portrait-Fade),
+   siehe texte-startseite.md Abschnitt 9: Abschnitt bleibt ausgeblendet, bis
+   echte Kundinnenstimmen vorliegen (Strategie/vertrauenssignale.md). Diese
+   zwei Klassen liegen bereit, keine Platzhalter-Testimonials im Markup. */
+.testimonial-stars .star {
+  display: inline-block;
+  opacity: 0;
+  transform: scale(0.4);
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+.reveal-visible .testimonial-stars .star {
+  opacity: 1;
+  transform: scale(1);
+}
+.testimonial-stars .star:nth-child(1) { transition-delay: 0ms; }
+.testimonial-stars .star:nth-child(2) { transition-delay: 80ms; }
+.testimonial-stars .star:nth-child(3) { transition-delay: 160ms; }
+.testimonial-stars .star:nth-child(4) { transition-delay: 240ms; }
+.testimonial-stars .star:nth-child(5) { transition-delay: 320ms; }
+
+.testimonial-portrait {
+  border-radius: 50%;
+  opacity: 0;
+  transform: scale(0.9);
+  transition: opacity 0.5s ease 0.4s, transform 0.5s ease 0.4s;
+}
+.reveal-visible .testimonial-portrait { opacity: 1; transform: scale(1); }
+
+.testimonial-quote {
+  opacity: 0;
+  transform: translateY(10px);
+  transition: opacity 0.5s ease 0.6s, transform 0.5s ease 0.6s;
+}
+.reveal-visible .testimonial-quote { opacity: 1; transform: none; }
+
+@media (prefers-reduced-motion: reduce) {
+  .testimonial-stars .star,
+  .testimonial-portrait,
+  .testimonial-quote { opacity: 1; transform: none; transition: none; }
+}
+
+/* Leistungsseiten (Blutbild-Auswertung und folgende), 18.08.2026.
+   Nutzt main (960px zentriert) statt main-full, da kein Bildhero nötig ist. */
+.ls-hero { padding: var(--space-large) 0 var(--space-medium); }
+.ls-hero p { max-width: var(--max-text-width); }
+.ls-hero .hero-actions { margin-top: var(--space-medium); }
+
+/* Hero als Foto-Hintergrund mit Farbüberlagerung statt seitlicher
+   Bildspalte (Wunsch Kristin 20.08.2026, "als Overlay-Hintergrund").
+   Zeigt seit der zweiten Bildwahl Beeren/Salat von oben (Pexels), kein
+   Gesicht im Bild, deshalb weiterhin einfach "center" statt "center 25%".
+   Gleiche Optik wie der Hero der Startseite, aber innerhalb von main
+   (960px) statt edge-to-edge, weil die Leistungsseiten main-full nicht
+   nutzen. */
+.ls-hero-photo {
+  position: relative;
+  border-radius: 8px;
+  overflow: hidden;
+  padding: var(--space-large) var(--space-medium);
+  background-size: cover;
+  background-position: center;
+  color: var(--white);
+}
+.ls-hero-photo h1 { color: var(--white); }
+.ls-hero-photo p { color: var(--cream); }
+
+.ls-hero-photo-ernaehrung {
+  background-image:
+    linear-gradient(rgba(30, 58, 47, 0.72), rgba(30, 58, 47, 0.72)),
+    url('images/sections/ls-hero-ernaehrung-hintergrund.jpg');
+}
+
+/* Blutbild-Auswertung auf dieselbe Optik umgestellt statt der zweispaltigen
+   Bildvariante (Rückmeldung Kristin 21.08.2026: "so ein Foto in der Art,
+   dass es stimmig ist" — gemeint ist dieselbe Hero-Behandlung wie bei
+   Ernährungs-Coaching). Wiederverwendet das bereits vorhandene, zum Brand
+   Kit passende Foto (ruhige Online-Sitzung, keine Labor-/Arztkittel-
+   Symbolik), kein neues Fotoshooting nötig. */
+.ls-hero-photo-blutbild {
+  background-image:
+    linear-gradient(rgba(30, 58, 47, 0.72), rgba(30, 58, 47, 0.72)),
+    url('images/sections/ls-hero-blutbild.jpg');
+  background-position: center 20%;
+}
+
+/* Longevity-Programm: eigenes Foto statt Wiederverwendung von
+   ls-hero-blutbild.jpg (thematisch passender: Bewegung/Ruhe statt
+   Beratungsgespräch), von Pexels, Bildsprache laut Brand Kit (ruhig,
+   alltagsnah, keine gestellte Symbolik). */
+.ls-hero-photo-longevity {
+  background-image:
+    linear-gradient(rgba(30, 58, 47, 0.72), rgba(30, 58, 47, 0.72)),
+    url('images/sections/ls-hero-longevity-hintergrund.jpg');
+}
+
+.ls-section { padding: var(--space-large) 0; border-top: 1px solid var(--border); }
+.ls-section:first-of-type { border-top: none; }
+.ls-section-light { background: var(--white); margin: 0 calc(-1 * var(--space-medium)); padding-left: var(--space-medium); padding-right: var(--space-medium); }
+.ls-section-invert { background: var(--forest); color: var(--white); margin: 0 calc(-1 * var(--space-medium)) calc(-1 * var(--space-large)); padding: var(--space-large) var(--space-medium); text-align: center; border-top: none; }
+.ls-section-invert h2 { color: var(--white); }
+
+.scope-columns {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-large);
+}
+@media (min-width: 768px) { .scope-columns { grid-template-columns: 1fr 1fr; } }
+.feature-list-muted li::before { background: var(--muted); }
+.feature-list-muted li { color: var(--muted); }
+
+.process-steps { list-style: none; padding: 0; margin: 0; }
+.process-steps li {
+  display: flex;
+  gap: var(--space-medium);
+  padding: var(--space-medium) 0;
+  border-bottom: 1px solid var(--border);
+  max-width: none;
+}
+.process-steps li:last-child { border-bottom: none; }
+.process-num {
+  flex: 0 0 40px;
+  width: 40px; height: 40px;
+  border-radius: 50%;
+  background: var(--forest);
+  color: var(--white);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 18px;
+  font-weight: 500;
+}
+.process-steps h3 { margin-bottom: 4px; }
+.process-steps p { margin: 0; }
+
+/* Ohne eigene Karte verwendet (nur Liste), etwas mehr Zeilenabstand als in Karten. */
+.feature-list-large li { font-size: 16px; margin-bottom: var(--space-medium); }
+
+.cross-sell { text-align: center; display: flex; flex-direction: column; align-items: center; gap: var(--space-medium); }
+.cross-sell p { max-width: var(--max-text-width); margin: 0 auto var(--space-medium); }
+
+/* Kontaktseite, 19.08.2026 */
+.contact-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-large);
+}
+@media (min-width: 768px) { .contact-grid { grid-template-columns: repeat(2, 1fr); } }
+.contact-item h3 { margin-bottom: var(--space-small); }
+.contact-item p { margin: 0 0 var(--space-small); }
+
+.map-embed {
+  border-radius: 8px;
+  overflow: hidden;
+  border: 1px solid var(--border);
+}
+.map-embed iframe { display: block; width: 100%; }
+
+.contact-form { max-width: var(--max-text-width); }
+.form-row { margin-bottom: var(--space-medium); }
+.form-row label { display: block; font-size: 14px; margin-bottom: var(--space-small); }
+.form-row input,
+.form-row textarea {
+  width: 100%;
+  font-family: inherit;
+  font-size: 16px;
+  padding: var(--space-small);
+  border: 1px solid var(--forest);
+  border-radius: 4px;
+  background: var(--white);
+}
+.form-row textarea { resize: vertical; }
+
+.map-fallback-hint { font-size: 14px; color: var(--muted); margin-top: var(--space-small); }
+
+/* Impressum/Datenschutz, 19.08.2026 */
+.legal-section { margin-bottom: var(--space-large); }
+.legal-section h2 { font-size: 22px; }
+.legal-section p { margin: 0 0 var(--space-small); max-width: none; }
+.legal-note { font-size: 13px; color: var(--muted); border-top: 1px solid var(--border); padding-top: var(--space-medium); }
+
+/* Blog-Artikel-Template, 19.08.2026 */
+.article-page { max-width: 1100px; }
+
+.article-h1 { max-width: var(--max-text-width); }
+.article-meta { font-size: 14px; color: var(--muted); margin-bottom: var(--space-large); }
+
+.article-layout {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-large);
+  align-items: start;
+}
+@media (min-width: 900px) {
+  .article-layout { grid-template-columns: minmax(0, 680px) 260px; }
+}
+
+.article-thumbnail {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+  margin-bottom: var(--space-large);
+}
+
+.article-body h2 { font-size: 24px; margin-top: var(--space-large); }
+.article-body p { max-width: none; }
+.article-intro {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 22px;
+  font-weight: 400;
+  color: var(--forest);
+  line-height: 1.5;
+}
+.quelle-hinweis { color: var(--muted); font-style: italic; }
+
+.article-cross-sell { margin: var(--space-large) 0; padding: var(--space-medium); background: var(--white); border-radius: 8px; }
+
+.author-box {
+  display: flex;
+  gap: var(--space-medium);
+  align-items: flex-start;
+  margin-top: var(--space-large);
+  padding-top: var(--space-large);
+  border-top: 1px solid var(--border);
+}
+.author-box img { border-radius: 50%; width: 80px; height: 80px; object-fit: cover; flex-shrink: 0; }
+.author-box h2 { font-size: 19px; margin-bottom: var(--space-small); }
+
+/* Gliederung rechts, läuft beim Scrollen mit (sticky). Auf dem Telefon
+   nicht sticky, steht als normaler Block vor dem Artikeltext. */
+/* Mobil in natürlicher Reihenfolge (Artikel zuerst, dann Gliederung),
+   passend zur geforderten Reihenfolge H1 → Thumbnail → Text. Erst ab
+   900px wandert sie per order nach rechts. */
+.article-toc-title {
+  font-size: 13px;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--muted);
+  margin: 0 0 var(--space-small);
+}
+.article-toc-list {
+  list-style: none;
+  margin: 0;
+  padding: var(--space-medium);
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+}
+.article-toc-list li { margin-bottom: var(--space-small); font-size: 15px; }
+.article-toc-list li:last-child { margin-bottom: 0; }
+.article-toc-list a { color: var(--muted); }
+.article-toc-list a.is-active { color: var(--forest); font-weight: 500; }
+
+@media (min-width: 900px) {
+  .article-toc { order: 1; position: sticky; top: calc(var(--header-height) + var(--space-medium)); max-height: calc(100vh - var(--header-height) - var(--space-large)); overflow-y: auto; }
+}
+
+/* Gilt für Sprungmarken innerhalb des Artikels (Klick auf einen Gliederungs-
+   Link): ohne scroll-margin-top landet die angesprungene Überschrift genau
+   unter dem sticky Header und ist nicht lesbar, derselbe Fund wie oben. */
+.article-body h2, .article-body h3 {
+  scroll-margin-top: calc(var(--header-height) + var(--space-medium));
+}

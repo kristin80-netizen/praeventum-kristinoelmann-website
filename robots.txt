@@ -1,0 +1,14 @@
+# Präventum Kristin Oelmann
+# Laut Roadmap/technik-audit.md, Tag 4: robots.txt und sitemap.xml im Wurzelverzeichnis.
+#
+# sitemap.xml (21.08.2026) nutzt vorläufig https://praeventum.netlify.app,
+# die aktuell tatsächlich erreichbare Adresse, NICHT die endgültige Zieldomain.
+# Die Domain-Entscheidung ist laut Stand 2026-08-20 noch offen (drei
+# Kandidaten: praeventum.netlify.app, www.praeventum.de, kristinoelmann.de).
+# Sobald die Domain feststeht: alle <loc>-Werte in sitemap.xml umstellen und
+# diesen Kommentar sowie die Sitemap-Zeile unten aktualisieren.
+
+User-agent: *
+Allow: /
+
+Sitemap: https://praeventum.netlify.app/sitemap.xml

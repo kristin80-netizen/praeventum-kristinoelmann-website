@@ -1,0 +1,567 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ernährungscoaching online – Ernährungsplan aus deinem Blutbild</title>
+  <meta name="description" content="Ernährungscoaching online auf Basis deiner Blutwerte statt allgemeiner Diätpläne. Jetzt kostenloses Erstgespräch buchen.">
+  <meta name="robots" content="index, follow">
+
+  <!-- Open Graph: og:url und og:image bewusst ohne Domain, siehe Roadmap/technik-audit.md
+       Tag 4, "Canonical-Tag zeigt nie auf eine geplante oder noch nicht erreichbare Domain".
+       Dieselbe Regel gilt sinngemäß für og:url/og:image. Beides ergänzen, sobald die
+       tatsächliche Live-Domain feststeht (siehe auch Canonical-Tag, aus demselben Grund
+       hier noch nicht gesetzt). -->
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="de_DE">
+  <meta property="og:title" content="Ernährungscoaching online – Ernährungsplan aus deinem Blutbild">
+  <meta property="og:description" content="Ernährungscoaching online auf Basis deiner Blutwerte statt allgemeiner Diätpläne. Jetzt kostenloses Erstgespräch buchen.">
+  <meta property="og:site_name" content="Präventum Kristin Oelmann">
+
+  <link rel="stylesheet" href="/assets/style.css">
+
+  <!-- Auszeichnung laut Roadmap, Abschnitt "Strukturierte Auszeichnung je Seite":
+       ProfessionalService mit NAP. sameAs ist noch leer, solange keine
+       Social-Profile bestätigt sind. -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ProfessionalService",
+    "name": "Präventum Kristin Oelmann",
+    "description": "Ernährungscoaching online auf Basis deiner Blutwerte statt allgemeiner Diätpläne.",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Wiesenstraße 19",
+      "postalCode": "09419",
+      "addressLocality": "Thum",
+      "addressCountry": "DE"
+    },
+    "telephone": "+49 170 8361077",
+    "areaServed": "DACH",
+    "founder": { "@type": "Person", "name": "Kristin Oelmann" }
+  }
+  </script>
+
+  <!-- FAQPage für den Abschnitt "Häufige Fragen". Geht über die Roadmap hinaus,
+       die FAQPage bisher nur für die Landingpage vorsieht. -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Brauche ich ein eigenes Blutbild?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Nein. Präventum bezieht vorhandene Werte ein, wo sie da sind, arbeitet aber auch ohne." }
+      },
+      {
+        "@type": "Question",
+        "name": "Findet die Beratung online statt?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Ja, die Beratung findet ausschließlich online statt und richtet sich an Kundinnen deutschlandweit." }
+      },
+      {
+        "@type": "Question",
+        "name": "Was kostet die Beratung?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Drei Pakete: Blutbild-Auswertung (einmalig, 60 Minuten), Ernährungs-Coaching (4 Wochen, 3 Sessions), Longevity-Programm (12 Wochen, 6 Sessions). Die Preise nenne ich dir im kostenlosen Erstgespräch." }
+      },
+      {
+        "@type": "Question",
+        "name": "Ersetzt Präventum den Arztbesuch?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Nein. Präventum ist kein reglementierter Heilberuf und stellt keine ärztliche Diagnose oder Behandlung." }
+      }
+    ]
+  }
+  </script>
+</head>
+<body>
+  <div data-include="/partials/header.html"></div>
+
+  <main class="main-full">
+
+    <!-- 1. Hero, Quelle Website/texte-startseite.md Abschnitt 1
+         Hintergrundbild getauscht mit ernaehrungs-coaching.html (Wunsch
+         Kristin 20.08.2026): echtes Foto von Kristin auf dem Markt statt der
+         zuvor hier gezeigten Salbeiblätter, für mehr Vertrauenswirkung auf
+         der meistbesuchten Seite. Rein dekorativ, trägt keine eigene
+         Information, deshalb weiterhin als CSS-Hintergrund ohne
+         Alternativtext. -->
+    <section class="hero">
+      <div class="hero-inner">
+        <h1>Dein Ernährungscoaching online, aufgebaut auf deinen Blutwerten</h1>
+        <p>Ernährungscoaching online auf Basis deiner Blutwerte statt allgemeiner Diätpläne, für Frauen ab 37, die bei ihrem Arzt keine Erklärung für ihre Erschöpfung bekommen haben. Vorhandene Blutwerte werden gezielt einbezogen, ein eigenes Blutbild ist keine Voraussetzung. Bei Bedarf ergänzt um Hormonberatung, Longevity und Biohacking, abgestimmt auf deine Werte.</p>
+        <div class="hero-actions">
+          <a class="button button-light" href="/erstgespraech.html">Jetzt kostenloses Erstgespräch buchen</a>
+          <a class="button button-outline" href="#leistungen">Angebote ansehen</a>
+        </div>
+        <!-- Trust-Zeile deutlich aufgewertet (Rückmeldung Kristin 21.08.2026,
+           Punkt 2 der Designkritik: "Vertrauenssignale wirken wie kleine
+           Pillen, sollten prominenter sein"). Häkchen-Icons statt reiner
+           Punkte, größere Schrift, Trennlinie zu den Buttons, vierter Fakt
+           "DACH-weit" ergänzt (bereits Teil der Positionierung laut
+           Strategie/steckbrief.md, bisher nirgends in der Trust-Zeile). -->
+        <ul class="hero-trust">
+          <li><span class="hero-trust-icon" aria-hidden="true"><svg viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M4 10.5l4 4 8-9" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>A-/B-Lizenz zertifiziert</li>
+          <li><span class="hero-trust-icon" aria-hidden="true"><svg viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M4 10.5l4 4 8-9" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>100% online, DACH-weit</li>
+          <li><span class="hero-trust-icon" aria-hidden="true"><svg viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M4 10.5l4 4 8-9" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Erstgespräch kostenlos</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- Laufendes USP-Band, angelehnt an die Wettbewerbsanalyse
+         ernaehrungscoach.melanieaurich.com (20.08.2026), auf Wunsch Kristin
+         ergänzt. Kernaussagen aus der bestehenden Positionierung, keine neuen
+         Fakten. Inhalt zweimal hintereinander für den nahtlosen Loop,
+         aria-hidden auf der Wiederholung, damit Screenreader es nicht doppelt
+         vorlesen. -->
+    <div class="usp-ticker" role="presentation">
+      <div class="usp-ticker-track">
+        <span>Daten statt Raten</span>
+        <span>Kein Pauschalplan</span>
+        <span>Kein Verkaufsdruck</span>
+        <span>Blutbild im Fokus</span>
+        <span aria-hidden="true">Daten statt Raten</span>
+        <span aria-hidden="true">Kein Pauschalplan</span>
+        <span aria-hidden="true">Kein Verkaufsdruck</span>
+        <span aria-hidden="true">Blutbild im Fokus</span>
+      </div>
+    </div>
+
+    <!-- 2. Vertrauensleiste, Quelle Website/texte-startseite.md Abschnitt 2
+         Erfüllt laut Roadmap die Vertrauenssignale 1 (Angaben zur Person)
+         und 2 (Impressum/Kontakt). -->
+    <section class="section section-light reveal">
+      <!-- Als eigenständiges Panel gestaltet statt lose auf dem Section-
+           Hintergrund zu stehen (Rückmeldung Kristin 20.08.2026: Abschnitt
+           wirkte kahl, Foto und Text schienen nicht zusammenzugehören).
+           Sage-Farbfläche versetzt hinter dem Porträt für etwas Tiefe, in
+           Markenfarbe statt Schlagschatten. Caption zeigt nur noch den
+           Namen, die Rolle steht bereits im Fließtext daneben, doppelt
+           genannt wirkte redundant. -->
+      <div class="section-inner trust">
+        <figure class="trust-portrait-wrap">
+          <img class="trust-portrait" src="/assets/images/kristin-oelmann-hero.jpg" alt="Kristin Oelmann, Anbieterin von Ernährungscoaching online" width="597" height="771">
+          <figcaption class="trust-caption">Kristin Oelmann</figcaption>
+        </figure>
+        <div>
+          <h2>Ich begleite dich <em>präventiv</em>, bevor etwas passiert.</h2>
+          <p class="trust-lead">Mein Name ist Kristin. Ich bin zertifizierte Ernährungs- und Fitnesstrainerin, und ich arbeite anders, als du es vielleicht kennst.</p>
+          <p>Ich starte nicht mit einem Diätplan. Ich starte mit deinem Blutbild. Denn dein Körper erzählt eine Geschichte: in Werten, nicht in Kleidergröße. Magnesiummangel, Schilddrüsenwerte, Cortisol, Ferritin: Diese Zahlen erklären, warum du müde bist, warum die Pfunde trotz Disziplin nicht gehen.</p>
+          <p>Ich helfe dir, diese Geschichte zu lesen und dann gezielt zu handeln. Mit Ernährung, Supplements und Bewegung, die wirklich zu dir passen.</p>
+          <ul class="trust-pills">
+            <li>Ernährungstrainerin A-Lizenz</li>
+            <li>Ernährungstrainerin B-Lizenz</li>
+            <li>Fitnesstrainerin B-Lizenz</li>
+            <li>Supplement-Beratung</li>
+            <li>Hormon-Coaching</li>
+          </ul>
+          <p class="trust-hint">Hinweis: Meine Beratung ersetzt keine ärztliche Diagnose oder Behandlung. Ich bin keine Ärztin und keine Heilpraktikerin.</p>
+          <a class="button" href="/erstgespraech.html">Kostenloses Erstgespräch buchen</a>
+          <!-- fehlt: Bewertungszahl/Sterne und Erwähnungsleiste, laut Roadmap erst
+               sobald ein Verzeichniseintrag oder Gastbeitrag existiert -->
+          <!-- fehlt: Impressum-/Kontakt-Verlinkung (Erreichbarkeit) aus der
+               vorherigen Fassung ist mit diesem Textblock entfallen, ggf.
+               im Footer/Impressum-Link der Section wieder ergänzen. -->
+        </div>
+      </div>
+    </section>
+
+    <!-- 3. Positionierung, Quelle Website/texte-startseite.md Abschnitt 3
+         Laut GEO-Messung nennt bei dieser Frage aktuell keine KI-Quelle
+         irgendeinen Anbieter, unbesetzte Positionierungslücke. -->
+    <section class="section reveal">
+      <div class="section-inner positionierung">
+        <div class="positionierung-text">
+          <h2>Dein Blutbild ist unauffällig, deine Erschöpfung ist es nicht</h2>
+          <blockquote>Ich mache alles richtig, esse gesund, bewege mich, und trotzdem nehme ich nicht ab, bin dauernd müde, und niemand kann mir sagen, warum.</blockquote>
+          <p>So beschreiben viele Frauen ab 37 ihre Situation. Ein akutes Symptom, Erschöpfung, Gewichtszunahme oder eine Zyklusveränderung, führt zum Arztbesuch. Der Arzt lässt Blutwerte bestimmen und stuft sie als unauffällig ein, das Symptom bleibt aber.</p>
+          <p>In dieser Lücke, zwischen unauffälligem Laborbefund und weiterhin echtem Leidensdruck, setzt Präventum an: Ich helfe dir herauszufinden, was dein Körper wirklich braucht, indem ich deine Blutwerte, wo vorhanden, gezielt einbeziehe und daraus einen persönlichen Ernährungs- und Supplementplan erstelle, ohne dass du zuerst noch mehr Tests oder Diäten ausprobieren musst.</p>
+          <a class="positionierung-link" href="/blutwerte-unauffaellig-trotzdem-krank.html">Warum unauffällige Blutwerte nicht jede Erschöpfung erklären <span aria-hidden="true">→</span></a>
+        </div>
+        <!-- Foto getauscht 20.08.2026 (Rückmeldung Kristin: Salbeiblätter
+             passten inhaltlich nicht zum Thema Blutbild). Blutprobenröhrchen
+             auf pastellgrünem Hintergrund, passend zur Bildsprache im
+             Brand Kit ("Labormotive stehen für die Datenbasis, nicht für
+             Krankheit"), Pexels/Kaboompics, lokal gespeichert (Bauregel 5). -->
+        <img class="positionierung-bild" src="/assets/images/sections/positionierung.jpg" alt="Salbeiblätter in Nahaufnahme" width="600" height="900" loading="lazy">
+      </div>
+    </section>
+
+    <!-- 4. Drei Nutzenpunkte, Quelle Website/texte-startseite.md Abschnitt 4 -->
+    <section class="section section-light reveal">
+      <div class="section-inner">
+        <h2>Was dieses Coaching von anderen unterscheidet</h2>
+        <div class="cards cards-three">
+          <article class="card">
+            <div class="card-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M9 2h6M10 2v6.5L4.5 18a2 2 0 0 0 1.7 3h11.6a2 2 0 0 0 1.7-3L14 8.5V2" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/><path d="M7.5 15h9" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
+            </div>
+            <h3>Blutbildbasierung statt Annahmen</h3>
+            <p>Empfehlungen zu Ernährung und Supplementen beruhen auf konkreten Laborwerten, nicht auf allgemeinen Annahmen. Laut Wettbewerbsprüfung nennt keiner der fünf geprüften Anbieter die Blutbild-Auswertung so zentral.</p>
+          </article>
+          <article class="card">
+            <div class="card-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.6"/><circle cx="12" cy="12" r="5" stroke="currentColor" stroke-width="1.6"/><circle cx="12" cy="12" r="1.4" fill="currentColor"/></svg>
+            </div>
+            <h3>Individuell angepasst, auch ohne eigenes Blutbild</h3>
+            <p>Ernährung und Supplementempfehlungen werden an deine individuellen Werte angepasst, wo Blutwerte vorhanden sind. Ein eigenes Blutbild ist keine Voraussetzung, ich arbeite auch ohne.</p>
+          </article>
+          <article class="card">
+            <div class="card-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M3 17l5-5 4 4 8-9" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/><path d="M15 7h5v5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </div>
+            <h3>Angestrebte Ergebnisse</h3>
+            <p>Gewichtsreduktion trotz Hormonproblemen, mehr Energie, verbesserter Schlaf, Muskelaufbau, Körperfettreduktion sowie Langlebigkeit und Biohacking.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Use Cases, gemäß Grundstruktur-Referenz Abschnitt 5. Nicht Teil des
+         ursprünglichen texte-startseite.md, abgeleitet aus den drei Phasen
+         in Strategie/kundenreise.md (Aufmerksamkeit, Abwägung, Entscheidung),
+         auf Wunsch von Kristin am 17.08.2026 ergänzt. Salbeigrüner Hintergrund
+         seit 18.08.2026 für mehr farbliche Abwechslung zwischen den Abschnitten. -->
+    <section class="section section-sage reveal">
+      <div class="section-inner">
+        <h2>Erkennst du dich in einer dieser Situationen wieder?</h2>
+        <!-- Umgestaltet von drei Boxen mit Ziffer (Rückmeldung Kristin
+             20.08.2026, Screenshot: großer Leerraum zwischen Überschrift und
+             Text) zu Bild-Text-Zeilen im Zickzack, mit Pexels-Fotos passend
+             zur Bildsprache im Brand Kit ("ruhige, alltagsnahe Aufnahmen,
+             keine gestellte Symbolik"). Fotos lokal gespeichert unter
+             assets/images/sections/ (Bauregel 5, kein Fremdserver), sanfte
+             Forest-Verlaufsschicht für farbliche Einheit mit der Palette. -->
+        <div class="situation-list">
+          <article class="situation-row">
+            <div class="situation-media">
+              <img src="/assets/images/sections/situation-erschoepft.jpg" alt="Frau entspannt sich zuhause auf dem Sofa, umgeben von Zimmerpflanzen" width="433" height="650" loading="lazy">
+            </div>
+            <div class="situation-content">
+              <span class="situation-number" aria-hidden="true">01</span>
+              <h3>Erschöpft trotz gesunder Ernährung und Sport</h3>
+              <p>Viele Frauen fragen sich das und fühlen sich damit allein. Oft steckt ein einzelner, häufig übersehener Blutwert dahinter, den ein Standard-Check-up nicht automatisch mitbestimmt.</p>
+            </div>
+          </article>
+          <article class="situation-row">
+            <div class="situation-media">
+              <img src="/assets/images/sections/situation-seriositaet.jpg" alt="Frau sitzt nachdenklich am Fenster" width="560" height="374" loading="lazy">
+            </div>
+            <div class="situation-content">
+              <span class="situation-number" aria-hidden="true">02</span>
+              <h3>Unsicher, ob das seriös ist oder du doch zum Arzt solltest</h3>
+              <p>Kristin ist Ernährungs- und Fitnesstrainerin, kein reglementierter Heilberuf. Die Methode „Daten statt Raten": Blutbild analysieren, Plan erstellen, begleiten und anpassen.</p>
+            </div>
+          </article>
+          <article class="situation-row">
+            <div class="situation-media">
+              <img src="/assets/images/sections/situation-paketwahl.jpg" alt="Frau überlegt konzentriert am Laptop" width="560" height="374" loading="lazy">
+            </div>
+            <div class="situation-content">
+              <span class="situation-number" aria-hidden="true">03</span>
+              <h3>Noch unklar, welches Paket zu deiner Situation passt</h3>
+              <p>Im kostenlosen, unverbindlichen Erstgespräch klären wir das gemeinsam, ohne dass du dich sofort festlegen musst.</p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- 5. So läuft's ab, Quelle Website/texte-startseite.md Abschnitt 5
+         NICHT GEBAUT. fehlt: Bestätigung, dass dies der tatsächliche Ablauf ist.
+         Die vier Schritte (Erstgespräch 20 Min., Blutbild-Auswertung wo vorhanden,
+         individueller Plan, Begleitung 4 bzw. 12 Wochen) sind aus den
+         Paketbeschreibungen abgeleitet, nirgends als eigene Methode benannt.
+         Vor dem Bauen von Kristin bestätigen lassen. -->
+
+    <!-- 6. Leistungsübersicht, Quelle Website/texte-startseite.md Abschnitt 6
+         Erfüllt die Roadmap-Pflichtregel: Startseite verweist auf alle vier
+         Leistungsseiten, Verweistexte wörtlich aus der Roadmap. -->
+
+    <!-- Wiederkehrendes Blatt-Motiv als Abschnittstrenner (Rückmeldung
+         Kristin 21.08.2026, Punkt 4 der Designkritik). Rein dekorativ,
+         deshalb aria-hidden, kein eigener Inhalt. -->
+    <div class="section-divider" aria-hidden="true">
+      <svg viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M17 8C8 10 5.9 16.17 3.82 21.34l1.89.66.95-2.3c.48.17.98.3 1.34.3C19 20 22 3 22 3c-1 2-8 2.25-13 3.25S2 11.5 2 13.5c0 1.19.31 2.19.87 3.13C4.68 12.4 8.44 8.85 17 8Z"/></svg>
+    </div>
+
+    <!-- 6. Leistungsübersicht, Quelle Website/texte-startseite.md Abschnitt 6.
+         Fließtext in Stichpunkte zerlegt, Icons und Buttons ergänzt (Wunsch
+         Kristin 18.08.2026), keine neuen Fakten, nur andere Darstellung.
+         Erfüllt die Roadmap-Pflichtregel: Startseite verweist auf alle vier
+         Leistungsseiten, Verweistexte wörtlich aus der Roadmap. -->
+    <section id="leistungen" class="section reveal">
+      <div class="section-inner">
+        <!-- Methode-Zitat mit der Leistungen-Überschrift kombiniert (Wunsch
+             Kristin 20.08.2026, statt als eigener Abschnitt davor), analog
+             praeventum.netlify.app. -->
+        <div class="method-quote-block">
+          <p class="section-eyebrow">Meine Methode</p>
+          <blockquote class="method-quote">„Daten statt Raten."</blockquote>
+          <p class="section-lead">Ich arbeite nicht mit Bauchgefühl. Ich arbeite mit deinen Werten. Jede Empfehlung hat einen Grund, und der steht in deinem Blutbild.</p>
+        </div>
+        <!-- Umgestaltet von vier hohen, ungleich gefüllten Karten (Rückmeldung
+             Kristin 20.08.2026) zu einer kompakten Zeilenliste. Icon-Kreise
+             am 20.08.2026 durch Foto-Thumbnails ersetzt (Wunsch Kristin:
+             "bei den Leistungen mit Pexels arbeiten"): ein visueller Anker
+             pro Zeile statt Icon und Foto parallel, Best Practice bei
+             Service-Zeilenlisten (z. B. Stripe-Pricing-Rows). Fotos lokal
+             gespeichert unter assets/images/sections/ (Bauregel 5), passend
+             zur Bildsprache im Brand Kit, keine gestellte Symbolik. -->
+        <div class="leistungen-list">
+
+          <article class="leistung-row">
+            <div class="leistung-media">
+              <img src="/assets/images/sections/leistung-blutbild.jpg" alt="" width="64" height="64" loading="lazy">
+            </div>
+            <div class="leistung-info">
+              <div class="leistung-heading">
+                <h3>Blutbild-Auswertung</h3>
+                <span class="leistung-duration">60 Minuten · online</span>
+              </div>
+              <ul class="leistung-tags">
+                <li>Schriftlicher Ergebnisbericht</li>
+                <li>Zeigt Nährstoffmängel, die ein Ernährungsplan allein übersieht</li>
+              </ul>
+            </div>
+            <a class="leistung-link" href="/blutbild-auswertung.html">Ernährungsberatung anhand deiner Blutbild-Werte <span aria-hidden="true">→</span></a>
+          </article>
+
+          <article class="leistung-row leistung-row-featured">
+            <div class="leistung-media">
+              <img src="/assets/images/sections/leistung-ernaehrung.jpg" alt="" width="64" height="64" loading="lazy">
+            </div>
+            <div class="leistung-info">
+              <div class="leistung-heading">
+                <h3>Ernährungs-Coaching</h3>
+                <span class="leistung-duration">4 Wochen · 3 Sessions</span>
+              </div>
+              <div class="leistung-badge-row"><span class="leistung-badge">Am häufigsten gebucht</span></div>
+              <ul class="leistung-tags">
+                <li>Individueller Ernährungsplan aus deinem Blutbild</li>
+                <li>Supplement-Empfehlungen auf Basis deiner Werte</li>
+              </ul>
+            </div>
+            <a class="leistung-link" href="/ernaehrungs-coaching.html">Vierwöchiges Ernährungs-Coaching mit persönlichem Plan <span aria-hidden="true">→</span></a>
+          </article>
+
+          <article class="leistung-row">
+            <div class="leistung-media">
+              <img class="leistung-media-img-top" src="/assets/images/sections/leistung-longevity.jpg" alt="" width="64" height="64" loading="lazy">
+            </div>
+            <div class="leistung-info">
+              <div class="leistung-heading">
+                <h3>Longevity-Programm</h3>
+                <span class="leistung-duration">12 Wochen · 6 Sessions</span>
+              </div>
+              <ul class="leistung-tags">
+                <li>Blutbild vor und nach dem Programm</li>
+                <li>Hormone, Biohacking und Fitnessplan</li>
+              </ul>
+            </div>
+            <a class="leistung-link" href="/longevity-programm.html">Zwölf Wochen Longevity-Programm für Hormone und Fitness <span aria-hidden="true">→</span></a>
+          </article>
+
+          <article class="leistung-row">
+            <div class="leistung-media">
+              <img class="leistung-media-img-top" src="/assets/images/sections/leistung-hormon.jpg" alt="" width="64" height="64" loading="lazy">
+            </div>
+            <div class="leistung-info">
+              <div class="leistung-heading">
+                <h3>Hormoncoaching</h3>
+                <!-- fehlt: Preis und Dauer, im Steckbrief nicht unter den drei Paketen aufgeführt -->
+                <span class="leistung-duration leistung-duration-open">Details im Erstgespräch</span>
+              </div>
+              <ul class="leistung-tags">
+                <li>Cortisol-, Schilddrüsen- und Zykluswerte</li>
+                <li>Durchgängiger Blutbildbezug statt Symptomlisten</li>
+              </ul>
+            </div>
+            <a class="leistung-link" href="/hormoncoaching.html">Hormoncoaching für Cortisol, Schilddrüse und Zyklus <span aria-hidden="true">→</span></a>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- Zwischen-CTA, gemäß Grundstruktur-Referenz Abschnitt 6. Text aus dem
+         älteren Website-Entwurf übernommen (unstrittiger Teil, keine der
+         beiden Konfliktstellen), auf Wunsch von Kristin am 17.08.2026 ergänzt. -->
+    <section class="zwischen-cta reveal">
+      <div class="section-inner zwischen-cta-inner">
+        <h2>Noch unsicher, welches Paket passt?</h2>
+        <p>Im kostenlosen Erstgespräch schauen wir gemeinsam, welcher Weg zu deiner Situation passt. Kein Verkaufsgespräch. Keine Verpflichtung.</p>
+        <!-- Abweichender Wortlaut vom Hero-/Abschluss-CTA (Rückmeldung Kristin
+             21.08.2026, Punkt 5 der Designkritik: identischer CTA-Text wirkt
+             bei mehrfacher Wiederholung ermüdend). Gleiches Ziel, an die
+             Überschrift "welches Paket passt?" angepasste Formulierung.
+             Hero- und Abschluss-CTA bleiben laut texte-startseite.md
+             Abschnitt 11 bewusst wortgleich, hier ausdrücklich ausgenommen. -->
+        <a class="button button-light" href="/erstgespraech.html">Passendes Paket im Gespräch klären</a>
+      </div>
+    </section>
+
+    <!-- 7. Lead-Magnet, Quelle Website/texte-startseite.md Abschnitt 7 -->
+    <section class="section section-light reveal">
+      <div class="section-inner">
+        <h2>5 Blutwerte, die jede Frau ab 40 kennen sollte</h2>
+        <p>Ferritin, TSH, Vitamin D, Cortisol und Homocystein einfach erklärt, als kostenloses PDF zum Sofort-Download.</p>
+        <!-- fehlt: Verarbeitendes Formular-Ziel. Laut Website/pflichtangaben.md ist
+             der Newsletter-Anbieter noch nicht benannt, deshalb hier ohne action. -->
+        <form class="leadform" method="POST" name="checkliste">
+          <label for="email">E-Mail-Adresse</label>
+          <input type="email" id="email" name="email" required autocomplete="email">
+          <button type="submit" class="button">Jetzt E-Mail-Adresse eintragen und Liste erhalten</button>
+        </form>
+        <p><a href="/5-blutwerte-checkliste.html">Kostenlose Checkliste: 5 Blutwerte für Frauen</a></p>
+      </div>
+    </section>
+
+
+    <!-- 8. Aus dem Ratgeber, Quelle Website/texte-startseite.md Abschnitt 8.
+         Lesezeiten aus dem älteren Website-Entwurf übernommen (unstrittiger
+         Teil, blog.html vom 28.07.2026). Veröffentlichungsdatum fehlt weiter,
+         siehe Hinweis unten, deshalb kein Datum auf den Karten. -->
+    <section class="section section-light reveal">
+      <div class="section-inner">
+        <h2>Tipps &amp; Hintergründe</h2>
+        <p class="section-lead">Verständlich erklärt, mit Quellenbeleg statt Pauschalregeln, für alle, die ihre Werte selbst einordnen wollen.</p>
+        <div class="cards cards-three cards-blog">
+
+          <article class="card card-blog">
+            <img src="/assets/images/blog/5-blutwerte-vorschau.jpg" alt="Blutprobe im Reagenzglas für Laboranalyse" width="600" height="400">
+            <p class="blog-meta">5 Min. Lesezeit</p>
+            <h3>Die 5 Blutwerte, die du unbedingt kennen solltest</h3>
+            <p>Ferritin, TSH, Vitamin D, Cortisol, Homocystein: diese Werte erklären vieles, was im kurzen Arztgespräch nicht besprochen wird.</p>
+            <a class="arrow-link" href="/5-blutwerte-checkliste.html">5-Blutwerte-Checkliste ansehen <span aria-hidden="true">→</span></a>
+          </article>
+
+          <article class="card card-blog">
+            <img src="/assets/images/blog/magnesium-vorschau.jpg" alt="Nahaufnahme von Magnesium-Kapseln" width="600" height="394">
+            <p class="blog-meta">4 Min. Lesezeit</p>
+            <h3>Magnesium: Welche Form für welches Ziel?</h3>
+            <p>Magnesiumcitrat, -malat, -glycinat: nicht alle Formen wirken gleich, je nach Ziel und Verträglichkeit.</p>
+            <a class="arrow-link" href="/ratgeber/magnesium-formen-unterschied.html">Magnesiumformen im Vergleich <span aria-hidden="true">→</span></a>
+          </article>
+
+          <article class="card card-blog">
+            <img src="/assets/images/blog/wechseljahre-vorschau.jpg" alt="Frau in Strickpullover trinkt entspannt Kräutertee auf dem Sofa" width="600" height="400">
+            <p class="blog-meta">7 Min. Lesezeit <span class="tag">in Vorbereitung</span></p>
+            <h3>Ernährung in den Wechseljahren: Was wirklich hilft</h3>
+            <p>Östrogen sinkt, Cortisol steigt, und der Körper reagiert anders. Welche Ernährungsanpassungen in dieser Phase tatsächlich etwas bewegen.</p>
+            <a class="arrow-link" href="/ratgeber/wechseljahre-hormone-ernaehrung.html">Ernährung in den Wechseljahren <span aria-hidden="true">→</span></a>
+          </article>
+
+        </div>
+        <!-- fehlt: Veröffentlichungsdatum je Beitrag (Roadmap-Signal 4, Aktualität),
+             deshalb kein Datum auf den Karten. Lesezeiten stammen aus dem älteren
+             Entwurf, nicht erfunden. -->
+        <p class="blog-all"><a href="/ratgeber/">Alle Ratgeberbeiträge ansehen</a></p>
+      </div>
+    </section>
+    <!-- 9. Was Kundinnen berichten, Quelle Website/texte-startseite.md Abschnitt 9
+         BEWUSST LEER. Laut Strategie/vertrauenssignale.md bleibt der Abschnitt
+         ausgeblendet, bis echte Kundinnenstimmen vorliegen. Platzhaltertext
+         kostet dort eher Vertrauen, als er es aufbaut. -->
+
+    <!-- Fit-Check, gemäß Grundstruktur-Referenz Abschnitt 3/Trust und Vorbild
+         olivermenzel.com (18.08.2026). Inhalt aus den "Für wen"/"Für wen nicht"-
+         Angaben in Website/texte-leistungsseite.md und den HWG/HCVO-Grenzen
+         (kein reglementierter Heilberuf, keine Diagnose), keine neuen Fakten. -->
+    <!-- Hintergrundbild mit Cream-Verlaufsschicht (Wunsch Kristin 20.08.2026),
+         Foto rein dekorativ, deshalb kein Alternativtext nötig, wie beim Hero.
+         Overlay bewusst stark genug, damit der Text weiterhin 4,5 : 1 Kontrast
+         erreicht (Bauregel 3), das Bild bleibt nur angedeutet sichtbar. -->
+    <section class="section section-light section-textured reveal">
+      <div class="section-inner">
+        <h2>Für wen dieses Coaching gemacht ist, und für wen nicht</h2>
+        <p class="section-lead">Ein ehrlicher Abgleich, bevor du buchst, nicht erst danach.</p>
+        <div class="fit-check">
+          <div class="fit-check-col fit-yes">
+            <h3>Passt, wenn du...</h3>
+            <ul class="fit-list">
+              <li><span class="fit-icon fit-icon-yes" aria-hidden="true"><svg viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M4 10.5l4 4 8-9" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>eine zweite, datenbasierte Einordnung suchst, weil dein Blutbild unauffällig ist, du dich aber nicht so fühlst</li>
+              <li><span class="fit-icon fit-icon-yes" aria-hidden="true"><svg viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M4 10.5l4 4 8-9" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>bereit bist, vorhandene Blutwerte einzubeziehen oder neue bestimmen zu lassen</li>
+              <li><span class="fit-icon fit-icon-yes" aria-hidden="true"><svg viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M4 10.5l4 4 8-9" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>einen individuellen Ernährungs- und Supplementplan statt eines Pauschalprogramms willst</li>
+              <li><span class="fit-icon fit-icon-yes" aria-hidden="true"><svg viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M4 10.5l4 4 8-9" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>die Begleitung online, per Zoom oder Telefon, wahrnehmen kannst</li>
+            </ul>
+          </div>
+          <div class="fit-check-col fit-no">
+            <h3>Passt nicht, wenn du...</h3>
+            <ul class="fit-list">
+              <li><span class="fit-icon fit-icon-no" aria-hidden="true"><svg viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M5 5l10 10M15 5L5 15" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></span>akute Beschwerden hast, die eine ärztliche Diagnose oder Behandlung brauchen</li>
+              <li><span class="fit-icon fit-icon-no" aria-hidden="true"><svg viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M5 5l10 10M15 5L5 15" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></span>eine Diagnose oder Heilbehandlung suchst: Präventum ist kein reglementierter Heilberuf</li>
+              <li><span class="fit-icon fit-icon-no" aria-hidden="true"><svg viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M5 5l10 10M15 5L5 15" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></span>ein fertiges Standardprogramm ohne eigene Werte und Mitarbeit erwartest</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- 10. Häufige Fragen, Quelle Website/texte-startseite.md Abschnitt 10
+          Nativ über details/summary, ohne JavaScript. -->
+    <section class="section reveal">
+      <div class="section-inner">
+        <h2>Häufige Fragen</h2>
+
+        <details class="faq">
+          <summary>Brauche ich ein eigenes Blutbild?</summary>
+          <p>Nein. Präventum bezieht vorhandene Werte ein, wo sie da sind, arbeitet aber auch ohne.</p>
+        </details>
+
+        <details class="faq">
+          <summary>Findet die Beratung online statt?</summary>
+          <p>Ja, die Beratung findet ausschließlich online statt und richtet sich an Kundinnen deutschlandweit.</p>
+        </details>
+
+        <details class="faq">
+          <summary>Was kostet die Beratung?</summary>
+          <p>Drei Pakete: Blutbild-Auswertung (einmalig, 60 Minuten), Ernährungs-Coaching (4 Wochen, 3 Sessions), Longevity-Programm (12 Wochen, 6 Sessions). Die Preise nenne ich dir im kostenlosen Erstgespräch.</p>
+        </details>
+
+        <details class="faq">
+          <summary>Ersetzt Präventum den Arztbesuch?</summary>
+          <p>Nein. Präventum ist kein reglementierter Heilberuf und stellt keine ärztliche Diagnose oder Behandlung.</p>
+        </details>
+
+        <details class="faq">
+          <summary>Woran erkenne ich, ob das Angebot seriös ist?</summary>
+          <p>Sieben konkrete Prüfpunkte, an denen sich eine seriöse Ernährungsberatung von reinen Verkaufsversprechen unterscheiden lässt, findest du im Beitrag "Ernährungsberaterin seriös erkennen".</p>
+          <!-- Verlinkung entfernt (SEO-Audit 21.08.2026): Zielseite existiert noch nicht, ein
+               <a href> hierher wäre ein toter Link. Sobald der Beitrag gebaut ist, hier wieder
+               verlinken, Ankertext ist in der Roadmap unter "Interne Verlinkung" festgelegt. -->
+        </details>
+
+        <!-- fehlt: weitere Standard-Fragen wie Terminabsage, Vorlaufzeit,
+             Zahlungsmethoden. Dazu liegt in keiner Datei eine Angabe vor. -->
+      </div>
+    </section>
+
+    <!-- Wiederkehrendes Blatt-Motiv als Abschnittstrenner, siehe Hinweis bei
+         der Leistungsübersicht weiter oben. -->
+    <div class="section-divider" aria-hidden="true">
+      <svg viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M17 8C8 10 5.9 16.17 3.82 21.34l1.89.66.95-2.3c.48.17.98.3 1.34.3C19 20 22 3 22 3c-1 2-8 2.25-13 3.25S2 11.5 2 13.5c0 1.19.31 2.19.87 3.13C4.68 12.4 8.44 8.85 17 8Z"/></svg>
+    </div>
+
+    <!-- 11. Abschluss-CTA, Quelle Website/texte-startseite.md Abschnitt 11
+          Überschrift von der bestehenden Website übernommen, der Text der
+          Textdatei nennt selbst keine Überschrift. -->
+    <section class="section section-invert reveal">
+      <div class="section-inner">
+        <h2>Bereit, deinen Körper zu verstehen?</h2>
+        <p>Du machst schon vieles richtig und bist trotzdem müde, nimmst nicht ab oder bekommst keine Erklärung für deine Beschwerden. Lass uns gemeinsam herausfinden, was dein Körper wirklich braucht, ohne dass du zuerst noch mehr Tests oder Diäten ausprobieren musst.</p>
+        <a class="button button-light" href="/erstgespraech.html">Jetzt kostenloses Erstgespräch buchen</a>
+        <!-- Dezente Meta-Zeile unter dem CTA, analog dem älteren Website-
+             Entwurf (.cta-final-meta), Inhalt wörtlich aus erstgespraech.html
+             übernommen, nur zusammengefasst. -->
+        <p class="cta-meta">Kostenfrei · 20 Minuten · Online via Zoom oder Telefon</p>
+      </div>
+    </section>
+
+  </main>
+
+  <div data-include="/partials/footer.html"></div>
+  <script src="/assets/include.js"></script>
+  <script src="/assets/sticky-header.js"></script>
+  <script src="/assets/nav-toggle.js"></script>
+  <script src="/assets/reveal.js"></script>
+</body>
+</html>
