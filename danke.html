@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <!-- Cookiebot: muss als erstes Skript im head stehen, vor allen anderen Skripten/Trackern -->
+  <script id="Cookiebot" src="https://consent.cookiebot.com/uc.js" data-cbid="92c8b7f5-be86-48ad-aca2-73775c7e147d" type="text/javascript"></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Danke fürs Abonnieren – dein PDF ist bereit</title>
+  <meta name="description" content="Vielen Dank für die Newsletter-Anmeldung. Lade dir jetzt die Checkliste zu fünf Blutwerten als PDF herunter.">
+  <meta name="robots" content="noindex">
+  <link rel="stylesheet" href="/assets/style.css">
+
+  <!-- Reine Bestätigungsseite nach der Newsletter-Anmeldung (Double-Opt-in-Weiterleitung
+       aus Mailchimp), bewusst mit noindex, da sie ohne vorherige Anmeldung keinen
+       eigenständigen Inhalt bietet und nicht über die Suche gefunden werden soll. -->
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Start", "item": "/" },
+      { "@type": "ListItem", "position": 2, "name": "Danke", "item": "/danke.html" }
+    ]
+  }
+  </script>
+</head>
+<body>
+  <div data-include="/partials/header.html"></div>
+
+  <main>
+    <!-- 1. Hero -->
+    <section class="ls-hero ls-hero-photo ls-hero-photo-danke">
+      <h1>Danke, dass du dabei bist</h1>
+      <p>Deine Anmeldung zum Newsletter ist bestätigt. Dein PDF mit fünf Blutwerten, die im Standard-Blutbild oft fehlen, ist ab jetzt zum Herunterladen bereit.</p>
+    </section>
+
+    <!-- 2. Download-Karte -->
+    <section class="ls-section ls-section-light">
+      <h2>Deine Checkliste zum Herunterladen</h2>
+      <div class="contact-item">
+        <h3>5 Blutwerte, die jede Frau kennen sollte</h3>
+        <p>Ferritin, TSH, Vitamin D, Cortisol und Homocystein, kurz erklärt, mit Laborbereich und einem engeren Zielbereich für dein nächstes Arztgespräch.</p>
+        <div class="hero-actions">
+          <a class="button" href="/assets/downloads/5-blutwerte-checkliste.pdf" download>PDF herunterladen</a>
+        </div>
+        <p class="section-lead" style="margin-top: var(--space-medium);">PDF, etwa 1,4 MB, acht Seiten.</p>
+      </div>
+    </section>
+
+    <!-- 3. Was jetzt -->
+    <section class="ls-section">
+      <h2>Was du als Nächstes bekommst</h2>
+      <p>Der Newsletter kommt unregelmäßig, immer dann, wenn es fachlich etwas Neues zu Ernährung, Hormonen oder Blutwerten gibt, kein festes Wochenraster. Du kannst dich jederzeit über den Link in der Fußzeile jeder E-Mail wieder abmelden.</p>
+      <p>Falls du direkt weiterlesen möchtest, findest du im <a href="/ratgeber/">Ratgeber</a> bereits fertige Beiträge, oder du vereinbarst ein <a href="/erstgespraech.html">kostenloses Erstgespräch</a>.</p>
+    </section>
+  </main>
+
+  <div data-include="/partials/footer.html"></div>
+  <script src="/assets/include.js"></script>
+  <script src="/assets/sticky-header.js"></script>
+  <script src="/assets/nav-toggle.js"></script>
+</body>
+</html>

@@ -1434,6 +1434,17 @@ blockquote {
     url('images/sections/ls-hero-longevity-hintergrund.jpg');
 }
 
+/* Dankeseite nach der Newsletter-Anmeldung: Foto zeigt eine entspannte
+   Situation mit Smartphone und Pflanzen im Hintergrund, passend zum
+   Moment "PDF wird gerade herunterladen", von Pexels, kein erkennbares
+   Gesicht im Bildausschnitt nötig. */
+.ls-hero-photo-danke {
+  background-image:
+    linear-gradient(rgba(30, 58, 47, 0.72), rgba(30, 58, 47, 0.72)),
+    url('images/sections/ls-hero-danke-hintergrund.jpg');
+  background-position: center 30%;
+}
+
 .ls-section { padding: var(--space-large) 0; border-top: 1px solid var(--border); }
 .ls-section:first-of-type { border-top: none; }
 .ls-section-light { background: var(--white); margin: 0 calc(-1 * var(--space-medium)); padding-left: var(--space-medium); padding-right: var(--space-medium); }
@@ -1661,4 +1672,27 @@ blockquote {
 @media (max-width: 480px) {
   .whatsapp-float { width: 48px; height: 48px; right: var(--space-small); bottom: 68px; }
   .whatsapp-float svg { width: 26px; height: 26px; }
+}
+
+/* Druckausgabe (z. B. "Als PDF speichern" im Browser): bisher keine
+   @page-Regel gesetzt, dadurch druckte Chrome/Edge im US-Letter-Format
+   statt A4 und Abschnitte rissen mitten im Block ab, eine leere Restfläche
+   blieb am Seitenende stehen, die Überschrift rutschte allein auf die
+   nächste Seite (aufgefallen auf danke.html, 25.08.2026). Der Wert
+   "avoid-page" allein reichte in Chrome/Edge nicht zuverlässig aus, erst
+   zusätzlich die ältere page-break-*-Schreibweise mit dem allgemeineren
+   Wert "avoid" behebt es durchgängig (dritter Versuch). Die schwimmende
+   WhatsApp-Schaltfläche ergibt im Ausdruck ohnehin keinen Sinn. */
+@media print {
+  @page { size: A4; margin: 15mm; }
+  .whatsapp-float { display: none; }
+  h1, h2, h3 {
+    break-after: avoid;
+    page-break-after: avoid;
+  }
+  .ls-hero, .ls-section, .ls-section-light, .ls-section-invert,
+  .contact-item, .leistung-row, .faq {
+    break-inside: avoid;
+    page-break-inside: avoid;
+  }
 }
