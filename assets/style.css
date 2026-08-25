@@ -1550,6 +1550,26 @@ blockquote {
 
 .map-fallback-hint { font-size: 14px; color: var(--muted); margin-top: var(--space-small); }
 
+/* Newsletter-Anmeldung unter Ratgeberartikeln (25.08.2026), eingebunden über
+   partials/newsletter-signup.html. Eigene Optik statt des Mailchimp-
+   Standard-CSS, dieselben Bausteine wie das Kontaktformular
+   (.contact-form/.form-row), ergänzt um die DSGVO-Zustimmungszeile. */
+.newsletter-signup .newsletter-form { max-width: var(--max-text-width); margin-top: var(--space-medium); }
+.required-hint { color: var(--forest); }
+.newsletter-gdpr { margin: var(--space-medium) 0; }
+.newsletter-gdpr-title { display: block; font-weight: 500; margin-bottom: var(--space-small); }
+.newsletter-gdpr p { font-size: 14px; color: var(--muted); margin: var(--space-small) 0; }
+.newsletter-gdpr .mc_fieldset { border: none; padding: 0; margin: var(--space-small) 0; }
+.checkbox-row {
+  display: flex;
+  align-items: center;
+  gap: var(--space-small);
+  font-size: 15px;
+  cursor: pointer;
+}
+.checkbox-row input[type="checkbox"] { width: auto; margin: 0; }
+.newsletter-legal { font-size: 13px; }
+
 /* Impressum/Datenschutz, 19.08.2026 */
 .legal-section { margin-bottom: var(--space-large); }
 .legal-section h2 { font-size: 22px; }

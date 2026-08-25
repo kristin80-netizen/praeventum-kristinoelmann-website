@@ -1,0 +1,44 @@
+<!-- Newsletter-Anmeldung, wird unter jedem Ratgeberartikel eingebunden
+     (Wunsch Kristin 25.08.2026). Ursprünglich von Mailchimp als
+     Embed-Code bereitgestellt, hier bewusst angepasst:
+     - Kein externes Mailchimp-CSS/-JS eingebunden (Bauregel 5, keine
+       Dateien von fremden Servern). Die Formularfelder tragen weiterhin
+       genau die Namen/IDs, die Mailchimp erwartet (EMAIL, gdpr[8],
+       Honeypot-Feld), nur die Optik kommt aus dem eigenen style.css.
+     - Die Client-seitige Validierung von mc-validate.js ist ersetzt durch
+       einfache HTML5-Pflichtfelder (required), Mailchimp prüft die
+       DSGVO-Checkbox zusätzlich serverseitig (in den Zielgruppen-
+       einstellungen als Pflicht markiert).
+     - Referral-Badge-Bild von Mailchimp (externe Bilddatei) entfernt.
+     - Versand-Endpunkt (action) ist weiterhin der echte Mailchimp-Server,
+       das ist keine "Datei von einem fremden Server", sondern das eigentliche
+       Formularziel. -->
+<section class="ls-section ls-section-light newsletter-signup">
+  <h2>Newsletter abonnieren</h2>
+  <p class="section-lead">Die Checkliste „5 Blutwerte, die jede Frau kennen sollte" als Anmeldeanreiz, danach unregelmäßig neue Beiträge zu Ernährung, Hormonen und Blutwerten.</p>
+
+  <form action="https://app.us15.list-manage.com/subscribe/post?u=aa925039fe2d16841d219179b&amp;id=ebc752e69d&amp;f_id=0082c2e1f0" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="contact-form newsletter-form" target="_blank">
+    <div class="form-row">
+      <label for="mce-EMAIL">E-Mail-Adresse <span class="required-hint">*</span></label>
+      <input type="email" name="EMAIL" class="required email" id="mce-EMAIL" required autocomplete="email">
+    </div>
+
+    <div id="mergeRow-gdpr" class="mergeRow gdpr-mergeRow newsletter-gdpr">
+      <label class="newsletter-gdpr-title">Newsletter-Einwilligung</label>
+      <p>Bitte wähle aus, wie du von Präventum · Kristin Oelmann hören möchtest:</p>
+      <fieldset class="mc_fieldset gdprRequired" name="interestgroup_field">
+        <label class="checkbox-row" for="gdpr_8">
+          <input type="checkbox" id="gdpr_8" name="gdpr[8]" class="gdpr" value="Y" required>
+          <span>E-Mail</span>
+        </label>
+      </fieldset>
+      <p class="newsletter-legal">Du kannst dich jederzeit über den Link in der Fußzeile unserer E-Mails abmelden. Informationen zu unseren Datenschutzpraktiken findest du auf unserer Website.</p>
+    </div>
+
+    <p class="visually-hidden" aria-hidden="true">
+      <label>Nicht ausfüllen: <input type="text" name="b_aa925039fe2d16841d219179b_ebc752e69d" tabindex="-1" value=""></label>
+    </p>
+
+    <button type="submit" name="subscribe" id="mc-embedded-subscribe" class="button">Abonnieren</button>
+  </form>
+</section>
