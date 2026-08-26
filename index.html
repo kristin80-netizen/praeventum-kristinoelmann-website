@@ -408,11 +408,26 @@
       <div class="section-inner">
         <h2>5 Blutwerte, die jede Frau ab 40 kennen sollte</h2>
         <p>Ferritin, TSH, Vitamin D, Cortisol und Homocystein einfach erklärt, als kostenloses PDF zum Sofort-Download.</p>
-        <!-- fehlt: Verarbeitendes Formular-Ziel. Laut Website/pflichtangaben.md ist
-             der Newsletter-Anbieter noch nicht benannt, deshalb hier ohne action. -->
-        <form class="leadform" method="POST" name="checkliste">
-          <label for="email">E-Mail-Adresse</label>
-          <input type="email" id="email" name="email" required autocomplete="email">
+        <!-- 26.08.2026: Formular-Ziel ergänzt, wiederverwendet denselben Mailchimp-Endpunkt
+             und dieselben Feldnamen wie partials/newsletter-signup.html (dort bereits
+             getestet), statt einen zweiten, separaten Anbieter aufzusetzen. Nach der
+             Anmeldung liefert Mailchimp (Double-Opt-in, danach die in den Mailchimp-
+             Kontoeinstellungen hinterlegte Bestätigungsseite /danke.html) automatisch
+             das PDF zum Download, genau wie bei der Newsletter-Anmeldung unter jedem
+             Ratgeberartikel. Die DSGVO-Einwilligung ist Pflichtfeld in der Mailchimp-
+             Zielgruppe, deshalb hier nicht weglassbar, aber kompakt gehalten. -->
+        <form class="leadform" method="post" name="checkliste" action="https://app.us15.list-manage.com/subscribe/post?u=aa925039fe2d16841d219179b&amp;id=ebc752e69d&amp;f_id=0082c2e1f0" target="_blank">
+          <div>
+            <label for="checkliste-email">E-Mail-Adresse</label>
+            <input type="email" id="checkliste-email" name="EMAIL" required autocomplete="email">
+          </div>
+          <label class="leadform-consent">
+            <input type="checkbox" id="checkliste-gdpr" name="gdpr[8]" value="Y" required>
+            <span>Ja, ich möchte den Newsletter erhalten.</span>
+          </label>
+          <p class="visually-hidden" aria-hidden="true">
+            <label>Nicht ausfüllen: <input type="text" name="b_aa925039fe2d16841d219179b_ebc752e69d" tabindex="-1" value=""></label>
+          </p>
           <button type="submit" class="button">Jetzt E-Mail-Adresse eintragen und Liste erhalten</button>
         </form>
         <p><a href="/5-blutwerte-checkliste.html">Kostenlose Checkliste: 5 Blutwerte für Frauen</a></p>

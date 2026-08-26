@@ -907,6 +907,19 @@ blockquote {
   cursor: pointer;
 }
 
+/* DSGVO-Einwilligung im Lead-Formular, 26.08.2026: Pflichtfeld der Mailchimp-Zielgruppe,
+   deshalb nicht weglassbar. Eigene Zeile statt in die flex-row gequetscht, damit der
+   lange Einwilligungstext nicht mit dem E-Mail-Feld um die Breite konkurriert. */
+.leadform-consent {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-small);
+  font-size: 13px;
+  flex-basis: 100%;
+  max-width: var(--max-text-width);
+}
+.leadform-consent input { margin-top: 3px; }
+
 /* Häufige Fragen, nativ über details/summary */
 .faq {
   border-bottom: 1px solid var(--border);
