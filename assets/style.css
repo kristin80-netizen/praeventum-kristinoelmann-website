@@ -327,6 +327,21 @@ summary:focus-visible,
 
 .footer-brand p { color: #8A8A85; font-size: 13px; }
 
+/* Instagram-Link im Footer, 26.08.2026: einziger Social-Kanal, bisher nirgends
+   auf der Website verlinkt (Marketing-Audit-Befund vom selben Tag). Gleiches
+   inline-SVG-Muster wie der bestehende WhatsApp-Button (kein externes Icon-Set,
+   Bauregel 5). */
+.footer-social {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 14px;
+  color: #B7B7B2;
+  font-size: 13px;
+}
+.footer-social svg { fill: currentColor; flex-shrink: 0; }
+.footer-social:hover { color: var(--white); }
+
 .footer-nav ul {
   list-style: none;
   display: flex;
