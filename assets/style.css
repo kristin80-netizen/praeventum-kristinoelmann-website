@@ -104,6 +104,28 @@ summary:focus-visible,
    dessen Höhe der gesamten Seite entspricht (Fund 20.08.2026). */
 [data-include] { display: contents; }
 
+/* Obere Kontaktleiste, 26.08.2026: eigenes, dunkles Band oberhalb des Headers,
+   bewusst schmal und unauffällig, damit der Header selbst optisch führend bleibt. */
+.topbar {
+  background: var(--forest);
+  color: var(--sage);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 8px var(--space-medium);
+  font-size: 13px;
+}
+.topbar-mail { display: inline-flex; align-items: center; gap: 8px; color: var(--sage); text-decoration: none; }
+.topbar-mail:hover { color: var(--white); }
+.topbar-mail svg { fill: currentColor; flex-shrink: 0; }
+.topbar-social { display: flex; align-items: center; gap: 14px; }
+.topbar-social a { display: inline-flex; color: var(--sage); }
+.topbar-social a:hover { color: var(--white); }
+.topbar-social svg { fill: currentColor; }
+@media (max-width: 600px) {
+  .topbar-mail span { display: none; }
+}
+
 .site-header {
   background: var(--cream);
   border-bottom: 1px solid var(--border);
