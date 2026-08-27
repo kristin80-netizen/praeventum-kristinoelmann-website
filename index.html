@@ -443,43 +443,18 @@
 
 
     <!-- 8. Aus dem Ratgeber, Quelle Website/texte-startseite.md Abschnitt 8.
-         Lesezeiten aus dem älteren Website-Entwurf übernommen (unstrittiger
-         Teil, blog.html vom 28.07.2026). Veröffentlichungsdatum fehlt weiter,
-         siehe Hinweis unten, deshalb kein Datum auf den Karten. -->
+         26.08.2026: von drei fest eingetragenen Karten auf dynamischen Aufbau
+         umgestellt (assets/homepage-blog-teaser.js, liest ratgeber/artikel.json,
+         gleiches Prinzip wie die Ratgeber-Übersicht selbst). Vorher blieben neue
+         Beiträge wie "Langlebigkeit durch Ernährung" hier unsichtbar, weil die
+         Karten von Hand gepflegt wurden statt sich automatisch zu aktualisieren. -->
     <section class="section section-light reveal">
       <div class="section-inner">
         <h2>Tipps &amp; Hintergründe</h2>
         <p class="section-lead">Verständlich erklärt, mit Quellenbeleg statt Pauschalregeln, für alle, die ihre Werte selbst einordnen wollen.</p>
-        <div class="cards cards-three cards-blog">
-
-          <article class="card card-blog">
-            <img src="/assets/images/blog/5-blutwerte-vorschau.jpg" alt="Blutprobe im Reagenzglas für Laboranalyse" width="600" height="400">
-            <p class="blog-meta">5 Min. Lesezeit</p>
-            <h3>Die 5 Blutwerte, die du unbedingt kennen solltest</h3>
-            <p>Ferritin, TSH, Vitamin D, Cortisol, Homocystein: diese Werte erklären vieles, was im kurzen Arztgespräch nicht besprochen wird.</p>
-            <a class="arrow-link" href="/5-blutwerte-checkliste.html">5-Blutwerte-Checkliste ansehen <span aria-hidden="true">→</span></a>
-          </article>
-
-          <article class="card card-blog">
-            <img src="/assets/images/blog/magnesium-vorschau.jpg" alt="Nahaufnahme von Magnesium-Kapseln" width="600" height="394">
-            <p class="blog-meta">4 Min. Lesezeit</p>
-            <h3>Magnesium: Welche Form für welches Ziel?</h3>
-            <p>Magnesiumcitrat, -malat, -glycinat: nicht alle Formen wirken gleich, je nach Ziel und Verträglichkeit.</p>
-            <a class="arrow-link" href="/ratgeber/magnesium-formen-unterschied.html">Magnesiumformen im Vergleich <span aria-hidden="true">→</span></a>
-          </article>
-
-          <article class="card card-blog">
-            <img src="/assets/images/blog/wechseljahre-vorschau.jpg" alt="Frau in Strickpullover trinkt entspannt Kräutertee auf dem Sofa" width="600" height="400">
-            <p class="blog-meta">7 Min. Lesezeit <span class="tag">in Vorbereitung</span></p>
-            <h3>Ernährung in den Wechseljahren: Was wirklich hilft</h3>
-            <p>Östrogen sinkt, Cortisol steigt, und der Körper reagiert anders. Welche Ernährungsanpassungen in dieser Phase tatsächlich etwas bewegen.</p>
-            <a class="arrow-link" href="/ratgeber/wechseljahre-hormone-ernaehrung.html">Ernährung in den Wechseljahren <span aria-hidden="true">→</span></a>
-          </article>
-
+        <div class="cards cards-three cards-blog" id="homepage-blog-teaser">
+          <p>Beiträge werden geladen …</p>
         </div>
-        <!-- fehlt: Veröffentlichungsdatum je Beitrag (Roadmap-Signal 4, Aktualität),
-             deshalb kein Datum auf den Karten. Lesezeiten stammen aus dem älteren
-             Entwurf, nicht erfunden. -->
         <p class="blog-all"><a href="/ratgeber/">Alle Ratgeberbeiträge ansehen</a></p>
       </div>
     </section>
@@ -588,5 +563,6 @@
   <script src="/assets/sticky-header.js"></script>
   <script src="/assets/nav-toggle.js"></script>
   <script src="/assets/reveal.js"></script>
+  <script src="/assets/homepage-blog-teaser.js"></script>
 </body>
 </html>
