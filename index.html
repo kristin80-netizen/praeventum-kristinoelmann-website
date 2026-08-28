@@ -22,6 +22,14 @@
 
   <link rel="stylesheet" href="/assets/style.css">
 
+  <!-- Mobile Ladezeit (Befund Marketing-Audit 26.08.2026, LCP 5,1s mobil):
+       Hero-Hintergrundbild ist das größte Element im ersten sichtbaren
+       Bereich (LCP-Kandidat), steckt aber als CSS-background-image in
+       style.css und wird vom Browser erst nach dem CSS-Parsing entdeckt.
+       Preload holt es parallel dazu schon vorab, type sorgt dafür, dass
+       Browser ohne WebP-Unterstützung diese Zeile ignorieren. -->
+  <link rel="preload" as="image" href="/assets/images/hero-hintergrund.webp" type="image/webp" fetchpriority="high">
+
   <!-- Auszeichnung laut Roadmap, Abschnitt "Strukturierte Auszeichnung je Seite":
        ProfessionalService mit NAP. sameAs ist noch leer, solange keine
        Social-Profile bestätigt sind. -->
@@ -40,7 +48,8 @@
     },
     "telephone": "+49 170 8361077",
     "areaServed": "DACH",
-    "founder": { "@type": "Person", "name": "Kristin Oelmann" }
+    "founder": { "@type": "Person", "name": "Kristin Oelmann" },
+    "logo": "/assets/praeventum-logo.svg"
   }
   </script>
 
@@ -366,10 +375,15 @@
           <!-- Hormoncoaching-Karte hier bewusst herausgenommen (Kristin, 26.08.2026,
                "best practice"): im Unterschied zu den drei anderen Paketen fehlen Preis
                und Dauer, "Details im Erstgespräch" wirkte neben drei fertigen Karten
-               unfertig. Die Seite selbst (hormoncoaching.html) bleibt online, weiterhin
-               über das Leistungen-Dropdown im Header erreichbar, dort bereits mit dem
-               Hinweis "in Vorbereitung" gekennzeichnet. Karte hier wieder einfügen,
-               sobald Preis/Dauer feststehen. -->
+               unfertig. Aktualisiert 28.08.2026 (Termin 2 Redaktionsplan): hormoncoaching.html
+               ist jetzt vollständig ausgeschrieben, aber laut Strategie/steckbrief.md
+               weiterhin kein eigenständiges viertes Paket mit eigenem Preis/Dauer,
+               sondern ein Thema innerhalb von Blutbild-Auswertung und Longevity-Programm,
+               der ursprüngliche Grund für das Weglassen hier gilt deshalb unverändert.
+               Die Seite selbst bleibt online, über das Leistungen-Dropdown im Header
+               erreichbar (Hinweis "in Vorbereitung" dort entfernt, Seite ist fertig).
+               Karte hier wieder einfügen, falls Hormoncoaching doch zu einem eigenen
+               Paket mit Preis/Dauer wird. -->
           <!--
           <article class="leistung-row">
             <div class="leistung-media">

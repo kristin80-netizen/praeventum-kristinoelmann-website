@@ -8,15 +8,190 @@
   <title>Hormoncoach für Frauen – Beratung auf Basis deiner Blutwerte</title>
   <link rel="canonical" href="https://praeventum-kristinoelmann.netlify.app/hormoncoaching.html">
   <meta name="description" content="Hormoncoaching für Frauen mit durchgängigem Blutbildbezug statt allgemeiner Symptomlisten, für Cortisol-, Schilddrüsen- und Zykluswerte. Jetzt Erstgespräch buchen.">
+  <meta name="robots" content="index, follow">
   <link rel="stylesheet" href="/assets/style.css">
+
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="de_DE">
+  <meta property="og:title" content="Hormoncoach für Frauen – Beratung auf Basis deiner Blutwerte">
+  <meta property="og:description" content="Hormoncoaching für Frauen mit durchgängigem Blutbildbezug statt allgemeiner Symptomlisten, für Cortisol-, Schilddrüsen- und Zykluswerte. Jetzt Erstgespräch buchen.">
+  <meta property="og:site_name" content="Präventum Kristin Oelmann">
+
+  <!-- Bewusst kein eigenständiges Service-Schema mit eigenem Ablauf/Umfang,
+       anders als longevity-programm.html: Hormoncoaching ist laut
+       Strategie/steckbrief.md kein eigenes viertes Paket, sondern ein Thema,
+       das innerhalb der Blutbild-Auswertung und des Longevity-Programms
+       behandelt wird. Ein eigenes "Service"-Schema mit erfundenem Umfang
+       würde ein Angebot behaupten, das es in dieser Form nicht gibt.
+       WebPage statt Service, analog blutwerte-unauffaellig-trotzdem-krank.html. -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "name": "Hormoncoach für Frauen – Beratung auf Basis deiner Blutwerte",
+    "description": "Hormoncoaching für Frauen mit durchgängigem Blutbildbezug statt allgemeiner Symptomlisten, für Cortisol-, Schilddrüsen- und Zykluswerte.",
+    "author": { "@type": "Person", "name": "Kristin Oelmann" },
+    "publisher": { "@type": "Organization", "name": "Präventum Kristin Oelmann", "logo": { "@type": "ImageObject", "url": "/assets/praeventum-logo.svg", "width": 120, "height": 70 } }
+  }
+  </script>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Start", "item": "/" },
+      { "@type": "ListItem", "position": 2, "name": "Hormoncoaching", "item": "/hormoncoaching.html" }
+    ]
+  }
+  </script>
+
+  <!-- FAQ-Fragen aus Keywords/keyword-landkarte.md, Themengruppe "Hormoncoach"
+       ("Was kostet ein Hormontest für Wechseljahre", "Wann ist ein
+       Hormoncheck in den Wechseljahren sinnvoll"), wörtlich identisch mit
+       den sichtbaren <details>-Elementen unten. -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Ist Hormoncoaching bei Präventum ein eigenes Paket?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Nein. Hormonwerte wie Cortisol, Schilddrüse oder Zyklushormone fließen in die Blutbild-Auswertung und das Longevity-Programm mit ein, es gibt kein separates viertes Paket nur für Hormone." }
+      },
+      {
+        "@type": "Question",
+        "name": "Welche Hormonwerte werden typischerweise betrachtet?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Je nach vorhandenem Blutbild und Anliegen unter anderem TSH und die freien Schilddrüsenhormone, Cortisol sowie, bei Zyklusfragen, Östrogen und Progesteron." }
+      },
+      {
+        "@type": "Question",
+        "name": "Was kostet ein Hormontest für die Wechseljahre?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Das hängt vom Labor und dem Umfang der bestimmten Werte ab und wird direkt vom Labor abgerechnet, nicht von Präventum. Im kostenlosen Erstgespräch ordnen wir gemeinsam ein, welche Werte für dein Anliegen sinnvoll sind." }
+      },
+      {
+        "@type": "Question",
+        "name": "Wann ist ein Hormoncheck in den Wechseljahren sinnvoll?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Vor allem, wenn Beschwerden wie Erschöpfung, Schlafprobleme oder Gewichtsveränderungen trotz eines unauffälligen Blutbilds bestehen bleiben. Das ist ein Hinweis, gezielt nachzufragen, keine Diagnose." }
+      }
+    ]
+  }
+  </script>
 </head>
 <body>
   <div data-include="/partials/header.html"></div>
 
   <main>
-    <h1>Dein Hormoncoach, Klarheit über Cortisol, Schilddrüse und Zyklus</h1>
-    <p class="tag">In Vorbereitung — laut Roadmap Bauphase „danach", noch kein eigenes Paket/Preis hinterlegt.</p>
-    <!-- Platzhalter für den Inhalt: Leistungsseite Hormoncoaching, Quelle Roadmap/seo-geo-roadmap.md Punkt 5 -->
+    <!-- 1. Hero, gleiche Foto-Hintergrund-Behandlung wie die anderen
+         Leistungsseiten. Foto von Pexels (ruhige, alltagsnahe Situation,
+         kein Labor-/Arztkittel-Symbol), Bildsprache laut Brand Kit. -->
+    <section class="ls-hero ls-hero-photo ls-hero-photo-hormon">
+      <h1>Dein Hormoncoach, Klarheit über Cortisol, Schilddrüse und Zyklus</h1>
+      <p>Erschöpfung, Gewichtsveränderungen oder Schlafprobleme haben oft mit Hormonen zu tun, gerade wenn das Blutbild auf den ersten Blick unauffällig ist. Ich ordne deine Hormonwerte, wo vorhanden, in deine Ernährungsberatung ein, statt sie isoliert zu betrachten.</p>
+      <div class="hero-actions">
+        <a class="button button-light" href="/erstgespraech.html">Jetzt kostenloses Erstgespräch buchen</a>
+        <a class="button button-outline" href="#einordnung">Wie das eingebunden ist</a>
+      </div>
+    </section>
+
+    <!-- 2. Für wen / Für wen nicht -->
+    <section class="ls-section">
+      <h2>Für wen das passt, und für wen nicht</h2>
+      <div class="fit-check">
+        <div class="fit-check-col fit-yes">
+          <h3>Für dich, wenn du...</h3>
+          <ul class="fit-list">
+            <li><span class="fit-icon fit-icon-yes" aria-hidden="true"><svg viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M4 10.5l4 4 8-9" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Erschöpfung, Zyklusveränderungen oder Gewichtszunahme bemerkst, obwohl dein Blutbild unauffällig ist</li>
+            <li><span class="fit-icon fit-icon-yes" aria-hidden="true"><svg viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M4 10.5l4 4 8-9" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>wissen willst, welche Hormonwerte für dein Anliegen überhaupt relevant sind</li>
+            <li><span class="fit-icon fit-icon-yes" aria-hidden="true"><svg viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M4 10.5l4 4 8-9" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Ernährung und Hormone im Zusammenhang statt getrennt betrachtet haben willst</li>
+          </ul>
+        </div>
+        <div class="fit-check-col fit-no">
+          <h3>Nicht für dich, wenn du...</h3>
+          <ul class="fit-list">
+            <li><span class="fit-icon fit-icon-no" aria-hidden="true"><svg viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M5 5l10 10M15 5L5 15" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></span>eine akute hormonelle Erkrankung ärztlich abklären lassen musst</li>
+            <li><span class="fit-icon fit-icon-no" aria-hidden="true"><svg viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M5 5l10 10M15 5L5 15" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></span>ein eigenständiges Hormonpaket ohne Ernährungsbezug suchst</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- 3. Ehrliche Einordnung, kein erfundenes viertes Paket. Hormonthemen
+         fließen laut Strategie/steckbrief.md in Blutbild-Auswertung und
+         Longevity-Programm ein, es gibt keinen eigenen Ablauf/Umfang dafür. -->
+    <section id="einordnung" class="ls-section ls-section-light">
+      <h2>Wie Hormonwerte in die Beratung einfließen</h2>
+      <p class="section-lead">Hormoncoaching ist bei Präventum kein eigenständiges Paket, sondern ein Schwerpunkt innerhalb der bestehenden Angebote. Cortisol-, Schilddrüsen- und Zykluswerte werden dort einbezogen, wo sie zu deinem Anliegen passen, nicht als separate Zusatzleistung.</p>
+      <div class="scope-columns">
+        <div>
+          <h3>Blutbild-Auswertung</h3>
+          <p>Der erste Schritt, um zu sehen, welche Hormonwerte in deinem bestehenden Blutbild bereits vorliegen und wie sie einzuordnen sind.</p>
+        </div>
+        <div>
+          <h3>Longevity-Programm</h3>
+          <p>Bezieht Hormone über 12 Wochen durchgängig mit ein, mit einem zweiten Blutbild am Ende zum Vergleich.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 4. Welche Werte typischerweise betrachtet werden, Wissen aus
+         wissen-longevity/hormone. Bewusst als Einordnung formuliert, keine
+         Einnahme- oder Behandlungsempfehlung (HWG-Leitplanken). -->
+    <section class="ls-section">
+      <h2>Welche Hormonwerte häufig eine Rolle spielen</h2>
+      <div class="scope-columns">
+        <div>
+          <h3>Cortisol</h3>
+          <p>Das zentrale Stresshormon folgt einem festen Tagesrhythmus, ein einzelner Wert zeigt oft weniger als der Verlauf über den Tag. <em>(Nicht belegt, vor Veröffentlichung durch eine Primärquelle zu ergänzen.)</em></p>
+        </div>
+        <div>
+          <h3>Schilddrüse (TSH, fT3, fT4)</h3>
+          <p>TSH allein zeigt nur einen Ausschnitt, die freien Schilddrüsenhormone fT3 und fT4 werden bei einer Routineuntersuchung nicht automatisch mitbestimmt. <em>(Nicht belegt, vor Veröffentlichung durch eine Primärquelle zu ergänzen.)</em></p>
+        </div>
+        <div>
+          <h3>Zyklus (Östrogen, Progesteron)</h3>
+          <p>In den Wechseljahren verändert sich das Verhältnis dieser beiden Hormone, das kann sich auf Energie, Schlaf und Gewicht auswirken. <em>(Nicht belegt, vor Veröffentlichung durch eine Primärquelle zu ergänzen.)</em></p>
+        </div>
+      </div>
+      <p class="legal-note">Diese Einordnung ersetzt keine ärztliche Diagnose oder Behandlung. Ich bin keine Ärztin und keine Heilpraktikerin.</p>
+    </section>
+
+    <!-- 5. FAQ, identisch mit dem JSON-LD im Kopfbereich -->
+    <section class="ls-section ls-section-light">
+      <h2>Häufige Fragen</h2>
+      <details class="faq">
+        <summary>Ist Hormoncoaching bei Präventum ein eigenes Paket?</summary>
+        <p>Nein. Hormonwerte wie Cortisol, Schilddrüse oder Zyklushormone fließen in die Blutbild-Auswertung und das Longevity-Programm mit ein, es gibt kein separates viertes Paket nur für Hormone.</p>
+      </details>
+      <details class="faq">
+        <summary>Welche Hormonwerte werden typischerweise betrachtet?</summary>
+        <p>Je nach vorhandenem Blutbild und Anliegen unter anderem TSH und die freien Schilddrüsenhormone, Cortisol sowie, bei Zyklusfragen, Östrogen und Progesteron.</p>
+      </details>
+      <details class="faq">
+        <summary>Was kostet ein Hormontest für die Wechseljahre?</summary>
+        <p>Das hängt vom Labor und dem Umfang der bestimmten Werte ab und wird direkt vom Labor abgerechnet, nicht von Präventum. Im kostenlosen Erstgespräch ordnen wir gemeinsam ein, welche Werte für dein Anliegen sinnvoll sind.</p>
+      </details>
+      <details class="faq">
+        <summary>Wann ist ein Hormoncheck in den Wechseljahren sinnvoll?</summary>
+        <p>Vor allem, wenn Beschwerden wie Erschöpfung, Schlafprobleme oder Gewichtsveränderungen trotz eines unauffälligen Blutbilds bestehen bleiben. Das ist ein Hinweis, gezielt nachzufragen, keine Diagnose.</p>
+      </details>
+    </section>
+
+    <!-- 6. Cross-Sell zum Longevity-Programm, Verweistext wörtlich aus der
+         Roadmap ("Interne Verlinkung"). -->
+    <section class="ls-section">
+      <div class="cross-sell">
+        <p>Du willst Hormone langfristig und im Zusammenhang mit Ernährung und Biohacking begleitet haben?</p>
+        <a class="arrow-link" href="/longevity-programm.html">Longevity-Programm, das Hormoncoaching mit Fitness und Biohacking verbindet <span aria-hidden="true">→</span></a>
+      </div>
+    </section>
+
+    <!-- 7. Abschluss-CTA -->
+    <section class="ls-section ls-section-invert">
+      <h2>Bereit, deine Hormonwerte einzuordnen?</h2>
+      <a class="button button-light" href="/erstgespraech.html">Jetzt kostenloses Erstgespräch buchen</a>
+    </section>
   </main>
 
   <div data-include="/partials/footer.html"></div>

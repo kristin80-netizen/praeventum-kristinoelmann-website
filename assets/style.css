@@ -30,8 +30,24 @@
      ihr sticky-top nur --space-medium statt der Header-Höhe berücksichtigte). */
   --header-height: 128px;
 
+  /* Gemessene Höhe von .site-footer (403px auf Desktop, 982px Breite,
+     28.08.2026), für denselben Zweck wie --header-height: Platz reservieren,
+     bevor footer.html per data-include nachgeladen wird. */
+  --footer-height: 404px;
+
   --max-text-width: 680px;
 }
+
+/* Layout-Verschiebung (CLS) beheben, Befund Marketing-Audit 26.08.2026:
+   Kopf- und Fußbereich starten als leere Divs und werden erst per
+   assets/include.js nachgeladen (fetch + innerHTML). Ohne reservierten
+   Platz springt der gesamte Seiteninhalt nach unten, sobald der Header
+   eintrifft, das ist der Haupttreiber von CLS 0,137 (Desktop) / 0,167
+   (Mobile). Die Mindesthöhe hier entspricht der tatsächlich gemessenen
+   Höhe der eingebundenen Inhalte, dadurch reserviert der leere Platzhalter
+   von Anfang an denselben Raum, den Header/Footer nach dem Laden brauchen. */
+[data-include="/partials/header.html"] { display: block; min-height: var(--header-height); }
+[data-include="/partials/footer.html"] { display: block; min-height: var(--footer-height); }
 
 * { box-sizing: border-box; }
 
@@ -477,6 +493,21 @@ main {
   animation: hero-kenburns 24s ease-in-out infinite alternate;
 }
 
+/* Mobile Ladezeit (Befund Marketing-Audit 26.08.2026: LCP 5,1s mobil,
+   1,1s Desktop): WebP statt JPEG für das Hero-Hintergrundbild, das größte
+   Element im sichtbaren Bereich (LCP-Kandidat) auf jeder Seite mit .hero.
+   40% kleiner (90 statt 151 KB) bei gleicher Optik, weil die dunkle
+   Farbschicht darüber ohnehin einen Großteil der Bilddetails überdeckt.
+   @supports als Absicherung: Browser ohne image-set()-Unterstützung
+   bekommen weiterhin die obige JPEG-Zeile, kein leerer Hintergrund möglich. */
+@supports (background-image: image-set(url('images/hero-hintergrund.webp') 1x)) {
+  .hero {
+    background-image:
+      linear-gradient(rgba(30, 58, 47, 0.75), rgba(30, 58, 47, 0.75)),
+      image-set(url('images/hero-hintergrund.webp') 1x, url('images/hero-hintergrund.jpg') 1x);
+  }
+}
+
 /* Sehr langsamer, kaum wahrnehmbarer Zoom im Hero-Hintergrund, angelehnt an
    die Wettbewerbsanalyse ernaehrungscoach.melanieaurich.com (20.08.2026).
    Rein dekorativ, keine Inhaltsänderung, respektiert reduzierte Bewegung. */
@@ -499,6 +530,19 @@ main {
         rgba(30, 58, 47, 0.20) 100%
       ),
       url('images/hero-hintergrund.jpg');
+  }
+  @supports (background-image: image-set(url('images/hero-hintergrund.webp') 1x)) {
+    .hero {
+      background-image:
+        linear-gradient(
+          to right,
+          rgba(30, 58, 47, 0.88) 0%,
+          rgba(30, 58, 47, 0.84) 55%,
+          rgba(30, 58, 47, 0.62) 75%,
+          rgba(30, 58, 47, 0.20) 100%
+        ),
+        image-set(url('images/hero-hintergrund.webp') 1x, url('images/hero-hintergrund.jpg') 1x);
+    }
   }
   /* Der Text bleibt im abgedunkelten Bereich, ohne die Spalte zu quetschen.
      Von 520px auf 640px verbreitert (21.08.2026): bei 520px brach die H1
@@ -1482,6 +1526,16 @@ blockquote {
   background-image:
     linear-gradient(rgba(30, 58, 47, 0.72), rgba(30, 58, 47, 0.72)),
     url('images/sections/ls-hero-longevity-hintergrund.jpg');
+}
+
+/* Hormoncoaching: Foto von Pexels, ruhige, alltagsnahe Meditationssituation
+   im Gegenlicht, keine gestellte Symbolik, Bildsprache laut Brand Kit
+   (28.08.2026, Termin 2 des Redaktionsplans). */
+.ls-hero-photo-hormon {
+  background-image:
+    linear-gradient(rgba(30, 58, 47, 0.72), rgba(30, 58, 47, 0.72)),
+    url('images/sections/ls-hero-hormon-hintergrund.jpg');
+  background-position: center 30%;
 }
 
 /* Dankeseite nach der Newsletter-Anmeldung: Foto zeigt eine entspannte
