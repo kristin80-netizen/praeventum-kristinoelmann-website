@@ -1713,6 +1713,8 @@ blockquote {
   line-height: 1.5;
 }
 .quelle-hinweis { color: var(--muted); font-style: italic; }
+.quelle-liste { color: var(--muted); font-size: 14px; line-height: 1.6; padding-left: 20px; }
+.quelle-liste li { margin-bottom: var(--space-small); }
 
 .article-cross-sell { margin: var(--space-large) 0; padding: var(--space-medium); background: var(--white); border-radius: 8px; }
 

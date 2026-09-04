@@ -14,6 +14,20 @@
     "status": "veröffentlicht"
   },
   {
+    "slug": "hashimoto-ernaehrung",
+    "url": "/ratgeber/hashimoto-ernaehrung.html",
+    "title": "Hashimoto und Ernährung, was die Studienlage tatsächlich sagt",
+    "excerpt": "Welche Lebensmittel bei Hashimoto häufig Beschwerden auslösen und was das Autoimmunprotokoll dagegen einschließt, mit Quellenbeleg.",
+    "image": "/assets/images/blog/hashimoto-vorschau.jpg",
+    "imageAlt": "Avocado, Petersilie und Grünkohl auf einer Marmorplatte, mit dem Schriftzug Hashimoto und Ernährung",
+    "imageWidth": 1200,
+    "imageHeight": 630,
+    "category": "Hormone",
+    "readingTime": "8 Min.",
+    "publishDate": null,
+    "status": "veröffentlicht"
+  },
+  {
     "slug": "homocystein-wert",
     "url": "/ratgeber/homocystein-wert.html",
     "title": "Homocystein-Wert erhöht: was das bedeutet",
