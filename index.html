@@ -436,8 +436,13 @@
              Kontoeinstellungen hinterlegte Bestätigungsseite /danke.html) automatisch
              das PDF zum Download, genau wie bei der Newsletter-Anmeldung unter jedem
              Ratgeberartikel. Die DSGVO-Einwilligung ist Pflichtfeld in der Mailchimp-
-             Zielgruppe, deshalb hier nicht weglassbar, aber kompakt gehalten. -->
-        <form class="leadform" method="post" name="checkliste" action="https://app.us15.list-manage.com/subscribe/post?u=aa925039fe2d16841d219179b&amp;id=ebc752e69d&amp;f_id=0082c2e1f0" target="_blank">
+             Zielgruppe, deshalb hier nicht weglassbar, aber kompakt gehalten.
+             - target="_blank" entfernt (Fehlerbericht Kristin 08.09.2026, gleicher Fehler
+               wie beim Newsletter-Formular unter den Ratgeberartikeln, siehe
+               partials/newsletter-signup.html): Chrome blockiert den durch das Formular
+               ausgelösten neuen Tab in bestimmten Fällen als Pop-up, dann läuft die
+               gesamte Übermittlung ins Leere, ohne dass irgendeine Rückmeldung erscheint. -->
+        <form class="leadform" method="post" name="checkliste" action="https://app.us15.list-manage.com/subscribe/post?u=aa925039fe2d16841d219179b&amp;id=ebc752e69d&amp;f_id=0082c2e1f0">
           <div>
             <label for="checkliste-email">E-Mail-Adresse</label>
             <input type="email" id="checkliste-email" name="EMAIL" required autocomplete="email">
