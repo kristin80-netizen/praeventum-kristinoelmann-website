@@ -3,6 +3,17 @@
 <head>
   <!-- Cookiebot: muss als erstes Skript im head stehen, vor allen anderen Skripten/Trackern -->
   <script id="Cookiebot" src="https://consent.cookiebot.com/uc.js" data-cbid="92c8b7f5-be86-48ad-aca2-73775c7e147d" type="text/javascript"></script>
+  <!-- Google Analytics 4 (Praeventum Website), eingerichtet 09.09.2026: hinter
+       Cookiebot-Einwilligung "Statistiken" geladen (type="text/plain" +
+       data-cookieconsent, von Cookiebot automatisch freigeschaltet, sobald
+       zugestimmt wird), laeuft nicht ohne Einwilligung. -->
+  <script type="text/plain" data-cookieconsent="statistics" async src="https://www.googletagmanager.com/gtag/js?id=G-PSJH1RZDL6"></script>
+  <script type="text/plain" data-cookieconsent="statistics">
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-PSJH1RZDL6');
+  </script>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Danke fürs Abonnieren – dein PDF ist bereit</title>

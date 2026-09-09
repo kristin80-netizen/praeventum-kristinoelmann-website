@@ -3,6 +3,17 @@
 <head>
   <!-- Cookiebot: muss als erstes Skript im head stehen, vor allen anderen Skripten/Trackern -->
   <script id="Cookiebot" src="https://consent.cookiebot.com/uc.js" data-cbid="92c8b7f5-be86-48ad-aca2-73775c7e147d" type="text/javascript"></script>
+  <!-- Google Analytics 4 (Praeventum Website), eingerichtet 09.09.2026: hinter
+       Cookiebot-Einwilligung "Statistiken" geladen (type="text/plain" +
+       data-cookieconsent, von Cookiebot automatisch freigeschaltet, sobald
+       zugestimmt wird), laeuft nicht ohne Einwilligung. -->
+  <script type="text/plain" data-cookieconsent="statistics" async src="https://www.googletagmanager.com/gtag/js?id=G-PSJH1RZDL6"></script>
+  <script type="text/plain" data-cookieconsent="statistics">
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-PSJH1RZDL6');
+  </script>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Datenschutzerklärung – Präventum Kristin Oelmann</title>
@@ -64,23 +75,31 @@
     </section>
 
     <section class="legal-section">
-      <h2>7. Meta Pixel</h2>
+      <h2>7. Google Analytics</h2>
+      <!-- Google Analytics 4 seit 09.09.2026 eingebunden, hinter Cookiebot-Kategorie
+           "Statistiken" (data-cookieconsent="statistics"), siehe CLAUDE.md. -->
+      <p>Diese Website nutzt Google Analytics 4, einen Webanalysedienst der Google Ireland Limited (Gordon House, Barrow Street, Dublin 4, Irland). Google Analytics verwendet Cookies und vergleichbare Technologien, um zu analysieren, wie Besucherinnen und Besucher die Website nutzen (z. B. aufgerufene Seiten, Verweildauer, Herkunft des Zugriffs). Dabei werden Daten, unter anderem eine gekürzte IP-Adresse, an Google-Server übertragen, auch in die USA. Das Tracking-Skript lädt erst, nachdem Sie über den Cookiebot-Banner der Kategorie „Statistiken" zugestimmt haben.</p>
+      <p>Rechtsgrundlage ist Ihre Einwilligung (Art. 6 Abs. 1 lit. a DSGVO). Weitere Informationen: <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">Datenschutzerklärung von Google</a>.</p>
+    </section>
+
+    <section class="legal-section">
+      <h2>8. Meta Pixel</h2>
       <p>Sofern Sie über den Cookiebot-Banner der Kategorie „Marketing" zugestimmt haben, setzen wir den Meta Pixel der Meta Platforms Ireland Limited (4 Grand Canal Square, Dublin 2, Irland) ein. Das Pixel-Skript ist technisch so eingebunden, dass es ohne Ihre Einwilligung nicht ausgeführt wird. Der Meta Pixel ermöglicht es uns, das Verhalten von Besucherinnen und Besuchern nach dem Klick auf eine Facebook- oder Instagram-Werbeanzeige nachzuvollziehen, um die Wirksamkeit der Anzeigen auszuwerten.</p>
       <p>Die Datenverarbeitung erfolgt auf Basis Ihrer über Cookiebot erteilten Einwilligung (Art. 6 Abs. 1 lit. a DSGVO) und kann eine Übermittlung an Meta in die USA einschließen; Meta ist nach dem EU-US Data Privacy Framework zertifiziert. Weitere Informationen: <a href="https://www.facebook.com/privacy/policy/" target="_blank" rel="noopener">Datenrichtlinie von Meta</a>.</p>
     </section>
 
     <section class="legal-section">
-      <h2>8. Schriftarten</h2>
+      <h2>9. Schriftarten</h2>
       <p>Diese Website verwendet die Schriftarten Cormorant Garamond und Inter. Die Schriftdateien sind lokal gespeichert und werden direkt von unserem Server geladen. Es findet keine Verbindung zu Google-Servern statt.</p>
     </section>
 
     <section class="legal-section">
-      <h2>9. Ihre Rechte</h2>
+      <h2>10. Ihre Rechte</h2>
       <p>Sie haben das Recht auf Auskunft, Berichtigung, Löschung und Einschränkung der Verarbeitung Ihrer personenbezogenen Daten sowie das Recht auf Datenübertragbarkeit. Erteilte Einwilligungen (z. B. über Cookiebot) können Sie jederzeit mit Wirkung für die Zukunft widerrufen. Wenden Sie sich dazu an: <a href="mailto:kristinoelmann@t-online.de">kristinoelmann@t-online.de</a></p>
       <p>Sie haben außerdem das Recht, sich bei einer Datenschutz-Aufsichtsbehörde zu beschweren. Zuständig ist die Aufsichtsbehörde Ihres Wohnorts oder Bundeslandes, für den Sitz in Sachsen voraussichtlich der Sächsische Datenschutzbeauftragte.</p>
     </section>
 
-    <p class="legal-note">Stand: 24.08.2026. Dies ist keine Rechtsberatung. Vor Veröffentlichung sollte diese Datenschutzerklärung von einer auf Datenschutzrecht spezialisierten Rechtsanwältin oder einem entsprechenden Rechtsanwalt geprüft werden, insbesondere sobald die Formulare technisch angebunden sind.</p>
+    <p class="legal-note">Stand: 09.09.2026. Dies ist keine Rechtsberatung. Vor Veröffentlichung sollte diese Datenschutzerklärung von einer auf Datenschutzrecht spezialisierten Rechtsanwältin oder einem entsprechenden Rechtsanwalt geprüft werden, insbesondere sobald die Formulare technisch angebunden sind.</p>
   </main>
 
   <div data-include="/partials/footer.html"></div>
