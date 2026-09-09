@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<title>5 Blutwerte, die jede Frau kennen sollte</title>
+<!--
+  Quelldatei für assets/downloads/5-blutwerte-checkliste.pdf (Lead-Magnet-PDF
+  der Startseite und von 5-blutwerte-checkliste.html).
+
+  08.09.2026, Fehlerbericht Kristin (Screenshot): Der Seitenumbruch war
+  "verschoben", Inhalte einer Seite lagen weit unten mit riesigem Leerraum
+  darüber, statt oben an der Seite zu beginnen. Ursache: die frühere Vorlage
+  dieser Datei ist nicht mehr vorhanden (nie im Projektordner abgelegt,
+  nur die fertige PDF), daher komplett neu aufgebaut, diesmal mit fester
+  @page-Größe (A4, margin 0) und jeder Inhaltsseite als exakt 210mm x 297mm
+  hohem Container mit eigenem Innenabstand statt variabler Höhe. Das ist
+  derselbe Fix-Ansatz wie beim früheren PDF-Pagination-Problem der
+  5-Blutwerte-Checkliste selbst (siehe Projektnotizen). Diese Quelldatei
+  bewusst im Projekt behalten, damit ein künftiger Layout-Fehler nicht
+  wieder bei einer verschollenen Vorlage anfängt.
+
+  Erzeugung: lokal per headless Edge/Chrome --print-to-pdf gerendert
+  (dieselbe Pipeline wie die Blog-Vorschaubilder), dann als
+  5-blutwerte-checkliste.pdf abgelegt.
+-->
+<style>
+  @font-face { font-family: 'Cormorant Garamond'; font-style: normal; font-weight: 400; src: url('../fonts/cormorant-garamond-v22-latin-regular.woff2') format('woff2'); }
+  @font-face { font-family: 'Cormorant Garamond'; font-style: italic; font-weight: 400; src: url('../fonts/cormorant-garamond-v22-latin-italic.woff2') format('woff2'); }
+  @font-face { font-family: 'Inter'; font-style: normal; font-weight: 400; src: url('../fonts/inter-v13-latin-regular.woff2') format('woff2'); }
+  @font-face { font-family: 'Inter'; font-style: normal; font-weight: 500; src: url('../fonts/inter-v13-latin-500.woff2') format('woff2'); }
+  @font-face { font-family: 'Inter'; font-style: normal; font-weight: 600; src: url('../fonts/inter-v13-latin-600.woff2') format('woff2'); }
+
+  :root {
+    --forest: #1E3A2F;
+    --sage: #8AAE92;
+    --sage-bg: #E7EFE8;
+    --cream: #F7F4EF;
+    --muted: #6B6B62;
+    --white: #FFFFFF;
+    --border: rgba(30, 58, 47, 0.12);
+    --tan-bg: #EEEAE0;
+  }
+
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; }
+  body { font-family: 'Inter', sans-serif; font-size: 13.5pt; color: var(--forest); background: var(--cream); }
+
+  @page { size: A4; margin: 0; }
+
+  /* Jede Seite ist exakt ein A4-Blatt mit fester Höhe, statt variabler
+     Content-Höhe, das verhindert den Leerraum/Verschub, der beim Drucken
+     durch Höhen entsteht, die sich erst nach dem Seitenumbruch ergeben. */
+  .page {
+    width: 210mm;
+    height: 297mm;
+    padding: 20mm 18mm;
+    display: flex;
+    flex-direction: column;
+    page-break-after: always;
+    break-after: page;
+    position: relative;
+    overflow: hidden;
+    background: var(--cream);
+  }
+  .page:last-child { page-break-after: auto; break-after: auto; }
+
+  .page-cover { background: var(--forest); color: var(--white); justify-content: flex-end; }
+  .page-cover .eyebrow { color: var(--sage); }
+  .page-cover h1 { color: var(--white); font-size: 34pt; }
+  .page-cover p { color: var(--cream); max-width: 130mm; }
+  .page-cover .badge { background: var(--sage); color: var(--forest); }
+  .page-cover .cover-footer { border-top-color: rgba(247,244,239,0.25); color: var(--sage); }
+
+  .eyebrow { font-family: 'Inter', sans-serif; font-weight: 600; font-size: 9.5pt; letter-spacing: 0.12em; text-transform: uppercase; color: var(--sage); margin: 0 0 4mm; }
+  h1 { font-family: 'Cormorant Garamond', serif; font-style: italic; font-weight: 400; font-size: 27pt; line-height: 1.15; margin: 0 0 5mm; }
+  h2 { font-family: 'Cormorant Garamond', serif; font-style: italic; font-weight: 400; font-size: 22pt; line-height: 1.2; margin: 0 0 5mm; color: var(--forest); }
+  p { line-height: 1.6; margin: 0 0 4mm; }
+  .lead { font-size: 12.5pt; color: var(--forest); }
+
+  .badge { display: inline-block; font-size: 9.5pt; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; padding: 3mm 6mm; margin-top: 6mm; }
+
+  .page-footer { margin-top: auto; padding-top: 6mm; border-top: 1px solid var(--border); display: flex; justify-content: space-between; font-size: 9.5pt; color: var(--muted); }
+
+  .steps { display: flex; gap: 6mm; margin-top: auto; margin-bottom: 6mm; }
+  .step { flex: 1; border: 1px solid var(--border); border-radius: 2mm; padding: 6mm; background: var(--white); }
+  .step .num { font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: 20pt; color: var(--sage); display: block; margin-bottom: 3mm; }
+  .step h3 { font-size: 11.5pt; font-weight: 600; margin: 0 0 2mm; }
+  .step p { font-size: 10.5pt; color: var(--muted); margin: 0; }
+
+  .callout { background: var(--tan-bg); border-radius: 2mm; padding: 6mm; margin: 5mm 0; font-size: 11.5pt; }
+  .callout p:last-child { margin-bottom: 0; }
+
+  .value-page .eyebrow { margin-bottom: 4mm; }
+  .value-page h2 { font-size: 30pt; margin-bottom: 2mm; }
+  .value-sub { font-size: 11pt; font-weight: 600; color: var(--sage); margin: 0 0 5mm; }
+  .value-intro { font-size: 12pt; margin-bottom: 6mm; }
+
+  .range-row { display: flex; gap: 4mm; margin-bottom: 5mm; }
+  .range-box { flex: 1; padding: 5mm; border-radius: 2mm; }
+  .range-box.lab { background: var(--tan-bg); }
+  .range-box.target { background: var(--sage-bg); }
+  .range-box .label { display: block; font-size: 8.5pt; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; color: var(--muted); margin-bottom: 2mm; }
+  .range-box .value { font-size: 11.5pt; font-weight: 600; }
+
+  .signal-box { border: 1px solid var(--border); border-radius: 2mm; padding: 5mm; margin-bottom: 5mm; background: var(--white); }
+  .signal-box .label { display: block; font-size: 8.5pt; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; color: var(--muted); margin-bottom: 2mm; }
+  .signal-box p { margin: 0; font-size: 11.5pt; }
+
+  .value-note { font-size: 11.5pt; }
+  .value-source { margin-top: auto; padding-top: 5mm; font-size: 9.5pt; color: #9A7B3D; font-style: italic; }
+  .value-source.verified { color: var(--muted); font-style: normal; }
+
+  .cta-box { background: var(--forest); color: var(--white); border-radius: 2mm; padding: 8mm; margin-top: auto; margin-bottom: 6mm; }
+  .cta-box .eyebrow { color: var(--sage); }
+  .cta-box h3 { font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: 18pt; margin: 0 0 3mm; color: var(--white); }
+  .cta-box a { color: var(--sage); font-size: 10.5pt; }
+</style>
+</head>
+<body>
+
+  <!-- Seite 1: Titel -->
+  <section class="page page-cover">
+    <p class="eyebrow">Präventum · Kristin Oelmann</p>
+    <h1>5 Blutwerte, die jede Frau kennen sollte</h1>
+    <p>Werte, die im Standard-Blutbild häufig fehlen, obwohl sie viel über Energie, Schilddrüse und Stoffwechsel verraten. Kurz erklärt, mit dem üblichen Laborbereich und einem engeren Zielbereich, wie ihn Fachleute für Präventivmedizin empfehlen.</p>
+    <span class="badge">Kostenloser Leitfaden</span>
+    <div class="page-footer" style="border-top-color: rgba(247,244,239,0.25); color: var(--sage);">
+      <span>Kostenloser Leitfaden</span>
+      <span>praeventum-kristinoelmann.netlify.app</span>
+    </div>
+  </section>
+
+  <!-- Seite 2: Einleitung + 3 Schritte -->
+  <section class="page">
+    <p class="eyebrow">Bevor du liest</p>
+    <h2>Unauffällig heißt nicht optimal versorgt</h2>
+    <p>Ein Laborbereich bildet ab, welche Werte in einer großen, gemischten Bevölkerung häufig vorkommen, nicht was für deinen Körper gut funktioniert. Ein Wert kann also formal „im Normbereich" liegen und trotzdem am unteren oder oberen Rand dessen, was du als Energie und Wohlbefinden spürst.</p>
+    <div class="callout">
+      <p>Ein Beispiel: Der Körper leert bei Eisenmangel zuerst seine Speicher (Ferritin), lange bevor sich das im klassischen roten Blutbild zeigt. Ferritin „im Normbereich" schließt einen beginnenden Mangel deshalb nicht sicher aus.</p>
+    </div>
+    <p>Die folgenden fünf Seiten zeigen zu jedem Wert den Bereich, den viele Labore als unauffällig führen, und daneben den engeren Zielbereich, den einzelne Ärztinnen und Fachleute der Präventivmedizin in ihrer Praxis verwenden. Das ist eine Orientierung für das Gespräch mit deiner Ärztin, keine Diagnose und keine Handlungsaufforderung ohne ärztliche Rücksprache.</p>
+    <div class="steps">
+      <div class="step"><span class="num">1</span><h3>Schritt eins</h3><p>Dein letztes Blutbild heraussuchen oder beim nächsten Termin gezielt danach fragen.</p></div>
+      <div class="step"><span class="num">2</span><h3>Schritt zwei</h3><p>Die eigenen Werte mit beiden Spalten der Tabellen vergleichen, nicht nur mit dem Laborbereich.</p></div>
+      <div class="step"><span class="num">3</span><h3>Schritt drei</h3><p>Auffälligkeiten mit deiner Ärztin besprechen, bevor du etwas veränderst.</p></div>
+    </div>
+    <div class="page-footer"><span>Präventum</span><span>5 Blutwerte, die jede Frau kennen sollte</span></div>
+  </section>
+
+  <!-- Seite 3: Ferritin -->
+  <section class="page value-page">
+    <p class="eyebrow">Blutwert 01 / 05</p>
+    <h2>Ferritin</h2>
+    <p class="value-sub">Eisenspeicher</p>
+    <p class="value-intro">Ferritin ist das Speicherprotein für Eisen. Es ist die erste Reserve, aus der der Körper schöpft, lange bevor ein Eisenmangel im roten Blutbild sichtbar wird.</p>
+    <div class="range-row">
+      <div class="range-box lab"><span class="label">Häufiger Laborbereich</span><span class="value">ab etwa 12 bis 30 ng/ml, je nach Labor</span></div>
+      <div class="range-box target"><span class="label">Engerer Zielbereich</span><span class="value">rund 100 ng/ml bei Frauen</span></div>
+    </div>
+    <div class="signal-box"><span class="label">Mögliches Alltagssignal</span><p>Anhaltende Erschöpfung oder Haarausfall trotz eines formal unauffälligen Blutbilds.</p></div>
+    <p class="value-note">Wichtig für die Einordnung: Ferritin ist zugleich ein Akute-Phase-Protein und steigt bei Entzündungen unabhängig vom Eisenstatus. Ein niedriger Wert ist deshalb aussagekräftiger als ein hoher, und gehört immer im Zusammenhang mit dem CRP-Wert betrachtet.</p>
+    <p class="value-source">Nicht belegt, vor Veröffentlichung durch eine geprüfte Primärquelle zu ergänzen.</p>
+    <div class="page-footer"><span>Präventum</span><span>5 Blutwerte, die jede Frau kennen sollte</span></div>
+  </section>
+
+  <!-- Seite 4: TSH -->
+  <section class="page value-page">
+    <p class="eyebrow">Blutwert 02 / 05</p>
+    <h2>TSH</h2>
+    <p class="value-sub">Schilddrüsen-Steuerhormon</p>
+    <p class="value-intro">TSH wird in der Hirnanhangdrüse gebildet und regt die Schilddrüse zur Hormonproduktion an. Steigt TSH deutlich an, meldet das oft, dass die Schilddrüse zu wenig Hormon produziert.</p>
+    <div class="range-row">
+      <div class="range-box lab"><span class="label">Häufiger Laborbereich</span><span class="value">etwa 0,5 bis 4,0 mIU/l</span></div>
+      <div class="range-box target"><span class="label">Engerer Zielbereich</span><span class="value">rund 1,0 mIU/l, Obergrenze etwa 2,5</span></div>
+    </div>
+    <div class="signal-box"><span class="label">Mögliches Alltagssignal</span><p>Müdigkeit, Kälteempfinden oder Gewichtsveränderungen trotz eines TSH-Werts, der noch im Laborbereich liegt.</p></div>
+    <p class="value-note">TSH allein zeigt nur einen Ausschnitt. Für ein vollständigeres Bild gehören die freien Schilddrüsenhormone fT3 und fT4 dazu, die bei einer Routineuntersuchung nicht automatisch mitbestimmt werden.</p>
+    <p class="value-source">Nicht belegt, vor Veröffentlichung durch eine geprüfte Primärquelle zu ergänzen.</p>
+    <div class="page-footer"><span>Präventum</span><span>5 Blutwerte, die jede Frau kennen sollte</span></div>
+  </section>
+
+  <!-- Seite 5: Vitamin D -->
+  <section class="page value-page">
+    <p class="eyebrow">Blutwert 03 / 05</p>
+    <h2>Vitamin D</h2>
+    <p class="value-sub">25-OH-D3</p>
+    <p class="value-intro">Vitamin D ist fettlöslich und wirkt weit über den Knochenstoffwechsel hinaus, unter anderem auf das Immunsystem. Der Körper speichert es über Wochen, ein einzelner Wert zeigt daher die Versorgung über einen längeren Zeitraum.</p>
+    <div class="range-row">
+      <div class="range-box lab"><span class="label">Häufiger Laborbereich</span><span class="value">Mangel unter 20 ng/ml, „normal" oft ab 30 ng/ml</span></div>
+      <div class="range-box target"><span class="label">Engerer Zielbereich</span><span class="value">etwa 40 bis 60 ng/ml, bei Autoimmunthemen teils 50 bis 70 ng/ml, bis max. 100 ng/ml</span></div>
+    </div>
+    <div class="signal-box"><span class="label">Mögliches Alltagssignal</span><p>Erhöhte Infektanfälligkeit oder Erschöpfung, vor allem in den lichtärmeren Monaten.</p></div>
+    <p class="value-note">Für ein aussagekräftiges Ergebnis sollte der Bluttest nicht direkt nach einer hochdosierten Einnahme erfolgen. Ein Abstand von etwa vierzehn Tagen zur letzten Einnahme gilt als gängige Praxis, da das Vitamin fettlöslich ist und lange nachwirkt.</p>
+    <p class="value-source">Nicht belegt, vor Veröffentlichung durch eine geprüfte Primärquelle zu ergänzen. Werte über 100 ng/ml werden ausschließlich unter ärztlicher Kontrolle angestrebt, nicht in Eigenregie.</p>
+    <div class="page-footer"><span>Präventum</span><span>5 Blutwerte, die jede Frau kennen sollte</span></div>
+  </section>
+
+  <!-- Seite 6: Cortisol -->
+  <section class="page value-page">
+    <p class="eyebrow">Blutwert 04 / 05</p>
+    <h2>Cortisol</h2>
+    <p class="value-sub">Tagesrhythmus statt Einzelwert</p>
+    <p class="value-intro">Cortisol ist das zentrale Stresshormon und folgt einem festen Tagesrhythmus. Ein einzelner Blutwert zeigt nur eine Momentaufnahme, aussagekräftiger ist der Verlauf über den Tag.</p>
+    <div class="range-row">
+      <div class="range-box lab"><span class="label">Zeitpunkt</span><span class="value">kurz nach dem Aufwachen</span></div>
+      <div class="range-box target"><span class="label">Typischer Verlauf</span><span class="value">deutlicher Anstieg (Aufwachreaktion)</span></div>
+    </div>
+    <div class="range-row">
+      <div class="range-box lab"><span class="label">Zeitpunkt</span><span class="value">Mittag bis Nachmittag</span></div>
+      <div class="range-box target"><span class="label">Typischer Verlauf</span><span class="value">stetiger Abfall</span></div>
+    </div>
+    <div class="range-row">
+      <div class="range-box lab"><span class="label">Zeitpunkt</span><span class="value">gegen 23 bis 24 Uhr</span></div>
+      <div class="range-box target"><span class="label">Typischer Verlauf</span><span class="value">Tiefpunkt</span></div>
+    </div>
+    <div class="signal-box"><span class="label">Mögliches Alltagssignal</span><p>Einschlafprobleme trotz Erschöpfung oder ein ausgeprägtes Bedürfnis nach Süßem am Abend.</p></div>
+    <p class="value-note">Zur Einordnung, weil der Begriff viel in sozialen Medien kursiert: Eine allgemeine „Nebennierenschwäche" lässt sich nach einer systematischen Übersicht über 58 Studien nicht belegen. Ein einzelner Speicheltest ersetzt keine ärztliche Abklärung. Halten Beschwerden an, lohnt sich die Suche nach einer konkreteren Ursache, etwa der Schilddrüse, einem Eisenmangel oder dem Schlaf.</p>
+    <p class="value-source">Nicht belegt, vor Veröffentlichung durch eine geprüfte Primärquelle zu ergänzen.</p>
+    <div class="page-footer"><span>Präventum</span><span>5 Blutwerte, die jede Frau kennen sollte</span></div>
+  </section>
+
+  <!-- Seite 7: Homocystein -->
+  <section class="page value-page">
+    <p class="eyebrow">Blutwert 05 / 05</p>
+    <h2>Homocystein</h2>
+    <p class="value-sub">Spiegel der B-Vitamin-Versorgung</p>
+    <p class="value-intro">Homocystein ist eine Aminosäure, die im Stoffwechsel laufend entsteht und mithilfe von Vitamin B6, B12 und Folat wieder abgebaut wird. Der Wert gehört nicht zum Standardpanel und wird meist nur bei gezieltem Verdacht bestimmt.</p>
+    <div class="range-row">
+      <div class="range-box lab"><span class="label">Häufiger Laborbereich</span><span class="value">als unauffällig geführt bis etwa 15 μmol/l</span></div>
+      <div class="range-box target"><span class="label">Engerer Zielbereich</span><span class="value">etwa 4 bis 8 μmol/l, steigendes Risiko bereits ab 6 bis 7 μmol/l diskutiert</span></div>
+    </div>
+    <div class="signal-box"><span class="label">Mögliches Alltagssignal</span><p>Ein niedriger, gut eingeordneter Wert ist meist Ausdruck eines gut versorgten B-Vitamin-Stoffwechsels, kein Zufallsbefund.</p></div>
+    <p class="value-note">Bei einer bekannten MTHFR-Genvariante wird die B-Vitamin-Versorgung ärztlich anders eingeordnet als ohne diese Variante, das gehört in ein persönliches Gespräch, nicht in eine allgemeine Checkliste.</p>
+    <p class="value-source verified">Quelle für den Zielbereich: allgemeine Angaben zu Homocystein und B-Vitamin-Stoffwechsel aus der internen Wissensgrundlage von Präventum, Stand August 2026.</p>
+    <div class="page-footer"><span>Präventum</span><span>5 Blutwerte, die jede Frau kennen sollte</span></div>
+  </section>
+
+  <!-- Seite 8: Abschluss -->
+  <section class="page">
+    <p class="eyebrow">Zum Schluss</p>
+    <h2>Was diese Checkliste zeigt, und was sie nicht ersetzt</h2>
+    <p>Diese Seiten sind eine Orientierung für dein nächstes Arztgespräch, keine Diagnose. Sie basieren auf öffentlich zugänglichem Fachwissen und den Einschätzungen der genannten Ärztinnen und Autoren.</p>
+    <p>Kristin Oelmann ist Ernährungstrainerin (A- und B-Lizenz) und Fitnesstrainerin (B-Lizenz), keine Ärztin. Diese Checkliste ersetzt keine ärztliche Diagnose oder Behandlung, sie kann ein Gespräch mit deiner Ärztin sinnvoll vorbereiten.</p>
+    <p>Nimm bei anhaltenden Beschwerden, unabhängig vom Ergebnis dieser Checkliste, ärztlichen Rat in Anspruch.</p>
+    <div class="cta-box">
+      <p class="eyebrow">Erstgespräch vereinbaren</p>
+      <h3>60 Minuten online, Fokus Blutbild-Auswertung</h3>
+      <a href="https://praeventum-kristinoelmann.netlify.app/erstgespraech.html">praeventum-kristinoelmann.netlify.app/erstgespraech.html</a>
+    </div>
+    <div class="page-footer" style="flex-direction: column; gap: 1.5mm;">
+      <span>Präventum · Kristin Oelmann — Wiesenstraße 19, 09419 Thum, Deutschland · 0170 8361077</span>
+      <span>praeventum-kristinoelmann.netlify.app</span>
+    </div>
+  </section>
+
+</body>
+</html>
